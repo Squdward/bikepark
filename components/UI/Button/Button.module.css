@@ -1,0 +1,41 @@
+.Button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 260px;
+	height: 60px;
+
+	border: none;
+	border-radius: 10px;
+
+	background-color: var(--mainColor);
+
+	font-size: 20px;
+	font-weight: 700;
+	line-height: 22px;
+
+	color: var(--whiteColor);
+	cursor: pointer;
+
+	transition: background-color .3s ease;
+}
+
+.Button:hover,
+.Button:focus {
+	background-color: var(--mainHoverColor);
+} 
+
+.Button:disabled {
+	background-color: var(--strokeColor);
+}
+
+.Button.Small {
+	width: 200px;
+	height: 40px;
+
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 17px;
+	text-transform: uppercase;
+}

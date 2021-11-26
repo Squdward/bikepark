@@ -1,0 +1,14 @@
+.Title {
+	margin-top: 22px;
+	max-width: 575px;
+}
+
+.Gifts {
+	position: absolute;
+	top: 0;
+	right: 0;
+
+	display: flex;
+
+	overflow: hidden;
+};
