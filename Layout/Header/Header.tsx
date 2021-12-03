@@ -63,19 +63,19 @@ const Header: FC = () => {
               height="38"
               rx="9"
               stroke="#297FFF"
-              stroke-width="2"
+              strokeWidth="2"
             />
             <circle
               cx="20"
               cy="13.75"
               r="3.75"
               stroke="#297FFF"
-              stroke-width="2"
+              strokeWidth="2"
             />
             <path
               d="M10.25 28.688a7.188 7.188 0 0 1 7.188-7.188h5.125a7.188 7.188 0 0 1 7.187 7.188c0 .172-.14.312-.313.312H10.563a.312.312 0 0 1-.312-.313Z"
               stroke="#297FFF"
-              stroke-width="2"
+              strokeWidth="2"
             />
           </svg>
         </button>

@@ -1,6 +1,10 @@
 .Title {
-	margin-top: 22px;
 	max-width: 575px;
+	margin-top: 22px;
+}
+
+.TopLine {
+	height: 183px;
 }
 
 .Gifts {
@@ -11,4 +15,32 @@
 	display: flex;
 
 	overflow: hidden;
-};
+}
+
+.Options {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 40px;
+}
+
+.BlockName {
+	margin: 0 0 33px;
+
+	color: var(--labelColor);
+
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 22px;
+}
+
+.Type {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-gap: 40px;
+
+	margin-bottom: 40px;
+}
+
+.Button {
+	margin: 0 auto;
+}

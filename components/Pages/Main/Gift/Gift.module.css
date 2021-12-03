@@ -2,22 +2,24 @@
 	position: relative;
 
 	display: flex;
-	flex-direction: column;
 	align-items: center;
+	flex-direction: column;
 	justify-content: flex-start;
 
 	width: 315px;
 	height: 210px;
-	
+
 	padding-bottom: 22px;
 }
 
 .Gift:nth-child(1) {
 	margin-right: -117px;
 }
+
 .Gift:nth-child(2) {
 	margin-right: -115px;
 }
+
 .Gift:nth-child(3) {
 	margin-right: -45px;
 }
@@ -38,6 +40,7 @@
 	top: 35px;
 	right: 64px;
 }
+
 .Gift:nth-child(3) > .Image {
 	top: 31px;
 	right: 85px;
@@ -46,8 +49,9 @@
 .Description {
 	position: relative;
 
-	margin: auto 0 0 57px;
 	align-self: flex-start;
+
+	margin: auto 0 0 57px;
 
 	font-size: 18px;
 	font-weight: 500;
@@ -56,9 +60,11 @@
 
 .Description b {
 	display: block;
+
 	margin-top: 5px;
+
+	color: var(--mainColor);
 
 	font-size: 20px;
 	line-height: 22px;
-	color: var(--mainColor);
 }

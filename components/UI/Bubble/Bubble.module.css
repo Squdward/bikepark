@@ -1,29 +1,29 @@
 .Bubble {
 	position: relative;
 
-	background-color: var(--backgroundColor);
+	margin-bottom: 34px;
 
 	padding: 35px 40px;
 
-	margin-bottom: 34px;
-
 	border-radius: 20px;
+
+	background-color: var(--backgroundColor);
 }
 
 .Bubble:last-child {
 	margin-bottom: 0;
 }
 
-.Tail:before {
+.Tail::before {
 	position: absolute;
 
 	top: -34px;
 	left: 30px;
 
-	content: "";
-
 	width: 77px;
 	height: 34px;
+
+	content: "";
 
 	background: url("./Icon/tail.svg") no-repeat center center / contain;
 }

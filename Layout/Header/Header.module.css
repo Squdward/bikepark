@@ -5,9 +5,9 @@
 
 	height: 80px;
 
-	padding: 0 40px 0;
-
 	margin-bottom: 40px;
+
+	padding: 0 40px;
 }
 
 .Navigation {
@@ -34,7 +34,6 @@
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 20px;
-
 }
 
 .Link:hover,
@@ -50,9 +49,9 @@
 	display: flex;
 	align-items: center;
 
-	justify-content: space-between;
-
 	flex: 1 1 auto;
+
+	justify-content: space-between;
 
 	margin-left: 92px;
 }
@@ -60,10 +59,10 @@
 .Login {
 	cursor: pointer;
 
+	transition: all 0.3s ease;
+
 	border: none;
 	background-color: transparent;
-
-	transition: all 0.3s ease;
 }
 
 .Login svg,
@@ -87,10 +86,10 @@
 	stroke: var(--whiteColor);
 }
 
-
 .Timer {
+	letter-spacing: 0.1em;
+
 	font-size: 37px;
 	font-weight: 700;
 	line-height: 45px;
-	letter-spacing: 0.1em;
 }

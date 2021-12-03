@@ -5,7 +5,6 @@
 	--strokeColor: hsl(214deg 26% 89% / 100%);
 	--backgroundColor: hsl(216deg 24% 96% / 100%);
 	--mainColor: hsl(216deg 100% 58% / 100%);
-	--whiteColor: hsla(0, 0%, 100%, 1);
-
-	--mainHoverColor: hsla(218, 100%, 50%, 1);
+	--whiteColor: hsl(0deg 0% 100% / 100%);
+	--mainHoverColor: hsl(218deg 100% 50% / 100%);
 }
