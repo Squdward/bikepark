@@ -2,8 +2,9 @@ import { FC } 		from "react";
 import style 			from "./Gift.module.css";
 import Image 			from "next/image";
 import { IGift } 	from "./Gift.props";
+import React from "react";
 
-const Gift: FC<IGift> = ({color, width, height, description, image}) => {
+const Gift: FC<IGift> = React.memo(({color, width, height, description, image}) => {
 	return (
     <div className={style.Gift}>
       <div className={style.Background}>
@@ -35,6 +36,6 @@ const Gift: FC<IGift> = ({color, width, height, description, image}) => {
       </p>
     </div>
   );
-};
+});
 
 export {Gift};

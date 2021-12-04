@@ -2,8 +2,9 @@ import style from "./Checkbox.module.css";
 import { FC } from "react";
 import { ICheckbox} from "./Checkbox.props";
 import cn from "classnames";
+import React from "react";
 
-const Checkbox: FC<ICheckbox> = ({ id, onChange, checked, name, disabled=false, className}) => {
+const Checkbox: FC<ICheckbox> = React.memo(({ id, onChange, checked, name, disabled=false, className}) => {
   return (
     <label htmlFor={id} className={style.Checkbox}>
       <input
@@ -17,6 +18,6 @@ const Checkbox: FC<ICheckbox> = ({ id, onChange, checked, name, disabled=false, 
       />
     </label>
   );
-};
+});
 
 export default Checkbox;

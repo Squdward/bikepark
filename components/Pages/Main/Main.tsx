@@ -1,21 +1,29 @@
-import React, { FC, } from "react";
-import style 					from "./Main.module.css";
-import { Bubble } 		from "../../UI/Bubble/Bubble";
-import { Gift }       from "./Gift/Gift";
-import img            from "./Image/1.png";
-import img2           from "./Image/2.png";
-import img3           from "./Image/3.png";
-import { Switch }     from "../../UI/Switch/Switch";
-import { DayRange }   from "../../UI/DayRange/DayRange";
-import { Select }     from "../../UI/Select/Select";
-import { IOption }    from "components/UI/Select/Select.props";
-import { TypeCards }  from "./TypeCards/TypeCards";
-import { ITypeCards } from "./TypeCards/TypeCards.props";
-import blank          from "./TypeCards/Images/blank.png";
-import { Button }     from "components/UI/Button/Button";
+import React, { FC, useState, } from "react";
+import style 					    from "./Main.module.css";
+import { Bubble } 		    from "../../UI/Bubble/Bubble";
+import { Gift }           from "./Gift/Gift";
+import img                from "./Image/1.png";
+import img2               from "./Image/2.png";
+import img3               from "./Image/3.png";
+import { Switch }         from "../../UI/Switch/Switch";
+import { DayRange }       from "../../UI/DayRange/DayRange";
+import { Select }         from "../../UI/Select/Select";
+import { IOption }        from "components/UI/Select/Select.props";
+import { TypeCards }      from "./TypeCards/TypeCards";
+import { ITypeCards }     from "./TypeCards/TypeCards.props";
+import blank              from "./TypeCards/Images/blank.png";
+import { Button }         from "components/UI/Button/Button";
+import { ISwitchOption }  from "components/UI/Switch/Switch.props";
 
 
 const Main: FC = () => {
+  const [data, setData] = useState({
+    rentType: "По дням",
+    startDate: new Date(),
+    endDate: new Date(+new Date() + 86400000),
+    delivery: "Delivery",
+  });
+
   const selectOptions: IOption[] = [
     {
       id: 1,
@@ -56,75 +64,99 @@ const Main: FC = () => {
     },
   ];
 
+  const switchOptions: ISwitchOption[] = [
+    {
+      name: "rentType",
+      value: "По дням",
+      placeholder: "По дням",
+    },
+    {
+      name: "rentType",
+      value: "2 часа",
+      placeholder: "2 часа",
+    },
+  ];
+
+  function serializeForm(event: Event) {
+    const datacopy = {...data};
+
+    const target = event.target;
+    const value = target.value;
+    const name = target.name;
+
+    if (name === "radio") {
+      datacopy.rentType = value;
+    }
+
+    setData(datacopy);
+  }
+
 	return (
     <>
-    <form>
-      <Bubble tail={false}>
-        <div className={style.TopLine}>
-          <h1 className={style.Title}>Аренда велосипедов c доставкой</h1>
+      <form>
+        <Bubble tail={false}>
+          <div className={style.TopLine}>
+            <h1 className={style.Title}>Аренда велосипедов c доставкой</h1>
 
-          <div className={style.Gifts}>
-            <Gift
-              width={160}
-              height={120}
-              color={"#D7E6FF"}
-              description={"Шлем"}
-              image={img}
-            />
-            <Gift
-              width={133}
-              height={115}
-              color={"#B9D5FF"}
-              description={"Фонарик"}
-              image={img2}
-            />
-            <Gift
-              width={120}
-              height={120}
-              color={"#A5C7FA"}
-              description={"Замок"}
-              image={img3}
-            />
+            <div className={style.Gifts}>
+              <Gift
+                width={160}
+                height={120}
+                color={"#D7E6FF"}
+                description={"Шлем"}
+                image={img}
+              />
+              <Gift
+                width={133}
+                height={115}
+                color={"#B9D5FF"}
+                description={"Фонарик"}
+                image={img2}
+              />
+              <Gift
+                width={120}
+                height={120}
+                color={"#A5C7FA"}
+                description={"Замок"}
+                image={img3}
+              />
+            </div>
           </div>
-        </div>
 
-        <div className={style.Options}>
+          <div className={style.Options}>
             <Switch
               name="Тип аренды"
-              option={[
-                {
-                  name: "Тип аренды",
-                  value: "По дням",
-                  placeholder: "По дням",
-                },
-                {
-                  name: "Тип аренды",
-                  value: "2 часа",
-                  placeholder: "2 часа",
-                },
-              ]}
+              defaultValue={switchOptions[0].value}
+              onChange={serializeForm}
+              selected={data.rentType}
+              option={switchOptions}
             />
 
-            <DayRange />
+            <DayRange
+              startDate={data.startDate}
+              endDate={data.endDate}
+            />
 
             <Select
               options={selectOptions}
               defaultOption={"По адресу"}
               id="Delivery"
             />
-        </div>
-      </Bubble>
+          </div>
+        </Bubble>
 
-      <Bubble tail={true}>
-        <p className={style.BlockName}>Тип велосипеда</p>
+        <Bubble tail={true}>
+          <p className={style.BlockName}>Тип велосипеда</p>
 
-        <div className={style.Type}>
-          {TypeCardsData &&
-            TypeCardsData.map((item, index) => <TypeCards {...item} key={index} />)}
-        </div>
+          <div className={style.Type}>
+            {TypeCardsData &&
+              TypeCardsData.map((item, index) => (
+                <TypeCards {...item} key={index} />
+              ))}
+          </div>
 
-        <Button className={style.Button}>Найти</Button>
-      </Bubble>
+          <Button className={style.Button}>Найти</Button>
+        </Bubble>
       </form>
     </>
   );

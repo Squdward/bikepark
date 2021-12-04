@@ -2,8 +2,9 @@ import { FC, useEffect, useRef, useState } from "react";
 import style from "./Select.module.css";
 import cn from "classnames";
 import { ISelect } from "./Select.props";
+import React from "react";
 
-const Select: FC<ISelect> = ({ options, defaultOption, id }) => {
+const Select: FC<ISelect> = React.memo(({ options, defaultOption, id }) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(defaultOption);
   const select = useRef(null);
@@ -77,6 +78,6 @@ const Select: FC<ISelect> = ({ options, defaultOption, id }) => {
       </div>
     </div>
   );
-};
+});
 
 export { Select };

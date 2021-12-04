@@ -2,8 +2,9 @@ import { FC, useEffect, useRef, useState } from "react";
 import style from "./Hint.module.css";
 import Image from "next/image";
 import cn from "classnames";
+import React from "react";
 
-const Hint: FC = ({children}) => {
+const Hint: FC = React.memo(({children}) => {
 	const [open, setOpen] = useState(false);
 	const button = useRef(null);
 
@@ -47,6 +48,6 @@ const Hint: FC = ({children}) => {
       </div>
     </div>
   );
-};
+});
 
 export {Hint};

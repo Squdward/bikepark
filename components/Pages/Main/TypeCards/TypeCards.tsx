@@ -5,7 +5,7 @@ import { Hint } from "./Hint/Hint";
 import Checkbox from "components/UI/Checkbox/Checkbox";
 import { ITypeCards } from "./TypeCards.props";
 
-const TypeCards: FC<ITypeCards> = ({material, price, hint, image}) => {
+const TypeCards: FC<ITypeCards> = React.memo (({material, price, hint, image}) => {
   const [select, setSelect] = useState(false);
 
   const selectType = () => {
@@ -45,6 +45,6 @@ const TypeCards: FC<ITypeCards> = ({material, price, hint, image}) => {
       </div>
     </div>
   );
-};
+});
 
 export {TypeCards};
