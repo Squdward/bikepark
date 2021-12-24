@@ -1,13 +1,15 @@
+import { ChangeEvent } from 'react';
+
 export interface ISwitchOption {
-	name: string;
 	value: string;
 	placeholder: string;
 }
 
 export interface ISwitch {
 	selected: string;
-	onChange: (event: Event) => void;
 	option: ISwitchOption[];
 	defaultValue: string;
-	name?: string;
+	name: string;
+	placeholder?: string;
+	onChange: (e: ChangeEvent<HTMLInputElement>) => void;
 }

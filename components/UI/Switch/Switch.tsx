@@ -1,21 +1,19 @@
-import { ChangeEvent, FC, useState } from "react";
-import style                         from "./Switch.module.css";
-import cn                            from "classnames";
-import { ISwitch }                   from "./Switch.props";
+import { FC } from "react";
+import style from "./Switch.module.css";
+import cn from "classnames";
+import { ISwitch } from "./Switch.props";
 
-const Switch: FC<ISwitch> = ({ selected, onChange, defaultValue, name, option }) => {
-  console.log(selected, defaultValue);
-	// const [select, setSelect] = useState('');
-
-	// const valueHandler = (event: ChangeEvent ) => {
-	// 	if (event.target != null) {
-  //     setSelect(event.target.value);
-  //   }
-	// };
-
+const Switch: FC<ISwitch> = ({
+  selected,
+  defaultValue,
+  placeholder,
+  name,
+  option,
+  onChange,
+}) => {
   return (
     <div>
-      <span className={style.Name}>{name}</span>
+      <span className={style.Name}>{placeholder}</span>
 
       <div
         className={cn(style.Switch, {
@@ -24,15 +22,12 @@ const Switch: FC<ISwitch> = ({ selected, onChange, defaultValue, name, option })
       >
         {option &&
           option.map((item, index) => (
-            <label 
-              className={style.Option}
-              onChange={onChange}
-              key={index}
-            >
+            <label className={style.Option} key={index}>
               <input
                 type="radio"
-                name={item.name}
+                name={name}
                 value={item.value}
+                onChange={onChange}
                 checked={selected === item.value}
               />
               {item.placeholder}

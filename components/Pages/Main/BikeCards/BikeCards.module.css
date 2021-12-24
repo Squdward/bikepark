@@ -1,0 +1,54 @@
+.Card {
+	background-color: var(--whiteColor);
+	border-radius: 15px;
+	padding: 15px;
+
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.TopLine {
+	display: flex;
+	justify-content: space-between;
+	color: var(--labelColor);
+	margin-bottom: 15px;
+}
+
+.FrameSize {
+	color: inherit;
+	font-size: inherit;
+	font-weight: 800;
+	line-height: inherit;
+}
+
+.Brand {
+	color: inherit;
+	font-size: inherit;
+	font-weight: 500;
+	line-height: inherit;
+}
+
+.Image {
+	position: relative;
+	width: 230px;
+	height: 140px;
+	padding: 24px 26px;
+	background-color: #F2F4F7;
+	border-radius: 10px;
+	margin-bottom: 13px;
+}
+
+.Name {
+	margin: 0 0 16px 0;
+	font-size: inherit;
+	font-weight: 500;
+	line-height: inherit;
+}
+
+.Price {
+	color: var(--mainColor);
+	font-size: 20px;
+	font-weight: 700;
+	line-height: inherit;
+	margin-bottom: 0 0 16px 0;
+}

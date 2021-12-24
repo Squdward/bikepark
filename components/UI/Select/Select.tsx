@@ -4,13 +4,13 @@ import cn from "classnames";
 import { ISelect } from "./Select.props";
 import React from "react";
 
-const Select: FC<ISelect> = React.memo(({ options, defaultOption, id }) => {
+const Select: FC<ISelect> = React.memo(({ options, defaultOption, id, onChange, label}) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState(defaultOption);
   const select = useRef(null);
 
-  const openMenu = () => {
-    event.preventDefault();
+  const openMenu = (e: MouseEvent) => {
+    e.preventDefault();
     setOpen(true);
   };
 
@@ -29,6 +29,8 @@ const Select: FC<ISelect> = React.memo(({ options, defaultOption, id }) => {
   const selectOption = (val: string) => {
     setValue(val);
 
+    onChange(val);
+    
     closeMenu();
   };
 
@@ -42,8 +44,8 @@ const Select: FC<ISelect> = React.memo(({ options, defaultOption, id }) => {
 
   return (
     <div className={style.Select} ref={select}>
-      <label  htmlFor={id} className={style.Name}>
-        Доставка
+      <label htmlFor={id} className={style.Name}>
+        {label}
       </label>
 
       <div className={style.Wrapper}>
@@ -65,11 +67,12 @@ const Select: FC<ISelect> = React.memo(({ options, defaultOption, id }) => {
         >
           {options &&
             options.map((item) => (
-              <li className={cn(style.Option, {
+              <li
+                className={cn(style.Option, {
                   [style.Checked]: value === item.value,
                 })}
                 onClick={() => selectOption(item.value)}
-								key={item.id}
+                key={item.id}
               >
                 {item.label}
               </li>

@@ -5,22 +5,11 @@ import { Hint } from "./Hint/Hint";
 import Checkbox from "components/UI/Checkbox/Checkbox";
 import { ITypeCards } from "./TypeCards.props";
 
-const TypeCards: FC<ITypeCards> = React.memo (({material, price, hint, image}) => {
-  const [select, setSelect] = useState(false);
-
-  const selectType = () => {
-    setSelect(!select);
-  };
-
+const TypeCards: FC<ITypeCards> = React.memo (({material, price, hint, image, name, checked, onChange}) => {
 	return (
     <div className={style.Card}>
       <div className={style.Wrapper}>
-        <Image
-          src={image}
-          className={style.Image}
-          width="259"
-          height="137"
-        />
+        <Image src={image} className={style.Image} width="259" height="137" />
       </div>
 
       <div className={style.Body}>
@@ -30,15 +19,14 @@ const TypeCards: FC<ITypeCards> = React.memo (({material, price, hint, image}) =
           <span className={style.Price}>{price}</span>
 
           <div className={style.Control}>
-            <Hint>
-              {hint}
-            </Hint>
+            <Hint>{hint}</Hint>
 
-            <Checkbox 
+            <Checkbox
+              name={name}
               className={style.Checkbox}
-              onChange={selectType}
-              checked={select}
               id={"test"}
+              checked={checked}
+              onChange={onChange}
             />
           </div>
         </div>

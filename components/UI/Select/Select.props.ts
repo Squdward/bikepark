@@ -7,5 +7,7 @@ export interface IOption {
 export interface ISelect {
 	options: IOption[];
 	defaultOption: string;
-	id: string;
+	id?: string;
+	label: string;
+	onChange: (val: string) => void;
 }

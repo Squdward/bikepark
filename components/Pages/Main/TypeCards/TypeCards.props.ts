@@ -3,4 +3,7 @@ export interface ITypeCards {
 	price: string;
 	hint: string;
 	image: string;
+	name: string;
+	checked: boolean;
+	onChange: () => void;
 }
