@@ -1,10 +1,57 @@
 import style from "./BikeCards.module.css";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { IBikeCards } from "./BikeCards.props";
 import Image from "next/image";
+import cn from "classnames";
 
-const BikeCards: FC<IBikeCards> = ({frameSize, brand, image, name, price, id, available}) => {
-	return (
+const BikeCards: FC<IBikeCards> = ({
+  frameSize,
+  brand,
+  image,
+  name,
+  price,
+  id,
+  available,
+  addBike,
+  removeBikes,
+}) => {
+  const [checked, setChecked] = useState(false);
+  const [enter, setEnter] = useState(false);
+
+  const placeholder = () => {
+    if (checked && !enter) {
+      return "Выбрано";
+    } else if (checked && enter) {
+      return "Отменить выбор";
+    } else {
+      return "Выбрать";
+    }
+  };
+
+  const onButtonClick = () => {
+    setChecked((val) => !val);
+    setEnter((val) => !val);
+
+    if (checked && enter) {
+      removeBikes(id);
+    } else {
+      addBike(id);
+    }
+  };
+
+  const mouseOver = () => {
+    if (checked) {
+      setEnter(true);
+    }
+  };
+
+  const mouseLeave = () => {
+    if (checked) {
+      setEnter(false);
+    }
+  };
+
+  return (
     <div className={style.Card}>
       <div className={style.TopLine}>
         <span className={style.FrameSize}>{frameSize}”</span>
@@ -19,10 +66,17 @@ const BikeCards: FC<IBikeCards> = ({frameSize, brand, image, name, price, id, av
 
       <p className={style.Price}>{price}</p>
 
-      <label>
-        выбрать
-        <input type="checkbox" value={id} />
-      </label>
+      <button
+        className={cn(style.Button, {
+          [style.Checked]: checked,
+          [style.Enter]: enter,
+        })}
+        onClick={onButtonClick}
+        onMouseOver={mouseOver}
+        onMouseLeave={mouseLeave}
+      >
+        {placeholder()}
+      </button>
     </div>
   );
 };

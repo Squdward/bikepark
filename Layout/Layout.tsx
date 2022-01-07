@@ -1,6 +1,7 @@
 import style	from "./Layout.module.css";
 import React, {FC}	from "react";
 import { Header } 	from "./Header/Header";
+import { Footer } from "./Footer/Footer";
 
 const Layout: FC = ({children}) => {
 		return (
@@ -10,6 +11,8 @@ const Layout: FC = ({children}) => {
 					<main className={style.Body}>
 						{children}
 					</main>
+
+					<Footer/>
 				</div>
 		);
 };

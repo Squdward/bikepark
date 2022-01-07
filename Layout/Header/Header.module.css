@@ -3,9 +3,10 @@
 	align-items: center;
 	justify-content: flex-start;
 
+	max-width: 1240px;
 	height: 80px;
 
-	margin-bottom: 40px;
+	margin: 0 auto 40px;
 
 	padding: 0 40px;
 }

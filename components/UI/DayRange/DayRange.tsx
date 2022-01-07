@@ -10,10 +10,19 @@ const DayRange: FC<IDayRange> = ({startDate, endDate, onChange}) => {
       <div className={cn(style.Picker, style.Start)}>
         <p className={style.Name}>Дата и время начала</p>
 
-        <Flatpickr 
+        <Flatpickr
           data-enable-time
           value={startDate}
-          onChange={(date) => onChange(date, "startDate")} />
+          options={{
+            minDate: "today",
+            dateFormat: "d-m-y H:i",
+            altFormat: "d-m-y H:i",
+            ariaDateFormat: "d-m-y H:i",
+          }}
+          onChange={(_, date) => {
+            onChange(date, "startDate");
+          }}
+        />
       </div>
 
       <span className={style.Dash} />
@@ -21,10 +30,15 @@ const DayRange: FC<IDayRange> = ({startDate, endDate, onChange}) => {
       <div className={cn(style.Picker, style.End)}>
         <p className={style.Name}>Дата и время конца</p>
 
-        <Flatpickr 
-          data-enable-time 
+        <Flatpickr
+          data-enable-time
+          options={{
+            minDate: "today",
+            dateFormat: "d-m-y H:i",
+          }}
           value={endDate}
-          onChange={(date) => onChange(date, "endDate")} />
+          onChange={(_, date) => onChange(date, "endDate")}
+        />
       </div>
     </div>
   );

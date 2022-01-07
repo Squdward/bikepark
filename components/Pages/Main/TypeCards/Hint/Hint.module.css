@@ -16,10 +16,18 @@
 	position: absolute;
 	bottom: 0;
 	left: 50%;
-	transform: translateX(-50%) translateY(112px);
+
+	visibility: hidden;
 
 	width: 100%;
 	padding: 12px;
+
+	transition: all 0.3s ease;
+	transform: translateX(-50%) translateY(112px);
+
+	opacity: 0;
+
+	color: var(--labelColor);
 
 	border: 1px solid var(--strokeColor);
 	border-radius: 15px;
@@ -28,29 +36,24 @@
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 20px;
-
-	color: var(--labelColor);
-
-	opacity: 0;
-	visibility: hidden;
-
-	transition: all 0.3s ease;
 }
 
-.Hint:after {
-	content: ''; 
-
+.Hint::after {
 	position: absolute;
+	z-index: -1;
 	top: -12px;
 	left: 59.3%;
-	z-index: -1;
 
 	width: 26px;
 	height: 12px;
-	background: url('./Icon/rhomb.svg') no-repeat top / cover;
+
+	content: "";
+
+	background: url("./Icon/rhomb.svg") no-repeat top / cover;
 }
 
 .Hint.Open {
-	opacity: 1;
 	visibility: visible;
+
+	opacity: 1;
 }

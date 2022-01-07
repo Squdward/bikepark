@@ -6,4 +6,6 @@ export interface IBikeCards {
 	price: string;
 	id: string;
 	available: boolean;
+	addBike: (str: string) => void; 
+	removeBikes: (str: string) => void; 
 }

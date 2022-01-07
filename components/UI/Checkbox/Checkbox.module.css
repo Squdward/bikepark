@@ -35,14 +35,12 @@
 	height: 100%;
 
 	content: "";
-
 }
 
 .Checkbox > input:checked {
 	border-color: transparent;
 	background: url("./Icon/done.svg") no-repeat center center / 20px 20px;
 	background-color: var(--mainColor);
-
 }
 
 .Checkbox > input:checked::before {

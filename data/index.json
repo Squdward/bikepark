@@ -7,6 +7,7 @@
             "image": "https://i.ibb.co/WD3JRpq/image-31-min.png",
             "name": "Городской велосипед Schwinn Traveler 20”",
             "price": "90 AED/день",
+            "type": "Aluminum",
             "available": true
         },
         {
@@ -16,15 +17,17 @@
             "image": "https://i.ibb.co/WD3JRpq/image-31-min.png",
             "name": "Городской велосипед Schwinn Traveler 20”",
             "price": "90 AED/день",
+            "type": "Aluminum",
             "available": false
         },
         {
             "id": 3,
             "frameSize": 20,
-            "brand": "SCHWINN",
+            "brand": "Cannondale",
             "image": "https://i.ibb.co/WD3JRpq/image-31-min.png",
             "name": "Городской велосипед Schwinn Traveler 20”",
             "price": "180  AED/день",
+            "type": "Carbonfiber",
             "available": true
         },
         {
@@ -34,6 +37,7 @@
             "image": "https://i.ibb.co/WD3JRpq/image-31-min.png",
             "name": "Городской велосипед Schwinn Traveler 20”",
             "price": "90 AED/день",
+            "type": "Carbonfiber",
             "available": true
         },
         {
@@ -43,33 +47,37 @@
             "image": "https://i.ibb.co/WD3JRpq/image-31-min.png",
             "name": "Городской велосипед Schwinn Traveler 20”",
             "price": "90 AED/день",
+            "type": "MountainUrban",
             "available": true
         },
         {
             "id": 6,
             "frameSize": 20,
-            "brand": "SCHWINN",
+            "brand": "Trek",
             "image": "https://i.ibb.co/WD3JRpq/image-31-min.png",
             "name": "Городской велосипед Schwinn Traveler 20”",
             "price": "90 AED/день",
+            "type": "MountainUrban",
             "available": false
         },
         {
             "id": 7,
-            "frameSize": 20,
-            "brand": "SCHWINN",
+            "frameSize": 25,
+            "brand": "Giant",
             "image": "https://i.ibb.co/WD3JRpq/image-31-min.png",
             "name": "Городской велосипед Schwinn Traveler 20”",
             "price": "90 AED/день",
+            "type": "Urbaneconomy",
             "available": true
         },
         {
             "id": 8,
-            "frameSize": 20,
+            "frameSize": 25,
             "brand": "SCHWINN",
             "image": "https://i.ibb.co/WD3JRpq/image-31-min.png",
             "name": "Городской велосипед Schwinn Traveler 20”",
             "price": "90 AED/день",
+            "type": "Urbaneconomy",
             "available": true
         }
     ]
