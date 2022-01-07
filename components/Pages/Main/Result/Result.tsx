@@ -3,14 +3,15 @@ import { Bubble } from "components/UI/Bubble/Bubble";
 import { Button } from "components/UI/Button/Button";
 import { Select } from "components/UI/Select/Select";
 import React from "react";
-import { BikeCards } from "../BikeCards/BikeCards";
-import { IBikes } from "interface/IBikes";
+import { BikeCards } from "./BikeCards/BikeCards";
 import { useDispatch, useSelector } from "react-redux";
 import { removeBikes, selectBikes } from "redux/Main/index.slice";
+import { useRouter } from "next/router";
 
 const Result = () => {
   const bikes         = useSelector( state => state.bikes);
   const dispatch      = useDispatch();
+  const router = useRouter();
 
   const brandsOptions = [
     {
@@ -58,13 +59,17 @@ const Result = () => {
     },
   ];
 
-  const addBike = (id) => {
+  const addBike = (id: string): void => {
     dispatch(selectBikes(id));
   };
   
-  const removeBike = (id) => {
+  const removeBike = (id: string): void => {
     dispatch(removeBikes(id));
   };
+
+  const pushingToOrderPage = (): void => {
+    router.push('/order/');
+  }
 
   return (
     <>
@@ -87,7 +92,7 @@ const Result = () => {
           </div>
 
           <div className={style.Content}>
-            {bikes.map((bike: IBikes) => (
+            {bikes.map((bike) => (
               <BikeCards
                 {...bike}
                 key={bike.id}
@@ -97,7 +102,7 @@ const Result = () => {
             ))}
           </div>
 
-          <Button className={style.Button}>Далее</Button>
+          <Button onClick={pushingToOrderPage} className={style.Button}>Далее</Button>
         </Bubble>
       ) : null}
     </>

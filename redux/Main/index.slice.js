@@ -12,8 +12,8 @@ const Main = createSlice({
 	name: "Main",
 	initialState: {
 		rentType: "По дням",
-		startDate: new Date(),
-		endDate: new Date(),
+		startDate: "14-01-22",
+		endDate: "15-01-22",
 		delivery: "По адресу",
 		type: {
 			Aluminum: false,

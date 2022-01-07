@@ -11,7 +11,6 @@ const BikeCards: FC<IBikeCards> = ({
   name,
   price,
   id,
-  available,
   addBike,
   removeBikes,
 }) => {

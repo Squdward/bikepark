@@ -1,6 +1,6 @@
 import style from "./TypeCards.module.css";
 import Image from "next/image";
-import React, { FC, useState } from "react";
+import React, { FC } from "react";
 import { Hint } from "./Hint/Hint";
 import Checkbox from "components/UI/Checkbox/Checkbox";
 import { ITypeCards } from "./TypeCards.props";

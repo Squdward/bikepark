@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface ITypeCards {
 	material: string;
 	price: string;
@@ -5,5 +7,5 @@ export interface ITypeCards {
 	image: string;
 	name: string;
 	checked: boolean;
-	onChange: () => void;
+	onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
