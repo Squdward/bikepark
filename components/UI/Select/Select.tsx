@@ -26,8 +26,8 @@ const Select: FC<ISelect> = React.memo(({ options, defaultOption, id, onChange, 
     }
   };
 
-  const selectOption = (val: string) => {
-    setValue(val);
+  const selectOption = (val: string, label: string) => {
+    setValue(label);
 
     onChange(val);
     
@@ -71,7 +71,7 @@ const Select: FC<ISelect> = React.memo(({ options, defaultOption, id, onChange, 
                 className={cn(style.Option, {
                   [style.Checked]: value === item.value,
                 })}
-                onClick={() => selectOption(item.value)}
+                onClick={() => selectOption(item.value, item.label)}
                 key={item.id}
               >
                 {item.label}

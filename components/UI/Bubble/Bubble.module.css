@@ -8,6 +8,8 @@
 	border-radius: 20px;
 
 	background-color: var(--backgroundColor);
+
+	overflow: hidden;
 }
 
 .Bubble:last-child {

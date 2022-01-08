@@ -5,18 +5,21 @@ import { Select } from "components/UI/Select/Select";
 import React from "react";
 import { BikeCards } from "./BikeCards/BikeCards";
 import { useDispatch, useSelector } from "react-redux";
-import { removeBikes, selectBikes } from "redux/Main/index.slice";
+import { filterSelect, getBikes, removeBikes, selectBikes} from "redux/Main/index.slice";
 import { useRouter } from "next/router";
+import { Loader, loader } from "components/UI/loader";
 
 const Result = () => {
   const bikes         = useSelector( state => state.bikes);
+  const {loading, showResult} = useSelector( state => state);
+
   const dispatch      = useDispatch();
   const router = useRouter();
 
   const brandsOptions = [
     {
       id: 1,
-      value: "Все",
+      value: "All",
       label: "Все",
     },
     {
@@ -44,7 +47,7 @@ const Result = () => {
   const frameSize = [
     {
       id: 1,
-      value: "Все",
+      value: "All",
       label: "Все",
     },
     {
@@ -71,40 +74,49 @@ const Result = () => {
     router.push('/order/');
   }
 
+  const select = (name: string, value: string): void => {
+    dispatch(filterSelect({name, value}));
+    dispatch(getBikes());
+  }
+
+
+
   return (
     <>
-      {bikes && bikes.length > 0 ? (
+      {showResult && 
         <Bubble tail={true}>
-          <div className={style.Filter}>
-            <Select
-              label={"Бренд"}
-              defaultOption={"Все"}
-              options={brandsOptions}
-              onChange={() => {}}
-            />
-
-            <Select
-              label={"Размер рамы"}
-              defaultOption={"Все"}
-              options={frameSize}
-              onChange={() => {}}
-            />
-          </div>
-
-          <div className={style.Content}>
-            {bikes.map((bike) => (
-              <BikeCards
-                {...bike}
-                key={bike.id}
-                addBike={addBike}
-                removeBikes={removeBike}
+          {loading && <div className={style.Loading}><Loader/></div>}
+          {showResult && <>
+            <div className={style.Filter}>
+              <Select
+                label={"Бренд"}
+                defaultOption={"Все"}
+                options={brandsOptions}
+                onChange={(value) => select('brand', value)}
               />
-            ))}
-          </div>
 
-          <Button onClick={pushingToOrderPage} className={style.Button}>Далее</Button>
-        </Bubble>
-      ) : null}
+              <Select
+                label={"Размер рамы"}
+                defaultOption={"Все"}
+                options={frameSize}
+                onChange={(value) => select('frameSize', value)}
+              />
+            </div>
+
+            <div className={style.Content}>
+              {bikes.map((bike) => (
+                <BikeCards
+                  {...bike}
+                  key={bike.id}
+                  addBike={addBike}
+                  removeBikes={removeBike}
+                />
+              ))}
+            </div>
+
+            <Button onClick={pushingToOrderPage} className={style.Button}>Далее</Button>
+            </>}  
+        </Bubble>}
     </>
   );
 };

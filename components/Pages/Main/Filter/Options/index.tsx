@@ -37,7 +37,7 @@ const Options: FC<{validationInput: (e: React.ChangeEvent<HTMLInputElement>) => 
     ];
 
     const select = (val: string): void => {
-    dispatch(serializeSelect(val));
+      dispatch(serializeSelect(val));
     };
 
     const data = (value: string, name: string) => {
