@@ -23,25 +23,25 @@ const Footer = () => {
             <ul className={style.List}>
               <li>
                 <Link href={"./Rules"}>
-                  <a>Правила</a>
+                  <a className={style.Link}>Правила</a>
                 </Link>
               </li>
 
               <li>
                 <Link href={"./Review"}>
-                  <a>Отзывы</a>
+                  <a className={style.Link}>Отзывы</a>
                 </Link>
               </li>
 
               <li>
                 <Link href={"./Contact"}>
-                  <a>Контакты</a>
+                  <a className={style.Link}>Контакты</a>
                 </Link>
               </li>
 
               <li>
                 <Link href={"./Feedback"}>
-                  <a>Обратная связь</a>
+                  <a className={style.Link}>Обратная связь</a>
                 </Link>
               </li>
             </ul>
@@ -54,11 +54,15 @@ const Footer = () => {
 
 					<ul className={style.Social}>
 						<li>
-							<img src={fb.src} alt="facebook" />
+              <a href="https://www.facebook.com/" target="_blank" rel="noopener">
+                <img src={fb.src} alt="facebook" />
+              </a>
 						</li>
 						
 						<li>
-							<img src={inst.src} alt="instagram" />
+              <a href="https://www.instagram.com/" target="_blank" rel="noopener">
+                <img src={inst.src} alt="instagram" />
+              </a>
 						</li>
 					</ul>
         </div>

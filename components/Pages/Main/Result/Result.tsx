@@ -5,14 +5,16 @@ import { Select } from "components/UI/Select/Select";
 import React from "react";
 import { BikeCards } from "./BikeCards/BikeCards";
 import { useDispatch, useSelector } from "react-redux";
-import { filterSelect, getBikes, removeBikes, selectBikes} from "redux/Main/index.slice";
 import { useRouter } from "next/router";
-import { Loader, loader } from "components/UI/loader";
+import { Loader } from "components/UI/loader";
+import { filterSelect } from "redux/MainFilter/index.slice";
+import { getBikes, removeBikes, selectBikes } from "redux/Bike/index.slice";
 
 const Result = () => {
-  const bikes         = useSelector( state => state.bikes);
-  const {loading, showResult} = useSelector( state => state);
+  const bikes         = useSelector( state => state.Bike.bikes);
+  const {loading, showResult} = useSelector( state => state.MainFilter);
 
+  console.log(bikes)
   const dispatch      = useDispatch();
   const router = useRouter();
 

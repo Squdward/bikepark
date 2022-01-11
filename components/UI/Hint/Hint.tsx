@@ -1,15 +1,15 @@
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, MouseEvent, useEffect, useRef, useState } from "react";
 import style from "./Hint.module.css";
 import Image from "next/image";
 import cn from "classnames";
 import React from "react";
 
-const Hint: FC = React.memo(({children}) => {
+const Hint: FC<{clasName: string}> = React.memo(({children, className}) => {
 	const [open, setOpen] = useState(false);
 	const button = useRef(null);
 
-	const showHint = () => {
-    event.preventDefault();
+	const showHint = (e: MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
 		setOpen(true);
 	};
 
@@ -34,13 +34,13 @@ const Hint: FC = React.memo(({children}) => {
 	}, []);
 
 	return (
-    <div className={style.Container}>
+    <div className={cn(style.Container, className)}>
       <button className={style.Button} onClick={showHint} ref={button}>
         <Image src={require("./Icon/question.svg")} />
       </button>
 
       <div
-        className={cn(style.Hint, {
+        className={cn(style.Hint,  {
           [style.Open]: open,
         })}
       >

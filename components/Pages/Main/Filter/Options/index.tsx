@@ -3,11 +3,11 @@ import { Select } from "components/UI/Select/Select";
 import { Switch } from "components/UI/Switch/Switch";
 import { FC} from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { serializeData, serializeSelect } from "redux/Main/index.slice";
+import { serializeData, serializeSelect } from "redux/MainFilter/index.slice";
 import style from "../../Main.module.css"
 
 const Options: FC<{validationInput: (e: React.ChangeEvent<HTMLInputElement>) => void}> = ({validationInput}) => {
-    const form = useSelector( state => state);
+    const form = useSelector( state => state.MainFilter);
     
     const dispatch = useDispatch();
  

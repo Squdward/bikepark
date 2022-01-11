@@ -8,43 +8,66 @@
 	margin-bottom: 41px;
 }
 
-.Configuration {
+.Result {
 	display: flex;
-	justify-content: flex-start;
-	padding: 0 10px;
+	justify-content: space-between;
 }
 
-.Cell {
+.Return {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 230px;
+	height: 55px;
+	background: url("./icon/button.svg") no-repeat center center / contain;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 17.6px;
+	color: var(--mainColor);
 }
 
-.Cell:nth-child(1) {
-	margin-right: 199px;
+.Return span{
+	width: 133px;
+	margin-right: -20px;
+	text-align: left;
 }
 
-.Cell:nth-child(2) {
-	margin-right: 124px;
+.Prices {
+	width: 259px;
 }
 
-.Cell:nth-child(3) {
-	margin-right: 131px;
+.Prices ul {
+	width: 100%;
+	margin: 0;
+	padding: 0;
 }
 
-.Name {
-	display: block;	
-	margin-bottom: 10px;
+.Prices li {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 11px;
+	list-style: none;
 
+}
+
+.Label {
 	font-size: 16px;
 	font-weight: 500;
 	line-height: 22px;
 	color: var(--labelColor);
-	text-align: left;
 }
 
-.Value {
-	margin: 0;
-
-	font-size: 18px;
+.Price {
+	margin-left: auto;
+	font-size: 20px;
 	font-weight: 500;
 	line-height: 22px;
-	text-align: left;
 }
+
+.FinalPrice {
+	font-weight: 700;
+	color: var(--mainColor);
+}
+
+
+

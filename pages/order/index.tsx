@@ -5,7 +5,7 @@ import { Order } from "components/Pages/Order";
 const OrderPage: NextPage = () => {
 	return (
 		<Layout>
-				<Order/>
+			<Order/>
 		</Layout>
 	);
 };

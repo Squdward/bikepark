@@ -1,9 +1,9 @@
 import style from "./TypeCards.module.css";
 import Image from "next/image";
 import React, { FC } from "react";
-import { Hint } from "./Hint/Hint";
 import Checkbox from "components/UI/Checkbox/Checkbox";
 import { ITypeCards } from "./TypeCards.props";
+import { Hint } from "components/UI/Hint/Hint";
 
 const TypeCards: FC<ITypeCards> = React.memo (({material, price, hint, image, name, checked, onChange}) => {
 	return (

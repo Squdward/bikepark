@@ -27,6 +27,8 @@
 	border: 1px solid var(--strokeColor);
 	border-radius: 10px;
 
+	background-color: var(--whiteColor);
+
 	appearance: none;
 }
 

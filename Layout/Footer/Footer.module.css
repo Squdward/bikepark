@@ -77,6 +77,16 @@
 	margin-right: 0;
 }
 
+.Link {
+	transition: color .3s ease;
+}
+
+.Link:hover,
+.link:focus,
+.link:active {
+	color: var(--mainHoverColor);
+}
+
 /* Row 2  */
 
 .Privacy {

@@ -1,11 +1,13 @@
 import style 					from "../Main.module.css";
 import { Bubble } 		from "components/UI/Bubble/Bubble";
 import React, { FC, useCallback }	from "react";
+import { serializeForm } from "redux/MainFilter/index.slice";
+import { getBikes } from "redux/Bike/index.slice";
 import { useDispatch } from "react-redux";
-import { getBikes,  serializeForm } from "redux/Main/index.slice";
 import { BikeTypes } from "./BikeTypes";
 import { Gifts } from "./Gifts";
 import { Options } from "./Options";
+
 
 
 const Filter: FC= () => {

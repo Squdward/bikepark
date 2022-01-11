@@ -7,7 +7,7 @@ import blank    from "./TypeCards/Images/blank.png";
 import { useSelector } from "react-redux";
 
 const BikeTypes: FC<{validationInput: (e: React.ChangeEvent<HTMLInputElement>) => void}> = ({validationInput}) => {
-    const form = useSelector( state => state.filter);
+    const form = useSelector( state => state.MainFilter.filter);
 
     const TypeCardsData = [
 		{

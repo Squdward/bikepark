@@ -1,0 +1,60 @@
+import { createSlice } from "@reduxjs/toolkit";
+import { getBikes } from "redux/Bike/index.slice";
+
+const mainFilter = createSlice({
+    name: 'MainFilter',
+    initialState: {
+        rentType: "По дням",
+		startDate: "14-01-22",
+		endDate: "15-01-22",
+		delivery: "По адресу",
+		filter: {
+			Aluminum: false,
+			Carbonfiber: false,
+			MountainUrban: false,
+			Urbaneconomy: false,
+			brand: '',
+			frameSize: '',
+		},
+        ok: true,
+		showResult: false,
+		errorMessage: "",
+		loading: false,
+    },
+    reducers: {
+        serializeForm: (state, action) => {
+			const name = action.payload.name;
+			const type = action.payload.type;
+
+			if (type === 'checkbox') {
+				state.filter[name] = action.payload.checked;
+			} 
+			else {
+				state[name] = action.payload.value;
+			}
+		},
+		serializeSelect: (state, action) => {
+			state.delivery = action.payload.value;
+		},
+		serializeData: (state, action) => {
+			state[action.payload.name] = action.payload.value;
+		},
+        filterSelect: (state, action) => {
+			state.filter[action.payload.name] = action.payload.value
+		}
+    },
+	extraReducers: {
+		[getBikes.pending]: (state, action) => {
+			state.loading = true;
+			state.showResult = true;
+		},
+		[getBikes.fulfilled]: (state, action) => {
+			state.ok = true;
+			state.loading = false;
+			state.errorMessage = '';
+		},
+	}
+})
+
+export const {serializeForm, serializeSelect, serializeData, filterSelect} = mainFilter.actions
+export default mainFilter.reducer

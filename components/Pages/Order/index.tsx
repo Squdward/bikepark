@@ -1,35 +1,56 @@
 import style from "./index.module.css";
 import { Bubble } from "components/UI/Bubble/Bubble";
 import { useSelector } from "react-redux";
+import { FC} from "react";
+import { Configuration } from "./Configuration";
+import { Table } from "./Table";
+import Link from "next/link";
+import cn from "classnames";
+import { Booking } from "./Booking";
 
-const Order = () => {
-	const state = useSelector( state => state);
-	
-	
+const Order: FC = () => {
+	const options = useSelector( state => state.MainFilter);
+  const bikes = useSelector( state => state.Bike.selectedBikes)
+
 	return (
-    <Bubble className={style.Wrapper}>
-      <h1 className={style.Title}>Заявка на аренду велосипедов</h1>
+    <>
+      <Bubble className={style.Wrapper}>
+        <h1 className={style.Title}>Заявка на аренду велосипедов</h1>
+        
+        <Configuration 
+          rentType={options.rentType}
+          startDate={options.startDate}
+          endDate={options.endDate}
+          delivery={options.delivery}
+        />
 
-      <div className={style.Configuration}>
-        <div className={style.Cell}>
-          <span className={style.Name}>Тип аренды</span>
-          <p className={style.Value}>{state.rentType}</p>
-        </div>
-        <div className={style.Cell}>
-          <span className={style.Name}>Дата и время начала</span>
-          <p className={style.Value}>{state.startDate+""}</p>
-        </div>
-        <div className={style.Cell}>
-          <span className={style.Name}>Дата и время конца</span>
-          <p className={style.Value}>25.07.21 12:00</p>
-        </div>
-        <div className={style.Cell}>
-          <span className={style.Name}>Доставка</span>
-          <p className={style.Value}>{state.delivery}</p>
-        </div>
-      </div>
+        <Table bikes={bikes}/>
 
-    </Bubble>
+        <div className={style.Result}>
+            <Link href="/">
+              <a className={style.Return}>
+                <span>
+                  Назад к выбору велосипедов
+                </span>
+              </a>
+            </Link> 
+
+            <div className={style.Prices}>
+              <ul>
+                <li>
+                  <span className={style.Label}>Доставка</span> <span className={style.Price}>0 AED</span>
+                </li>
+
+                <li>
+                  <span className={style.Label}>Итого</span> <span className={cn(style.Price, style.FinalPrice)}>360 AED</span>
+                </li>
+              </ul>
+            </div>
+        </div>
+      </Bubble>
+
+      <Booking/>
+    </>
   );
 };
 
