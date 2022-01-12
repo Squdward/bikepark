@@ -5,8 +5,8 @@ const mainFilter = createSlice({
     name: 'MainFilter',
     initialState: {
         rentType: "По дням",
-		startDate: "14-01-22",
-		endDate: "15-01-22",
+		startDate: "2022-01-14",
+		endDate: "2022-01-15",
 		delivery: "По адресу",
 		filter: {
 			Aluminum: false,
@@ -34,7 +34,7 @@ const mainFilter = createSlice({
 			}
 		},
 		serializeSelect: (state, action) => {
-			state.delivery = action.payload.value;
+			state.delivery = action.payload;
 		},
 		serializeData: (state, action) => {
 			state[action.payload.name] = action.payload.value;
@@ -44,11 +44,11 @@ const mainFilter = createSlice({
 		}
     },
 	extraReducers: {
-		[getBikes.pending]: (state, action) => {
+		[getBikes.pending]: (state) => {
 			state.loading = true;
 			state.showResult = true;
 		},
-		[getBikes.fulfilled]: (state, action) => {
+		[getBikes.fulfilled]: (state) => {
 			state.ok = true;
 			state.loading = false;
 			state.errorMessage = '';

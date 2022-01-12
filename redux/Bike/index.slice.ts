@@ -30,11 +30,27 @@ export const getBikes = createAsyncThunk(
 		}
 });
 
+export const calcBikePrice = createAsyncThunk(
+	'calcBikePrice',
+	(_, {getState, dispatch}) => {
+		let {startDate, endDate} = getState().MainFilter
+		
+		const timeDiff  = (new Date(endDate)) - (new Date(startDate));
+		const days      = timeDiff / (1000 * 60 * 60 * 24)
+		
+		// calcBikePrice: (state,) => {
+			
+		// }
+		return Math.floor(days)
+	}
+)
+
 const Bike = createSlice({
     name: "Bike",
     initialState: {
         bikes: [],
 		selectedBikes: [],
+		price: 0,
     },
     reducers: {
         selectBikes: (state, action) => {
@@ -52,6 +68,15 @@ const Bike = createSlice({
 		[getBikes.fulfilled]: (state, action) => {
 			state.bikes = action.payload;
 		},
+		[calcBikePrice]: (state, action) => {
+		}
+		// calcBikePrice: (state, action) => {
+		// 	let oneDayPrice = state.selectedBikes.reduce((acc, curvalue) => {
+		// 		return acc += Number.parseInt(curvalue.price)
+		// 	}, 0);
+
+		// 	return oneDayPrice*action.payload
+		// }
     }
 })
 

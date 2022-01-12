@@ -8,13 +8,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { Loader } from "components/UI/loader";
 import { filterSelect } from "redux/MainFilter/index.slice";
-import { getBikes, removeBikes, selectBikes } from "redux/Bike/index.slice";
+import { calcBikePrice, getBikes, removeBikes, selectBikes } from "redux/Bike/index.slice";
 
 const Result = () => {
   const bikes         = useSelector( state => state.Bike.bikes);
   const {loading, showResult} = useSelector( state => state.MainFilter);
 
-  console.log(bikes)
   const dispatch      = useDispatch();
   const router = useRouter();
 
@@ -66,10 +65,12 @@ const Result = () => {
 
   const addBike = (id: string): void => {
     dispatch(selectBikes(id));
+    dispatch(calcBikePrice());
   };
   
   const removeBike = (id: string): void => {
     dispatch(removeBikes(id));
+    dispatch(calcBikePrice());
   };
 
   const pushingToOrderPage = (): void => {
@@ -80,8 +81,6 @@ const Result = () => {
     dispatch(filterSelect({name, value}));
     dispatch(getBikes());
   }
-
-
 
   return (
     <>

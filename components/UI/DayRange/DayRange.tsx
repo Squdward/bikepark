@@ -15,9 +15,7 @@ const DayRange: FC<IDayRange> = ({startDate, endDate, onChange}) => {
           value={startDate}
           options={{
             minDate: "today",
-            dateFormat: "d-m-y H:i",
-            altFormat: "d-m-y H:i",
-            ariaDateFormat: "d-m-y H:i",
+            dateFormat: "Y-m-d H:i",
           }}
           onChange={(_, date) => {
             onChange(date, "startDate");
@@ -34,7 +32,7 @@ const DayRange: FC<IDayRange> = ({startDate, endDate, onChange}) => {
           data-enable-time
           options={{
             minDate: "today",
-            dateFormat: "d-m-y H:i",
+            dateFormat: "Y-m-d H:i",
           }}
           value={endDate}
           onChange={(_, date) => onChange(date, "endDate")}

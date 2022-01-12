@@ -1,17 +1,17 @@
 import style from "./index.module.css";
 import { Bubble } from "components/UI/Bubble/Bubble";
-import { useSelector } from "react-redux";
-import { FC} from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FC, useEffect} from "react";
 import { Configuration } from "./Configuration";
 import { Table } from "./Table";
 import Link from "next/link";
 import cn from "classnames";
 import { Booking } from "./Booking";
+import { calcBikePrice } from "redux/Bike/index.slice";
 
 const Order: FC = () => {
 	const options = useSelector( state => state.MainFilter);
-  const bikes = useSelector( state => state.Bike.selectedBikes)
-
+  const {selectedBikes, price} = useSelector( state => state.Bike)
 	return (
     <>
       <Bubble className={style.Wrapper}>
@@ -24,7 +24,7 @@ const Order: FC = () => {
           delivery={options.delivery}
         />
 
-        <Table bikes={bikes}/>
+        <Table bikes={selectedBikes}/>
 
         <div className={style.Result}>
             <Link href="/">
@@ -42,7 +42,7 @@ const Order: FC = () => {
                 </li>
 
                 <li>
-                  <span className={style.Label}>Итого</span> <span className={cn(style.Price, style.FinalPrice)}>360 AED</span>
+                  <span className={style.Label}>Итого</span> <span className={cn(style.Price, style.FinalPrice)}>{price}</span>
                 </li>
               </ul>
             </div>
