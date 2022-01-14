@@ -2,7 +2,7 @@ import style from "../Main.module.css";
 import { Bubble } from "components/UI/Bubble/Bubble";
 import { Button } from "components/UI/Button/Button";
 import { Select } from "components/UI/Select/Select";
-import React from "react";
+import React, { useCallback } from "react";
 import { BikeCards } from "./BikeCards/BikeCards";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
@@ -63,21 +63,21 @@ const Result = () => {
     },
   ];
 
-  const addBike = (id: string): void => {
+  const addBike = useCallback((id: string): void => {
     dispatch(selectBikes(id));
     dispatch(calcBikePrice());
-  };
+  }, []);
   
-  const removeBike = (id: string): void => {
+  const removeBike = useCallback((id: string): void => {
     dispatch(removeBikes(id));
     dispatch(calcBikePrice());
-  };
+  }, []);
 
   const pushingToOrderPage = (): void => {
     router.push('/order/');
   }
 
-  const select = (name: string, value: string): void => {
+  const select =  (name: string, value: string): void => {
     dispatch(filterSelect({name, value}));
     dispatch(getBikes());
   }

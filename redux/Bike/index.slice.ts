@@ -7,13 +7,22 @@ export const getBikes = createAsyncThunk(
 			let query = "http://localhost:3001/bicycles?";
 			let filter = getState().MainFilter.filter;
 
-
 			for(let item in filter) {
-				
-				// not empty && not === 'All'
-				filter[item] && filter[item] !== 'All'
-					? query += `${item}=${filter[item]}&`
-					: ''
+				if(typeof(filter[item]) === 'object') {
+					for(let i in filter[item]) {
+						// filter[item][i] = filter.type.Aluminum|Carbonfiber and etc
+						filter[item][i] 
+							? query += `type=${i}&`
+							: ""; 
+					}					
+				}
+
+				else {
+					// not empty && not === 'All'
+					filter[item] && filter[item] !== 'All'
+						? query += `${item}=${filter[item]}&`
+						: ''
+				}
 			}
 
 			const getData = await fetch(query);
@@ -37,11 +46,8 @@ export const calcBikePrice = createAsyncThunk(
 		
 		const timeDiff  = (new Date(endDate)) - (new Date(startDate));
 		const days      = timeDiff / (1000 * 60 * 60 * 24)
-		
-		// calcBikePrice: (state,) => {
-			
-		// }
-		return Math.floor(days)
+
+		dispatch(calcFullPrice(Math.ceil(days)))
 	}
 )
 
@@ -63,22 +69,20 @@ const Bike = createSlice({
 			const index = state.selectedBikes.indexOf(action.payload);
 			state.selectedBikes.splice(index, 1);
 		},
+		calcFullPrice: (state, action) => {
+			let oneDayPrice = state.selectedBikes.reduce((acc, curvalue) => {
+				return acc += Number.parseInt(curvalue.price)
+			}, 0);
+
+			state.price = oneDayPrice*action.payload + "AED"
+		}
     },
     extraReducers: {
 		[getBikes.fulfilled]: (state, action) => {
 			state.bikes = action.payload;
 		},
-		[calcBikePrice]: (state, action) => {
-		}
-		// calcBikePrice: (state, action) => {
-		// 	let oneDayPrice = state.selectedBikes.reduce((acc, curvalue) => {
-		// 		return acc += Number.parseInt(curvalue.price)
-		// 	}, 0);
-
-		// 	return oneDayPrice*action.payload
-		// }
     }
 })
 
-export const {selectBikes, removeBikes} = Bike.actions
+export const {selectBikes, removeBikes, calcFullPrice} = Bike.actions
 export default Bike.reducer

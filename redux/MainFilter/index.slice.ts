@@ -5,14 +5,16 @@ const mainFilter = createSlice({
     name: 'MainFilter',
     initialState: {
         rentType: "По дням",
-		startDate: "2022-01-14",
-		endDate: "2022-01-15",
+		startDate: "2022-01-14 00:00",
+		endDate: "2022-01-15 00:00",
 		delivery: "По адресу",
 		filter: {
-			Aluminum: false,
-			Carbonfiber: false,
-			MountainUrban: false,
-			Urbaneconomy: false,
+			type: {
+				Aluminum: false,
+				Carbonfiber: false,
+				MountainUrban: false,
+				Urbaneconomy: false,
+			},
 			brand: '',
 			frameSize: '',
 		},
@@ -27,7 +29,7 @@ const mainFilter = createSlice({
 			const type = action.payload.type;
 
 			if (type === 'checkbox') {
-				state.filter[name] = action.payload.checked;
+				state.filter.type[name] = action.payload.checked;
 			} 
 			else {
 				state[name] = action.payload.value;

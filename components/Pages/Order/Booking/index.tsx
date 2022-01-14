@@ -5,35 +5,59 @@ import cn from "classnames"
 import { Radio } from "components/UI/Radio";
 import { Hint } from "components/UI/Hint/Hint";
 import { Button } from "components/UI/Button/Button";
+import { Controller, useForm } from "react-hook-form";
 
 const Booking = () => {
+    const { register, handleSubmit, watch, formState: { errors }, control } = useForm({
+        defaultValues: {
+            name: "",
+            phoneNumber: "",
+            adres: "",
+            payment: "",
+        }
+    });
+
+    const onSubmit = (data) => {
+        console.log(data)
+    }
+
     return (
       <Bubble tail={true} className={style.Buble}>
-        <form className={style.Form}>
+        <form className={style.Form} onSubmit={handleSubmit(onSubmit)}>
             <div className={style.Inner}>
                 <div className={style.Column}>
                     <fieldset className={style.Group}>
                         <legend className={style.Label}>Контактные данные</legend>
-                        <Input
-                            className={style.Input}
-                            placeholder="Имя*"
-                            required name="name"
+
+                        <Controller
+                            name={"name"}
+                            control={control}
+                            rules={{
+                                required: true,
+                            }}
+                            render={({ field }) => <Input placeholder="Имя*" className={style.Input} {...field}/>}
                         />
-                        <Input 
-                            className={style.Input}
-                            placeholder="Номер телефона*"
-                            name="phoneNumber" 
+
+                        <Controller
+                            name={"phoneNumber"}
+                            control={control}
+                            rules={{
+                                required: true,
+                            }}
+                            render={({ field }) => <Input placeholder="Номер телефона*" className={style.Input} {...field}/>}
                         />
                     </fieldset>
 
                     <fieldset className={style.Group}>
                         <legend className={style.Label}>Информация о доставке</legend>
                         
-                        <Input
-                            className={style.Input}
-                            placeholder="Адрес*"
-                            required
-                            name="adress"
+                        <Controller
+                            name={"adres"}
+                            control={control}
+                            rules={{
+                                required: true,
+                            }}
+                            render={({ field }) => <Input placeholder="Адрес*" className={style.Input} {...field}/>}
                         />
                     </fieldset>
 
@@ -41,11 +65,27 @@ const Booking = () => {
                         <legend className={style.Label}>Форма оплаты</legend>
                         
                         <div className={cn(style.Cell, style.halfWidth)}>
-                            <Radio name={'test'} label={'Онлайн'}/>                        
+                        <Controller
+                            name={"payment"}
+                            control={control}
+                            rules={{
+                                required: true,
+                            }}
+                            render={({ field }) => <Radio label={'Онлайн'} {...field}/>}
+                            />
+                            {/* <Radio name={'test'} label={'Онлайн'}/>                         */}
                         </div>
 
                         <div className={cn(style.Cell, style.halfWidth)}>
-                            <Radio name={'test'} label={'На месте'}/>
+                        <Controller
+                            name={"payment"}
+                            control={control}
+                            rules={{
+                                required: true,
+                            }}
+                            render={({ field }) => <Radio label={"На месте"} {...field}/>}
+                            />
+                            {/* <Radio name={'test'} label={'На месте'}/> */}
                             <Hint className={style.Hint}>Здесь будет подсказка</Hint>                        
                         </div>
                     </fieldset>
