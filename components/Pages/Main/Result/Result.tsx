@@ -75,12 +75,12 @@ const Result = () => {
 
   const pushingToOrderPage = (): void => {
     router.push('/order/');
-  }
+  };
 
   const select =  (name: string, value: string): void => {
     dispatch(filterSelect({name, value}));
     dispatch(getBikes());
-  }
+  };
 
   return (
     <>
