@@ -2,11 +2,12 @@
   "name": "bikepark",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev & npm run devServ",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "stylelint": "stylelint \"**/*.css\" --fix",
+    "test": "npm run dev & npm run devServ",
     "devServ": "json-server --port 3001 ./data/index.json"
   },
   "dependencies": {
