@@ -28,7 +28,7 @@ const Filter: FC= () => {
   };
 
   return (
-    <form className={style.form} onSubmit={handleSubmit}>
+    <form className={style.Form} onSubmit={handleSubmit}>
       <Bubble tail={false}>
         <div className={style.TopLine}>
           <h1 className={style.Title}>Аренда велосипедов c доставкой</h1>
