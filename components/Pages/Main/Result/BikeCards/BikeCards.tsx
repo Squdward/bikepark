@@ -3,8 +3,9 @@ import { FC, useState } from "react";
 import { IBikeCards } from "./BikeCards.props";
 import Image from "next/image";
 import cn from "classnames";
+import React from "react";
 
-const BikeCards: FC<IBikeCards> = ({
+const BikeCards: FC<IBikeCards> = React.memo(({
   frameSize,
   brand,
   image,
@@ -78,6 +79,6 @@ const BikeCards: FC<IBikeCards> = ({
       </button>
     </div>
   );
-};
+});
 
 export {BikeCards}
