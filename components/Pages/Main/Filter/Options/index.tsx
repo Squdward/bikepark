@@ -1,13 +1,14 @@
 import { DayRange } from "components/UI/DayRange/DayRange";
 import { Select } from "components/UI/Select/Select";
 import { Switch } from "components/UI/Switch/Switch";
+import { useAppSelector } from "hook/Redux";
 import { FC} from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { serializeData, serializeSelect } from "redux/MainFilter/index.slice";
 import style from "../../Main.module.css"
 
 const Options: FC<{validationInput: (e: React.ChangeEvent<HTMLInputElement>) => void}> = ({validationInput}) => {
-    const form = useSelector( state => state.MainFilter);
+    const form = useAppSelector( state => state.MainFilter);
     
     const dispatch = useDispatch();
  
@@ -73,7 +74,7 @@ const Options: FC<{validationInput: (e: React.ChangeEvent<HTMLInputElement>) => 
           />
         </div>
     );
-}
+};
 
 
-export {Options}
+export {Options};
