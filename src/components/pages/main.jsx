@@ -1,9 +1,10 @@
 import Layout from "../layouts/layout"
+import Filter from "./filter"
 
 const Main = () => {
 	return (
 		<Layout>
-			Main
+			<Filter/>
 		</Layout>
 	)
 }
