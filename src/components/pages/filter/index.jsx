@@ -2,9 +2,12 @@ import Bubble from "../../ui/bubble"
 import style from "./index.module.scss";
 import gifts from "./assets/gifts.png"
 import Options from "./options";
+import BikeTypes from "./bikeTypes";
 
 const Filter = () => {
-	const handleSubmit = () => {};
+	const handleSubmit = (e) => {
+		e.preventDefault()
+	};
 
 	return (
 		<form className={style.Form} onSubmit={handleSubmit}>
@@ -17,6 +20,8 @@ const Filter = () => {
 
 				<Options/>
 			</Bubble>
+
+			<BikeTypes/>
 		</form>
 	)
 }
