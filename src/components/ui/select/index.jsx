@@ -2,7 +2,7 @@ import style from "./index.module.scss"
 import { useEffect, useRef, useState } from "react";
 import cn from "classnames";
 
-const Select = ({ options, defaultOption, id, onChange, label }) => {
+const Select = ({ options, defaultOption, id, onChange, label, name }) => {
 	const [open, setOpen] = useState(false);
 	const [value, setValue] = useState(defaultOption);
 	const select = useRef(null);

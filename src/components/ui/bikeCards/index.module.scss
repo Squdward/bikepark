@@ -1,0 +1,96 @@
+.Card {
+	padding: 15px;
+
+	border-radius: 15px;
+	background-color: var(--whiteColor);
+
+	font-size: 18px;
+	line-height: 22px;
+}
+
+.TopLine {
+	display: flex;
+	justify-content: space-between;
+
+	margin-bottom: 15px;
+
+	color: var(--labelColor);
+}
+
+.FrameSize {
+	color: inherit;
+
+	font-size: inherit;
+	font-weight: 800;
+	line-height: inherit;
+}
+
+.Brand {
+	color: inherit;
+
+	font-size: inherit;
+	font-weight: 500;
+	line-height: inherit;
+}
+
+.Image {
+	position: relative;
+
+	width: 230px;
+	height: 140px;
+	margin-bottom: 13px;
+	padding: 24px 26px;
+
+	border-radius: 10px;
+	background-color: #f2f4f7;
+
+	& img {
+		width: 177px;
+		height: 93px;
+	}
+}
+
+.Name {
+	margin: 0 0 16px;
+
+	font-size: inherit;
+	font-weight: 500;
+	line-height: inherit;
+}
+
+.Price {
+	margin-bottom: 0 0 16px 0;
+
+	color: var(--mainColor);
+
+	font-size: 20px;
+	font-weight: 700;
+	line-height: inherit;
+}
+
+.Button {
+	width: 100%;
+	height: 40px;
+
+	cursor: pointer;
+	transition: all 0.3s ease;
+	text-transform: uppercase;
+
+	color: var(--mainColor);
+	border: 1px solid var(--mainColor);
+	border-radius: 10px;
+	background: transparent;
+
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 22px;
+
+	&.Checked {
+		color: var(--whiteColor);
+		background-color: var(--mainColor);
+
+		&.Enter {
+			background-color: var(--mainHoverColor);
+		}
+	}
+}

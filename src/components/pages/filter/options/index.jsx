@@ -2,55 +2,40 @@ import style from "./index.module.scss";
 import Switch from "../../../ui/switch/index";
 import DayRange from "../../../ui/dayRange";
 import Select from "../../../ui/select";
+import { useDispatch, useSelector } from "react-redux";
+import { serializeData } from "../../../../redux/slices/MainFilter";
 
 const Options = () => {
-	const SwitchOption = [
-		{
-			value: "По дням",
-			placeholder: "По дням",
-		},
-		{
-			value: "2 часа",
-			placeholder: "2 часа",
-		},
-	];
+	const { rentType, startDate, endDate, switchOption, selectOption } = useSelector( state => state.MainFilter)
+	const dispatch = useDispatch();
 
-	const selectOption = [
-		{
-			id: 1,
-			value: "По Адресу",
-			label: "По Адресу",
-		},
-		{
-			id: 2,
-			value: "Самовывоз",
-			label: "Самовывоз",
-		},
-	];
+	const serializeField = (name, value) => {
+		dispatch(serializeData({name, value}))
+	}
 
 	return (
 		<div className={style.Options}>
 			<Switch
 				placeholder="Тип аренды"
-				option={SwitchOption}
-				defaultValue={"По дням"}
-				selected={0}
-				name={"rentType"}
-				onChange={() => {}}
+				option={switchOption}
+				defaultValue={switchOption[0].value}
+				selected={rentType}
+				name={'rentType'}
+				onChange={(e) => serializeField(e.target.name, e.target.value)}
 			/>
 
 			<DayRange
-					startDate={'form.startDate'}
-					endDate={'form.endDate'}
+					startDate={startDate}
+					endDate={endDate}
 					name={"startDate"}
-					onChange={(data) => {}}
+					onChange={(data, name) => serializeField(name, data)}
 			/>
 
 			<Select
 				label={"Доставка"}
-				defaultOption={'form.delivery'}
+				defaultOption={selectOption[0].value}
 				options={selectOption}
-				onChange={(select) => {}}
+				onChange={(select) => serializeField('delivery', select)}
 			/>
 		</div>
 	)
