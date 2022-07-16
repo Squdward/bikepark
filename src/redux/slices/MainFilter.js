@@ -39,6 +39,9 @@ const initialState = {
 		},
 	],
 
+	brandsOptions: [],
+	frameSize: [],
+
 	ok: true,
 	showResult: false,
 	errorMessage: "",
@@ -53,9 +56,13 @@ const MainFilter = createSlice({
 			const { name, value } = action.payload;
 
 			state[name] = value;
+		}, 
+		setOptions: (state, action) => {
+			state.brandsOptions = action.payload.brandsOptions
+			state.frameSize = action.payload.frameSize
 		}
 	}
 })
 
-export const { serializeData } = MainFilter.actions;
+export const { serializeData, setOptions } = MainFilter.actions;
 export default MainFilter.reducer
