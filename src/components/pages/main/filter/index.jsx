@@ -1,4 +1,4 @@
-import Bubble from "../../ui/bubble"
+import Bubble from "../../../ui/bubble"
 import style from "./index.module.scss";
 import gifts from "./assets/gifts.png"
 import Options from "./options";

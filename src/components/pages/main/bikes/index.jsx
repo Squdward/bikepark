@@ -1,7 +1,7 @@
 import style from "./index.module.scss";
-import Bubble from "../../ui/bubble";
-import Select from "../../ui/select";
-import BikeCards from "../../ui/bikeCards";
+import Select from "../../../ui/select";
+import Bubble from "../../../ui/bubble"
+import BikeCards from "../../../ui/bikeCards";
 import { useEffect, useState } from "react";
 
 const Bikes = () => {

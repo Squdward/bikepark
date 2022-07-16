@@ -1,8 +1,8 @@
 import style from "./index.module.scss"
-import Bubble from "../../../ui/bubble"
-import Button from "../../../ui/button"
+import Button from "../../../../ui/button"
 import blank from "./assets/blank.png"
-import TypeCards from "../../../ui/typeCards"
+import TypeCards from "../../../../ui/typeCards"
+import Bubble from "../../../../ui/bubble";
 
 const BikeTypes = () => {
 	const TypeCardsData = [
