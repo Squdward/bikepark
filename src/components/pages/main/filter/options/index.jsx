@@ -6,7 +6,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { serializeData } from "../../../../../redux/slices/MainFilter";
 
 const Options = () => {
-	const { rentType, startDate, endDate, switchOption, selectOption } = useSelector( state => state.MainFilter)
+	const { rentType, startDate, endDate } = useSelector( state => state.MainFilter)
+	const { switchOption, selectOption } = useSelector(state => state.Options)
 	const dispatch = useDispatch();
 
 	const serializeField = (name, value) => {

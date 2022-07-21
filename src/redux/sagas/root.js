@@ -1,27 +1,64 @@
 import { takeEvery, put, call } from "redux-saga/effects"
+import Api from "../../utils/api";
 import { setBikes } from "../slices/Bike";
-import { setOptions } from "../slices/MainFilter";
+import { setShowResult } from "../slices/MainFilter";
+import { setOptions } from "../slices/Options";
 
-const getRequest = async (api) => {
-	const request = await fetch(`https://62d1d524d4eb6c69e7e42a57.mockapi.io/${api}`);
-	const data = await request.json();
-	return data
+function* getBikes(val) {
+	const options = val.payload;
+	const params = new URLSearchParams();
+
+	for (let key in options) {
+		const value = options[key]; 
+
+		if (typeof(value) === 'object') {
+
+			for(let keyIn in options[key]) {
+				const valueIn = options[key][keyIn]
+
+				if (valueIn) {
+					
+					params.append('type', keyIn)
+				}
+			}
+		} else {
+			if(value && value !== 'All') {
+				params.append(key, options[key])
+			}
+		}
+	}
+
+	try {
+		const bikes = yield call([Api, Api.get], `/bicycles?${params.toString()}`)
+
+		yield put(setBikes(bikes))
+		yield put(setShowResult(true))
+	} catch (error) {
+		console.error(error)
+	}
 }
 
-export function* workerSaga() {
-	const data = yield call(getRequest, '/Bikes');
-	const options = yield call(getRequest, '/Options')
+function* getOptions() {
+	try {
+		const data = yield call([Api, Api.get], `/options`)
+	
+		yield put(setOptions(data))
+	} catch (error) {
+		console.error(error)		
+	}
+}	
 
-	yield put(setBikes(data))
-	yield put(setOptions(options[0]))
 
-}
 
 export function* watcherSaga() {
-	yield takeEvery('GET_BIKES', workerSaga)
+	yield takeEvery(GET_BIKES, getBikes)
+	yield takeEvery(GET_OPTIONS, getOptions)
 
 }
 
 export default function* rootSaga() {
 	yield watcherSaga()
 }
+
+export const GET_BIKES = 'GET_BIKES'
+export const GET_OPTIONS = 'GET_OPTIONS'
