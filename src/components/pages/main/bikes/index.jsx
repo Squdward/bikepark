@@ -14,7 +14,7 @@ const Bikes = () => {
 	const navigate = useNavigate()
 	const { brandsOptions, frameSizeOptions, } = useSelector(state => state.Options)
 	const { showResult, loading, filter } = useSelector(state => state.MainFilter)
-	const { bikes } = useSelector(state => state.Bikes)
+	const { bikes, selectedBikes } = useSelector(state => state.Bikes)
 	const dispatch = useDispatch();
 
 	const selectHandler = (name, value,) => {
@@ -32,7 +32,7 @@ const Bikes = () => {
 	}
 
 	const pushingToOrderPage = () => {
-		navigate('test')
+		navigate('order')
 	}
 
 	return(
@@ -67,7 +67,7 @@ const Bikes = () => {
 							))}
 						</div>
 
-						<Button onClick={pushingToOrderPage} className={style.Button}>Далее</Button>
+						<Button onClick={pushingToOrderPage} disabled={!selectedBikes.length} className={style.Button}>Далее</Button>
 					</>}
 				</Bubble>
 			}
