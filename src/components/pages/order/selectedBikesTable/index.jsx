@@ -1,4 +1,6 @@
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Navigate } from 'react-router-dom';
 import { setOptionallyItem } from '../../../../redux/slices/Bike';
 import Checkbox from '../../../ui/checkbox';
 import style from './index.module.scss';

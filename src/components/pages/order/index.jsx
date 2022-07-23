@@ -3,16 +3,18 @@ import Bubble from "../../ui/bubble";
 import Configuration from "./configuration";
 import style from "./index.module.scss";
 import SelectedBikesTable from "./selectedBikesTable";
-import {Link} from "react-router-dom"
+import {Link, Navigate} from "react-router-dom"
 import cn from "classnames";
 import { useSelector } from "react-redux";
 
 const Order = () => {
-	const {price} = useSelector( state => state.Bikes)
+	const { price, selectedBikes } = useSelector( state => state.Bikes)
 	const {delivery} = useSelector( state => state.MainFilter);
+
 
 	const deliveryPrice = delivery === "По Адресу" ? "100 AED/день" : "Бесплатно" 
 	return (
+		selectedBikes.length ? 
 		<Layout>
 			<Bubble className={style.Wrapper}>
 				<h1 className={style.Title}>Заявка на аренду велосипедов</h1>
@@ -41,7 +43,7 @@ const Order = () => {
 					</div>
 				</div>
 			</Bubble>
-		</Layout>
+		</Layout> : <Navigate to="/" replace/>
 	)
 }
 
