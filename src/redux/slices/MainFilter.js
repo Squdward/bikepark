@@ -1,10 +1,10 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-	rentType: '',
+	rentType: '2 Часа',
 	startDate: "",
 	endDate: "",
-	delivery: "",
+	delivery: "По Адресу",
 	filter: {
 		type: {
 			Aluminum: false,

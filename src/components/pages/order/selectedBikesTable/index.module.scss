@@ -1,0 +1,79 @@
+.Table {
+	table-layout: fixed;
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.HeadCell {
+	height: 22px;
+	padding-bottom: 10px;
+	font-size: 16px;
+	font-weight: 500;
+	line-height: 22px;
+	color: var(--labelColor);
+	text-align: left;
+
+	&:nth-child(1) {
+		width: 101px;
+	}
+
+	&:nth-child(2) {
+		width: 51.5%;
+		text-align: left;
+	}
+
+	&:nth-child(3),
+	&:nth-child(4),
+	&:nth-child(5) {
+		width: 101px;
+	}
+
+	&:last-child {
+		text-align: right;
+	}
+}
+
+
+.Body {
+	& .Cell {
+		padding-bottom: 30px;
+		font-size: 18px;
+		font-weight: 500;
+		line-height: 22px;
+		color: var(--textColor);
+		text-align: left;
+
+		&:nth-child(2) {
+			padding-right: 4em;
+		}
+
+		&:last-child {
+			text-align: right;
+			font-size: 20px;
+			font-weight: 700;
+			line-height: 22px;
+			color: var(--mainColor);
+		}
+	}
+}
+
+
+.Background {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 60px;
+	height: 43px;
+	padding: 8px 3.5px;
+	border-radius: 5px;
+	background-color: var(--whiteColor);
+
+	& img {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+	}
+}

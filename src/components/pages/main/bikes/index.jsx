@@ -7,7 +7,7 @@ import {useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../../ui/loader";
 import { setFilterOptions } from "../../../../redux/slices/MainFilter";
 import { GET_BIKES } from "../../../../redux/sagas/root";
-import { selectBike } from "../../../../redux/slices/Bike";
+import { removeBike, selectBike } from "../../../../redux/slices/Bike";
 import { useNavigate } from "react-router-dom";
 
 const Bikes = () => {
@@ -27,7 +27,8 @@ const Bikes = () => {
 		dispatch(selectBike(id))
 	}
 
-	const removeBike = (id) => {
+	const deleteBike = (id) => {
+		debugger;
 		dispatch(removeBike(id));
 	}
 
@@ -60,9 +61,10 @@ const Bikes = () => {
 							{!!bikes.length && bikes.map((bike) => (
 								<BikeCards
 									{...bike}
+									isChecked={bike.checked}
 									key={bike.id}
 									addBike={addBike}
-									removeBikes={removeBike}
+									removeBikes={deleteBike}
 								/>
 							))}
 						</div>

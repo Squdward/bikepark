@@ -2,8 +2,8 @@ import style from "./index.module.scss";
 import cn from "classnames";
 import { useState } from "react";
 
-const BikeCards = ({ frameSize,brand,image,name,price,id,addBike,removeBikes, }) => {
-	const [checked, setChecked] = useState(false);
+const BikeCards = ({isChecked, frameSize,brand,image,name,price,id,addBike,removeBikes, }) => {
+	const [checked, setChecked] = useState(isChecked);
 	const [enter, setEnter] = useState(false);
 
 	const placeholder = () => {
