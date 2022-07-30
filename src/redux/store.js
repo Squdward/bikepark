@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import Bikes from "./slices/Bike";
 import MainFilter from "./slices/MainFilter";
 import Options from './slices/Options';
+import Order from './slices/Order';
 import createSagaMiddleware from "redux-saga"
 import rootSaga from './sagas/root';
 
@@ -12,6 +13,7 @@ export const store = configureStore({
 		Bikes,
 		MainFilter,
 		Options,
+		Order,
 	},
 	middleware: (getDefaultMiddleWare) => {
 		return getDefaultMiddleWare({thunk: false}).prepend(SagaMiddleware)

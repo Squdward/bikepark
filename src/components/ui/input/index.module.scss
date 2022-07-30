@@ -1,0 +1,19 @@
+.Input {
+	display: block;
+	width: 100%;
+	height: 60px;
+	padding-left: 20px;
+
+	border: 1px solid var(--borderColor);
+	border-radius: 15px;
+	background-color: var(--whiteColor);
+
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 22px;
+	color: var(--textColor);
+}
+
+.Input::placeholder {
+	color: var(--inptexColor);
+}

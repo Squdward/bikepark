@@ -28,7 +28,6 @@ const Bikes = () => {
 	}
 
 	const deleteBike = (id) => {
-		debugger;
 		dispatch(removeBike(id));
 	}
 

@@ -6,6 +6,7 @@ import SelectedBikesTable from "./selectedBikesTable";
 import {Link, Navigate} from "react-router-dom"
 import cn from "classnames";
 import { useSelector } from "react-redux";
+import Booking from "./booking";
 
 const Order = () => {
 	const { price, selectedBikes } = useSelector( state => state.Bikes)
@@ -13,6 +14,8 @@ const Order = () => {
 
 
 	const deliveryPrice = delivery === "По Адресу" ? "100 AED/день" : "Бесплатно" 
+	const finalPrice = delivery === "По Адресу" ? price + 100 : price;
+
 	return (
 		selectedBikes.length ? 
 		<Layout>
@@ -37,12 +40,14 @@ const Order = () => {
 							</li>
 
 							<li>
-								<span className={style.Label}>Итого</span> <span className={cn(style.Price, style.FinalPrice)}>{price} AED/день</span>
+									<span className={style.Label}>Итого</span> <span className={cn(style.Price, style.FinalPrice)}>{finalPrice} AED/день</span>
 							</li>
 						</ul>
 					</div>
 				</div>
 			</Bubble>
+
+			<Booking/>
 		</Layout> : <Navigate to="/" replace/>
 	)
 }

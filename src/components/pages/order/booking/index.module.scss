@@ -1,0 +1,77 @@
+.Buble {
+    padding: 65px 30px 70px 50px;
+}
+
+.Inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+    margin-bottom: 40px;
+}
+
+.Group {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 23px;
+    padding: 0;
+    border: none;
+}
+
+.Input {
+    margin-bottom: 15px;
+}
+
+.halfWidth {
+    width: calc(50% - 20px) !important;
+}
+
+.Label {
+    margin-bottom: 15px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--labelColor);
+}
+
+.Cell {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    padding: 16px;
+    background-color: var(--whiteColor);
+    border-radius: 15px;
+}
+
+.Hint > div  {
+    transform: translateX(-28%) translateY(93%);
+}
+
+.Rules {
+    padding: 18px 21px;
+    border: 1px solid var(--strokeColor);
+    border-radius: 15px;
+}
+
+.Heading {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--labelColor);
+    margin: 0;
+    margin-bottom: 9px;
+}
+
+.Answer {
+    margin: 0 0 27px 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22.5px;    
+}
+
+.Answer:last-child {
+    margin-bottom: 0;
+}
+
+.Button {
+    margin: 0 auto;
+}

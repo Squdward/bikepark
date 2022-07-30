@@ -5,12 +5,8 @@ import Options from "./options";
 import BikeTypes from "./bikeTypes";
 
 const Filter = () => {
-	const handleSubmit = (e) => {
-		e.preventDefault()
-	};
-
 	return (
-		<form className={style.Form} onSubmit={handleSubmit}>
+		<div className={style.Form}>
 			<Bubble tail={false}>
 				<div className={style.TopLine}>
 					<h1 className={style.Title}>Аренда велосипедов c доставкой</h1>
@@ -22,7 +18,7 @@ const Filter = () => {
 			</Bubble>
 
 			<BikeTypes/>
-		</form>
+		</div>
 	)
 }
 
