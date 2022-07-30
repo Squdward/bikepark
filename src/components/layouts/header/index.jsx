@@ -2,8 +2,17 @@ import style from "./index.module.scss";
 import { Link } from "react-router-dom";
 import logo from "./assets/logo.svg"
 import Button from "../../ui/button";
+import Login from "../../ui/login";
+import { useDispatch } from "react-redux";
+import { openModal } from "../../../redux/slices/Popups";
 
 const Header = () => {
+	const dispatch = useDispatch();
+
+	const setOpen = () => {
+		dispatch(openModal('login'))
+	}
+
 	return (
 		<header className={style.Header}>
 			<Link to="/">
@@ -31,7 +40,7 @@ const Header = () => {
 			</nav>
 
 			<div className={style.Other}>
-				<button className={style.Login}>
+				<button className={style.Login} onClick={setOpen}>
 					<svg
 						width="40"
 						height="40"
@@ -66,6 +75,8 @@ const Header = () => {
 
 				<div className={style.Timer}>12:00</div>
 			</div>
+
+			<Login/>
 		</header>
 	)
 }
