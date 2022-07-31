@@ -3,6 +3,7 @@ import Api from "../../utils/api";
 import { setBikes } from "../slices/Bike";
 import { setShowResult } from "../slices/MainFilter";
 import { setOptions } from "../slices/Options";
+import { authUser, registerUser } from "../slices/User";
 
 function* getBikes(val) {
 	const options = val.payload;
@@ -48,12 +49,45 @@ function* getOptions() {
 	}
 }	
 
+function* loginMe ({payload}) {
+	const response = yield fetch('https://reqres.in/api/login', {
+		method: "POST",
+		body: JSON.stringify(payload),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	const {token} = yield response.json();
+
+	window.localStorage.setItem('token', token)
+
+	yield put(authUser())
+}
+
+function* registerMe({payload}) {
+	const response = yield fetch('https://reqres.in/api/register', {
+		method: "POST",
+		body: JSON.stringify(payload),
+		headers: {
+			'Content-Type': 'application/json'
+		}
+	})
+
+	const { id, token } = yield response.json()
+
+	window.localStorage.setItem('token', token)
+
+	yield put(registerUser(id))
+}
+
 
 
 export function* watcherSaga() {
 	yield takeEvery(GET_BIKES, getBikes)
 	yield takeEvery(GET_OPTIONS, getOptions)
-
+	yield takeEvery(LOGIN, loginMe)
+	yield takeEvery(REGISTER, registerMe)
 }
 
 export default function* rootSaga() {
@@ -62,3 +96,5 @@ export default function* rootSaga() {
 
 export const GET_BIKES = 'GET_BIKES'
 export const GET_OPTIONS = 'GET_OPTIONS'
+export const LOGIN = 'LOGIN'
+export const REGISTER = 'REGISTER'

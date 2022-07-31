@@ -9,6 +9,7 @@
   --mainColor: hsl(216deg 100% 58% / 100%);
   --whiteColor: hsl(0deg 0% 100% / 100%);
   --mainHoverColor: hsl(218deg 100% 50% / 100%);
+  --borderColor: hsl(214, 25%, 89%);
 }
 
 body {

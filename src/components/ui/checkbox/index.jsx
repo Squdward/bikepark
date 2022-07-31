@@ -1,9 +1,10 @@
 import {memo} from "react"
 import style from "./index.module.scss";
+import cn from "classnames";
 
-const Checkbox = memo(({ id, onChange, checked, name, disabled = false, className }) => {
+const Checkbox = memo(({ id, onChange, checked, name, disabled = false, className, label=false, classNameWrapper }) => {
 	return (
-		<label htmlFor={id} className={style.Checkbox}>
+		<label htmlFor={id} className={cn(style.Checkbox, classNameWrapper)}>
 			<input
 				type="checkbox"
 				id={id}
@@ -13,6 +14,7 @@ const Checkbox = memo(({ id, onChange, checked, name, disabled = false, classNam
 				disabled={disabled}
 				className={className}
 			/>
+			{label && <span className={style.Label}>{label}</span>}
 		</label>
 	)
 })

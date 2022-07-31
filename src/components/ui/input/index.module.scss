@@ -17,3 +17,11 @@
 .Input::placeholder {
 	color: var(--inptexColor);
 }
+
+.Label {
+	display: block;
+	margin-bottom: 15px;
+	font-weight: 500;
+	line-height: 22px;
+	color: var(--labelColor);
+}

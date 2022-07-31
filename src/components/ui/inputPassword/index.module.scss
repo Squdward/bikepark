@@ -1,0 +1,18 @@
+.Wrapper {
+	position: relative;
+}
+
+.Eye {
+	position: absolute;
+	right: 13px;
+	top: 46px;
+	width: 42px;
+	height: 42px;
+	background: url('./assets/eyeClose.svg') no-repeat center center / contain;
+	cursor: pointer;
+	transition: all .3s ease;
+	
+	&.Open {
+		background: url('./assets/eyeOpen.svg') no-repeat center center / contain;
+	}
+}

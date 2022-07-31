@@ -4,6 +4,7 @@ import MainFilter from "./slices/MainFilter";
 import Options from './slices/Options';
 import Order from './slices/Order';
 import Popup from './slices/Popups';
+import User from './slices/User';
 import createSagaMiddleware from "redux-saga"
 import rootSaga from './sagas/root';
 
@@ -16,6 +17,7 @@ export const store = configureStore({
 		Options,
 		Order,
 		Popup,
+		User,
 	},
 	middleware: (getDefaultMiddleWare) => {
 		return getDefaultMiddleWare({thunk: false}).prepend(SagaMiddleware)

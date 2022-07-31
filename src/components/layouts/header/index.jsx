@@ -10,12 +10,17 @@ const Header = () => {
 	const dispatch = useDispatch();
 
 	const setOpen = () => {
-		dispatch(openModal('login'))
+		if(false) {
+		
+		} else {
+			dispatch(openModal('login'))
+
+		}
 	}
 
 	return (
 		<header className={style.Header}>
-			<Link to="/">
+			<Link to="/login">
 				<img src={logo} alt={"logo"}/>
 			</Link>
 

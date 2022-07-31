@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import style from "./index.module.scss";
 
-const Popup = ({ children, setClose }) => {
+const Popup = ({ children, setClose, exitOnOverlay=true }) => {
 	const close = (e) => {
 		e.preventDefault();
 		setClose()
@@ -9,6 +9,12 @@ const Popup = ({ children, setClose }) => {
 
 	const closeOnEscape = (e) => {
 		if (e.key === 'Escape') {
+			setClose()
+		}
+	}
+
+	const closeOnOverlay = () => {
+		if (exitOnOverlay) {
 			setClose()
 		}
 	}
@@ -27,7 +33,7 @@ const Popup = ({ children, setClose }) => {
 
 	return (
 		<>
-			<div className={style.Wrapper} onClick={setClose}>
+			<div className={style.Wrapper} onClick={closeOnOverlay}>
 				<div className={style.Body} onClick={e => e.stopPropagation()}>
 					<button href="/" className={style.Close} onClick={close}/>
 					{children}
