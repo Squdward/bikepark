@@ -54,9 +54,9 @@ const BikeTypes = () => {
 		dispatch(setFilterType({name, value: checked}))
 	}
 
-	const getBikes = useMemo(() => {
+	const getBikes = () => {
 		dispatch({ type: GET_BIKES, payload: filter })
-	},[])
+	}
 	
  	useEffect(() => {
 			dispatch({ type: GET_OPTIONS })

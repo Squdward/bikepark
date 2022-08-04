@@ -49,7 +49,7 @@ const Bikes = React.memo(() => {
 								label={"Бренд"}
 								options={brandsOptions}
 								onChange={(val) => selectHandler("brand", val)}
-							/>
+							/> 
 
 							<Select
 								label={"Размер рамы"}
