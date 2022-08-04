@@ -6,7 +6,7 @@ import Bubble from "../../../../ui/bubble";
 import { useDispatch, useSelector } from "react-redux"
 import {GET_BIKES, GET_OPTIONS} from "../../../../../redux/sagas/root.js"
 import {setFilterType} from "../../../../../redux/slices/MainFilter.js"
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 const BikeTypes = () => {
 	const filter = useSelector(state => state.MainFilter.filter)
@@ -54,9 +54,9 @@ const BikeTypes = () => {
 		dispatch(setFilterType({name, value: checked}))
 	}
 
-	const getBikes = () => {
+	const getBikes = useMemo(() => {
 		dispatch({ type: GET_BIKES, payload: filter })
-	}
+	},[])
 	
  	useEffect(() => {
 			dispatch({ type: GET_OPTIONS })

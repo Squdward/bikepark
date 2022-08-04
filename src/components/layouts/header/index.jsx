@@ -3,18 +3,19 @@ import { Link } from "react-router-dom";
 import logo from "./assets/logo.svg"
 import Button from "../../ui/button";
 import Login from "../../ui/login";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../../redux/slices/Popups";
+import cn from "classnames";
+import React, { useState } from "react";
 
-const Header = () => {
+const Header = React.memo(() => {
+	const [visible, setVisible] = useState(false);
+	const {auth} = useSelector(state => state.User)
 	const dispatch = useDispatch();
 
 	const setOpen = () => {
-		if(false) {
-		
-		} else {
+		if (!auth) {
 			dispatch(openModal('login'))
-
 		}
 	}
 
@@ -45,7 +46,7 @@ const Header = () => {
 			</nav>
 
 			<div className={style.Other}>
-				<button className={style.Login} onClick={setOpen}>
+				<button className={style.Login} onClick={setOpen} onMouseOver={() => setVisible(true) } onMouseLeave={() => setVisible(false)}>
 					<svg
 						width="40"
 						height="40"
@@ -74,9 +75,16 @@ const Header = () => {
 							strokeWidth="2"
 						/>
 					</svg>
+
+					<div className={cn(style.Cloud, {
+						[style.Visible]: visible,
+					})}>
+						<Link className={style.Link} to="/me">Личный кабинет</Link>
+						<Link className={style.Link} to="/exit">Выход</Link>
+					</div>
 				</button>
 
-				<Button size="sm">Обратная связь</Button>
+				<Button size="sm" >Обратная связь</Button>
 
 				<div className={style.Timer}>12:00</div>
 			</div>
@@ -84,6 +92,6 @@ const Header = () => {
 			<Login/>
 		</header>
 	)
-}
+})
 
 export default Header;

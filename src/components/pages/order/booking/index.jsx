@@ -7,11 +7,11 @@ import Button from "../../../ui/button";
 import Radio from "../../../ui/radio";
 import { useDispatch, useSelector } from "react-redux";
 import { setValue } from "../../../../redux/slices/Order";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import InputMask from 'react-input-mask';
 import isValid from "../../../../utils/isValid";
 
-const Booking = () => {
+const Booking = React.memo(() => {
 	const { name, phoneNumber, adress, typePay} = useSelector(state => state.Order);
 	const { endDate } = useSelector(state => state.MainFilter);
 	const [disabled, setDisabled] = useState(true);
@@ -115,6 +115,6 @@ const Booking = () => {
 			</>
 		</Bubble>
 	)
-}
+});
 
 export default Booking

@@ -1,4 +1,5 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
+import merge from "lodash.merge"
 /*
 	bike.checked = визуальный показатель в меню что велосипед выбран
 	selectedBikes = выбранные велосипеды
@@ -36,7 +37,7 @@ const Bikes = createSlice({
 			})
 		},
 		setBikes: (state, action) => {
-			state.bikes = action.payload;
+				state.bikes = action.payload
 		},
 		setOptionallyItem: (state, action) => {
 			const {id, checked, name} = action.payload;
@@ -44,6 +45,23 @@ const Bikes = createSlice({
 			bike.optionally[name] = checked
 		}
 	}
+})
+
+ 
+export const AllBikesWithSelected = createSelector(state => state.Bikes, (state) => {
+	const Allbikes = state.bikes;
+	const selected = state.selectedBikes;
+	
+	return Allbikes.map( item => {
+		const index = selected.findIndex( i => i.id === item.id)
+		const find = index !== -1 ? selected[index]: false;
+
+		if(find) {
+			return merge(find, item)
+		}
+
+		return item
+	})
 })
 
 export const { selectBike, removeBike, setBikes, setOptionallyItem } = Bikes.actions;

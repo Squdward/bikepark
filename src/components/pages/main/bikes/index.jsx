@@ -7,14 +7,16 @@ import {useDispatch, useSelector } from "react-redux";
 import { Loader } from "../../../ui/loader";
 import { setFilterOptions } from "../../../../redux/slices/MainFilter";
 import { GET_BIKES } from "../../../../redux/sagas/root";
-import { removeBike, selectBike } from "../../../../redux/slices/Bike";
+import { AllBikesWithSelected, removeBike, selectBike } from "../../../../redux/slices/Bike";
 import { useNavigate } from "react-router-dom";
+import React from "react";
 
-const Bikes = () => {
+const Bikes = React.memo(() => {
 	const navigate = useNavigate()
 	const { brandsOptions, frameSizeOptions, } = useSelector(state => state.Options)
 	const { showResult, loading, filter } = useSelector(state => state.MainFilter)
-	const { bikes, selectedBikes } = useSelector(state => state.Bikes)
+	const {selectedBikes } = useSelector(state => state.Bikes)
+	const bikes = useSelector(AllBikesWithSelected)
 	const dispatch = useDispatch();
 
 	const selectHandler = (name, value,) => {
@@ -74,6 +76,6 @@ const Bikes = () => {
 			}
 		</div>
 	)
-}
+})
 
 export default Bikes

@@ -1,9 +1,10 @@
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setOptionallyItem } from '../../../../redux/slices/Bike';
 import Checkbox from '../../../ui/checkbox';
 import style from './index.module.scss';
 
-const SelectedBikesTable = () => {
+const SelectedBikesTable = React.memo(() => {
   const bikes = useSelector((state) => state.Bikes.selectedBikes);
   const dispatch = useDispatch();
 
@@ -68,6 +69,6 @@ const SelectedBikesTable = () => {
       </table>
     </div>
   );
-};
+});
 
 export default SelectedBikesTable;

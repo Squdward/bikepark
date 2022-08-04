@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSelector, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
 	rentType: '2 Часа',
@@ -49,6 +49,9 @@ const MainFilter = createSlice({
 		}
 	}
 })
+export const filters = createSelector(state => state.MainFilter, (items) => {
+	return items
+});
 
 export const { serializeData, setFilterType, setLoading, setShowResult, setFilterOptions } = MainFilter.actions;
 export default MainFilter.reducer

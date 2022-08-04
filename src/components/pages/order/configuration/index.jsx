@@ -1,7 +1,8 @@
+import React from "react"
 import { useSelector } from "react-redux"
 import style from "./index.module.scss"
 
-const Configuration = () => {
+const Configuration = React.memo(() => {
 	const { rentType, startDate, endDate, delivery } = useSelector(state => state.MainFilter)
 	const options = { hour: 'numeric', minute: 'numeric' }
 	const start = new Date(startDate).toLocaleDateString('ru-RU', options);
@@ -27,6 +28,6 @@ const Configuration = () => {
 			</div>
 		</div>
 	)
-}
+})
 
 export default Configuration
