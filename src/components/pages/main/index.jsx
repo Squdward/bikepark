@@ -17,7 +17,7 @@ const Main = () => {
 	}, [])
 	
 	return (
-		<Layout>
+		<Layout title={'Главная'}>
 			<Filter/>
 			<Bikes/>
 		</Layout>

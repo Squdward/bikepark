@@ -18,7 +18,7 @@ const Order = () => {
 
 	return (
 		selectedBikes.length ? 
-		<Layout>
+		<Layout title="Заказы">
 			<Bubble className={style.Wrapper}>
 				<h1 className={style.Title}>Заявка на аренду велосипедов</h1>
 
