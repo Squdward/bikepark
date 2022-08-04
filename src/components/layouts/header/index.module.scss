@@ -103,6 +103,7 @@
 	border: 1px solid var(--borderColor);
 	border-radius: 15px;
 	opacity: 0;
+	visibility: hidden;
 	transition: all .3s ease;
 	
 	& .Link {
@@ -125,6 +126,7 @@
 
 	&.Visible {
 		opacity: 1;
+		visibility: visible;
 	}
 }
 
