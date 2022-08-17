@@ -1,0 +1,46 @@
+.Wrapper {}
+
+.Table {
+	// remove after
+	margin-left: -3px;
+	margin-top: -3px;
+	width: 100%;
+	table-layout: fixed;
+
+	& th {
+		text-align: left;
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 22px;
+		color: hsla(227, 18%, 72%, 1);
+		padding-bottom: 13px;
+	}
+
+	&>thead>th {
+		&:nth-child(1) {
+			width: 36%;
+		}
+
+		&:nth-child(2) {
+			width: 13%;
+			text-align: right;
+		}
+
+		&:nth-child(3) {
+			width: 17%;
+			text-align: right;
+		}
+
+		&:nth-child(4) {
+			width: 17.5%;
+
+			text-align: right;
+		}
+
+		&:nth-child(5) {
+			width: auto;
+
+			text-align: right;
+		}
+	}
+}

@@ -44,4 +44,16 @@
 	&.Full {
 		width: 100%;
 	}
+
+	&.Ghost {
+		color: var(--mainColor);
+		border: 1px solid var(--mainColor);
+		background-color: transparent;
+
+		&:hover,
+		&:focus {
+			background-color: var(--mainHoverColor);
+			color: white;
+		}
+	}
 }

@@ -1,0 +1,150 @@
+.Row {
+	position: relative;
+	cursor: pointer;
+
+	&>td {
+		padding-top: 12px;
+		padding-bottom: 12px;
+		font-size: 18px;
+		font-weight: 600;
+		line-height: 22px;
+		text-align: right;
+		border-bottom: 1px solid #DDE3EB;
+
+		&:first-child {
+			padding-left: 31px;
+			text-align: left;
+
+			&::before {
+				content: "";
+				position: absolute;
+				top: 25px;
+				left: 0;
+				width: 10px;
+				height: 10px;
+				background: url("./assets/arrow.svg") no-repeat center center / contain;
+
+			}
+		}
+	}
+
+}
+
+
+.SuperCell {
+}
+
+.Wrapper {
+	padding-top: 6px;
+	padding-left: 28px;
+}
+
+.SecondTable {
+	width: 100%;
+	table-layout: fixed;
+	border-bottom: 1px solid #DDE3EB;
+
+	&>thead>th {
+		text-align: left;
+		padding-bottom: 7px;
+
+		&:nth-child(1) {
+			width: 52%;
+		}
+
+		&:nth-child(2) {
+			width: 15%;
+			text-align: right;
+		}
+
+		&:nth-child(3) {
+			width: 18%;
+			text-align: right;
+		}
+
+		&:nth-child(4) {
+			width: 17.5%;
+
+			text-align: right;
+		}
+	}
+
+	& td {
+		font-size: 16px;
+		font-weight: 500;
+		line-height: 20px;
+		text-align: right;
+		padding-bottom: 14px;
+
+		&:first-child {
+			text-align: left;
+		}
+	}
+
+	& > tr {
+		&:last-child {
+			& td {
+				padding-bottom: 28px;
+			}
+		}
+	}
+}
+
+.Footer {
+	margin-top: 14px;
+	border-bottom: 1px solid #DDE3EB;
+	padding-bottom: 40px;
+}
+
+.Inner {
+	.Cell {
+		display: flex;
+		justify-content: flex-end;
+		margin-bottom: 11px;
+
+		span {
+			display: block;
+			text-align: right;
+			font-weight: 500;
+
+			&:nth-child(1) {
+				width: 17.5%;
+				color: var(--labelColor);
+			}
+
+			&:nth-child(2) {
+				width: 16.5%;
+			}
+		}
+
+		&.Price {
+			font-size: 18px;
+		}
+	}
+}
+
+.Info {
+	// display: flex;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 10px;
+}
+
+.List {
+	font-weight: 500;
+	line-height: 22px;
+	& > div {
+		margin-bottom: 14px;
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.Buttons {
+	display: flex;
+	align-items: flex-end;
+	justify-content: space-between;
+	grid-gap: 40px;
+}

@@ -1,0 +1,26 @@
+.Status {
+	--mainColor: black;
+	display: inline-block;
+	padding: 6px 14px;
+	border: 1px solid black;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 600;
+	line-height: 22px;
+	text-transform: uppercase;
+	color: var(--mainColor);
+	border-color: var(--mainColor);
+
+	&.inProgress{
+		--mainColor: hsla(25, 100%, 50%, 1);
+	}
+	&.Delivery{
+		--mainColor: hsla(43, 100%, 46%, 1)
+	}
+	&.inWork{
+		--mainColor: hsla(126, 64%, 44%, 1);
+	}
+	&.Finish{
+		--mainColor: hsla(218, 51%, 16%, 1);
+	}
+}

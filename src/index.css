@@ -3,7 +3,7 @@
 :root {
   --textColor: hsl(218deg 51% 16% / 100%);
   --inptexColor: hsl(227deg 15% 52% / 100%);
-  --labelColor: hsl(226deg 18% 72% / 100%);
+  --labelColor: hsl(226, 17%, 72%);
   --strokeColor: hsl(214deg 26% 89% / 100%);
   --backgroundColor: hsl(216deg 24% 96% / 100%);
   --mainColor: hsl(216deg 100% 58% / 100%);
