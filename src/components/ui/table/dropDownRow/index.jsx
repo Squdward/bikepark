@@ -3,7 +3,8 @@ import Status from "../../status";
 import style from "./index.module.scss";
 import cn from "classnames";
 import Button from "../../button";
-
+import { useDispatch } from "react-redux/es/exports";
+import { DELETE_ORDER } from "../../../../redux/sagas/root";
 /*
 	number: string | number,
 	dataOrder: string,
@@ -14,13 +15,14 @@ import Button from "../../button";
 
 const DropDownRow = (props) => {
 	const [open, setOpen] = useState(false);
+	const dispatch = useDispatch()
 
 	const cancelOrder = () => {
 		// post запрос на удаление 
-
-		setTimeout(() => {
-			alert('Отменен')
-		}, 1000)
+		const answer = window.confirm('Вы уверены, что хотите отменить заказ? Это действие нельзя будет отменить.');
+		if(answer) {
+			dispatch({type: DELETE_ORDER, payload: props.id})
+		} 
 	}
 
 	const extendOrder = () => {
@@ -79,7 +81,7 @@ const DropDownRow = (props) => {
 										<div>Тип оплаты: {props.payType}</div>
 										<div>Тип доставки: {props.delivery}</div>
 									</div>
-									{props.status !== 4 ? <div className={style.Buttons}>
+									{props.status !== 3 ? <div className={style.Buttons}>
 										<Button size={'full'} onClick={cancelOrder} type="ghost">Отменить заказ</Button>
 										<Button size={'full'} onClick={extendOrder}>Продлить аренду</Button>
 									</div>: ''}

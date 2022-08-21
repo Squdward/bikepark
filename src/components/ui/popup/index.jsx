@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import style from "./index.module.scss";
 
-const Popup = ({ children, setClose, exitOnOverlay=true }) => {
+const Popup = ({ children, setClose, exitOnOverlay=true, isDialog=false, }) => {
 	const close = (e) => {
 		e.preventDefault();
 		setClose()
@@ -35,7 +35,7 @@ const Popup = ({ children, setClose, exitOnOverlay=true }) => {
 		<>
 			<div className={style.Wrapper} onClick={closeOnOverlay}>
 				<div className={style.Body} onClick={e => e.stopPropagation()}>
-					<button href="/" className={style.Close} onClick={close}/>
+					{!isDialog && <button href="/" className={style.Close} onClick={close}/>}
 					{children}
 				</div>
 			</div>

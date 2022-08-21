@@ -176,7 +176,7 @@
   "orders": {
     "currentOrders": [
       {
-        "id": 1,
+        "id": 13718,
         "number": "12345",
         "dataOrder": "20.08.2022",
         "fullPrice": 300,
@@ -212,7 +212,7 @@
         ]
       },
       {
-        "id": 2,
+        "id": 9051,
         "number": "4418",
         "dataOrder": "18.08.2022",
         "fullPrice": 300,
@@ -244,12 +244,12 @@
     ],
     "finaledOrders": [
       {
-        "id": 1,
+        "id": 1490,
         "number": "12345",
         "dataOrder": "20.08.2022",
         "fullPrice": 300,
-        "isPaid": "Не оплачен",
-        "status": 0,
+        "isPaid": "Оплачен",
+        "status": 3,
         "rentType": "2h",
         "rentStart": "20.08.2022",
         "rentEnd": "22.08.2022",
@@ -280,5 +280,15 @@
         ]
       }
     ]
-  }
+  },
+  "user": [
+    {
+      "name": "Ilya",
+      "email": "awesome.twest@yandex.ru",
+      "password": "****",
+      "phone": "375445477718",
+      "adress": "улица Бобруйская",
+      "id": 1
+    }
+  ]
 }

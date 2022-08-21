@@ -21,7 +21,7 @@ const Header = React.memo(() => {
 
 	return (
 		<header className={style.Header}>
-			<Link to="/login">
+			<Link to="/">
 				<img src={logo} alt={"logo"}/>
 			</Link>
 

@@ -3,7 +3,7 @@ import Api from "../../utils/api";
 import { setBikes } from "../slices/Bike";
 import { setShowResult } from "../slices/MainFilter";
 import { setOptions } from "../slices/Options";
-import { authUser, registerUser, setOrders } from "../slices/User";
+import { authUser, registerUser, setOrders, setPersonal } from "../slices/User";
 
 function* getBikes(val) {
 	const options = val.payload;
@@ -83,13 +83,42 @@ function* registerMe({payload}) {
 
 function* getOrders() {
 	try {
-		const response = yield call([Api, Api.get], `orders`);
+		const response = yield call([Api, Api.get], `orders/`);
 
 		yield put(setOrders(response))
 	} catch (error) {
 		console.log(error)
 	}
 }
+
+function* removeOrder({ payload }) {
+	try {
+		yield call([Api, Api.delete], `orders.?id=${payload}`);
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+
+function* getPersonal({payload}) {
+	try {
+		const response = yield call([Api, Api.get], `user/${payload}`);
+
+		yield put(setPersonal(response))
+	} catch (error) {
+		console.log(error)
+	}
+}
+
+function* updatePersonal({payload}) {
+	try {
+		// В идеале здесь нужен именно put запроса, но мне лень сравнивать два объекта
+		yield call([Api, Api.update], `user/1`, payload);
+	} catch (error) {
+		console.log(error)
+	}
+}
+
 
 
 
@@ -99,6 +128,9 @@ export function* watcherSaga() {
 	yield takeEvery(LOGIN, loginMe)
 	yield takeEvery(REGISTER, registerMe)
 	yield takeEvery(GET_ORDERS, getOrders)
+	yield takeEvery(DELETE_ORDER, removeOrder)
+	yield takeEvery(GET_PERSONAL, getPersonal)
+	yield takeEvery(UPDATE_PERSONAL, updatePersonal)
 
 }
 
@@ -111,3 +143,6 @@ export const GET_OPTIONS = 'GET_OPTIONS'
 export const LOGIN = 'LOGIN'
 export const REGISTER = 'REGISTER'
 export const GET_ORDERS = 'GET_ORDERS'
+export const DELETE_ORDER = 'DELETE_ORDER'
+export const GET_PERSONAL = 'GET_PERSONAL'
+export const UPDATE_PERSONAL = 'UPDATE_PERSONAL'

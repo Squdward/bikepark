@@ -5,6 +5,7 @@ import './App.css';
 import Main from './components/pages/main';
 import Me from './components/pages/me';
 import Order from './components/pages/order';
+import { GET_PERSONAL } from './redux/sagas/root';
 import { authUser } from './redux/slices/User';
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
 
     if(token) {
       dispatch(authUser())
+      dispatch({ type: GET_PERSONAL, payload: 1 })
     }
   },[])
 

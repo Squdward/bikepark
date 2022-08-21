@@ -13,6 +13,7 @@ import isValid from "../../../../utils/isValid";
 
 const Booking = React.memo(() => {
 	const { name, phoneNumber, adress, typePay} = useSelector(state => state.Order);
+	const auth = useSelector(state => state.User.auth)
 	const { endDate } = useSelector(state => state.MainFilter);
 	const [disabled, setDisabled] = useState(true);
 	const dispatch = useDispatch();

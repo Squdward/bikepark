@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import {User} from "./User";
 
 const initialState = {
 	name: "",
@@ -16,6 +17,14 @@ const Order = createSlice({
 		setValue: (state, action) => {
 			const {name, value} = action.payload;
 			state[name] = value;
+		}
+	}, 
+	extraReducers: {
+		[User.actions.setPersonal]: (state, action) => {
+			const { adress, name, phone } = action.payload
+			state.adress = adress
+			state.name = name
+			state.phoneNumber = phone
 		}
 	}
 })

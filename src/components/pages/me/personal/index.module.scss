@@ -1,0 +1,19 @@
+.Content {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 39px;
+	margin-bottom: 40px;
+}
+
+.Field {
+	& .Disabled {
+		height: 22px;
+		background: none;
+		padding-left: 0;
+		border: none;
+		border-radius: 0;
+		& + span {
+			display: none;
+		}
+	}
+}

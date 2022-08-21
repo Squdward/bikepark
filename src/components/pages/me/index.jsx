@@ -1,22 +1,36 @@
+import { useEffect } from "react";
 import Layout from "../../layouts/layout"
 import Bubble from "../../ui/bubble"
 import Tabs from "../../ui/tabs"
-import CurrentOrder from "./currentOrder";
 import style from "./index.module.scss";
+import { useDispatch, useSelector } from "react-redux/es/exports";
+import { GET_ORDERS } from "../../../redux/sagas/root";
+import Table from "../../ui/table";
+import Personal from "./personal";
+import Dialog from "../../ui/dialog";
 
 const Me = () => {
+	const { currentOrders, finaledOrders } = useSelector(state => state.User.orders);
+	const {CancelOrder} = useSelector(state => state.Popup)
+	const personal = useSelector( state => state.User.personal)
+	const dispatch = useDispatch();
+
+	useEffect(() => {
+		dispatch({ type: GET_ORDERS, })
+	}, [])
+
 	const TabList = [
 		{
 			placeholder: 'Текущие заказы',
-			content: () => <CurrentOrder/>
+			content: () => <Table List={currentOrders}/>
 		},
 		{
 			placeholder: 'Выполненные заказы',
-			content: () => <div>Выполненные заказы</div>
+			content: () => <Table List={finaledOrders}/>
 		},
 		{
 			placeholder: 'Личные данныe',
-			content: () => <div>Личные данные</div>
+			content: () => <Personal {...personal}/>
 		},
 	]
 
@@ -32,6 +46,7 @@ const Me = () => {
 					/>
 				</div>
 			</Bubble>
+			{CancelOrder && <Dialog/>}
 		</Layout>
 	)
 }
