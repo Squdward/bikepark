@@ -3,7 +3,7 @@ import Api from "../../utils/api";
 import { setBikes } from "../slices/Bike";
 import { setShowResult } from "../slices/MainFilter";
 import { setOptions } from "../slices/Options";
-import { authUser, registerUser } from "../slices/User";
+import { authUser, registerUser, setOrders } from "../slices/User";
 
 function* getBikes(val) {
 	const options = val.payload;
@@ -81,6 +81,16 @@ function* registerMe({payload}) {
 	yield put(registerUser(id))
 }
 
+function* getOrders() {
+	try {
+		const response = yield call([Api, Api.get], `orders`);
+
+		yield put(setOrders(response))
+	} catch (error) {
+		console.log(error)
+	}
+}
+
 
 
 export function* watcherSaga() {
@@ -88,6 +98,8 @@ export function* watcherSaga() {
 	yield takeEvery(GET_OPTIONS, getOptions)
 	yield takeEvery(LOGIN, loginMe)
 	yield takeEvery(REGISTER, registerMe)
+	yield takeEvery(GET_ORDERS, getOrders)
+
 }
 
 export default function* rootSaga() {
@@ -98,3 +110,4 @@ export const GET_BIKES = 'GET_BIKES'
 export const GET_OPTIONS = 'GET_OPTIONS'
 export const LOGIN = 'LOGIN'
 export const REGISTER = 'REGISTER'
+export const GET_ORDERS = 'GET_ORDERS'

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit"
 const initialState = {
 	id: null,
 	auth: false,
+	orders: [],
 }
 
 const User = createSlice({
@@ -20,9 +21,12 @@ const User = createSlice({
 		registerUser: (state, action) => {
 			state.auth = true;
 			state.id = action.payload;
+		},
+		setOrders: (state, action) => {
+			state.orders = action.payload
 		}
 	}
 })
 
-export const { authUser, deAuthUser, registerUser } = User.actions
+export const { authUser, deAuthUser, registerUser, setOrders } = User.actions
 export default User.reducer

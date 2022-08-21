@@ -4,17 +4,40 @@ import style from "./index.module.scss";
 import cn from "classnames";
 import Button from "../../button";
 
-const DropDownRow = () => {
+/*
+	number: string | number,
+	dataOrder: string,
+	fullPrice: number,
+	isPaid: string,
+	status: 0 | 1 | 2 | 3 | 4
+*/
+
+const DropDownRow = (props) => {
 	const [open, setOpen] = useState(false);
+
+	const cancelOrder = () => {
+		// post запрос на удаление 
+
+		setTimeout(() => {
+			alert('Отменен')
+		}, 1000)
+	}
+
+	const extendOrder = () => {
+		// редирект на страницу продления
+		setTimeout(() => {
+			alert('Продлена')
+		}, 1000)
+	}
 
 	return (
 		<React.Fragment>
 			<tr className={style.Row} onClick={() => setOpen(!open)}>
-				<td>Заказ № 123423</td>
-				<td>24.07.2021 </td>
-				<td>630 AED</td>
-				<td>Не оплачен</td>
-				<td><Status statusNum={0} /></td>
+				<td>Заказ №{props.number}</td>
+				<td>{props.dataOrder}</td>
+				<td>{props.fullPrice} AED</td>
+				<td>{props.isPaid}</td>
+				<td><Status statusNum={props.status} /></td>
 			</tr>
 
 		{/* Скрытая таблица */}
@@ -29,47 +52,37 @@ const DropDownRow = () => {
 									<th>Количество дней</th>
 									<th>Сумма</th>
 								</thead>
-								<tr>
-									<td>Городской велосипед Schwinn Traveler 20” </td>
-									<td>90 </td>
-									<td>2 </td>
-									<td>180 AED </td>
-								</tr>
-								<tr>
-									<td>Городской велосипед Schwinn Traveler 20” </td>
-									<td>180 </td>
-									<td>2 </td>
-									<td>360 AED </td>
-								</tr>
-								<tr>
-									<td>Городской велосипед Schwinn Traveler 20” </td>
-									<td>45  </td>
-									<td>2 </td>
-									<td>90 AED</td>
-								</tr>
+								{props.order && props.order.map( (item) => (
+									<tr>
+										<td>{item.name}</td>
+										<td>{item.price}</td>
+										<td>{item.days}</td>
+										<td>{item.fullPrice}</td>
+									</tr>
+								))}
 							</table>
 							<div className={style.Footer}>
 								<div className={style.Inner}>
 									<div className={cn(style.Cell, style.Delivery)}>
 										<span>Доставка</span>
-										<span>0 AED</span>
+										<span>{props.deliveryPrice} AED</span>
 									</div>
 									<div className={cn(style.Cell, style.Price)}>
 										<span>Итого</span>
-										<span>300 AED</span>
+										<span>{props.fullPrice} AED</span>
 									</div>
 								</div>
 								<div className={style.Info}>
 									<div className={style.List}>
 										<div>Тип аренды: 2 часа</div>
-										<div>Период аренды: 18.03.21 14:00 – 04.04.21 14:00 </div>
-										<div>Тип оплаты: На месте</div>
-										<div>Тип доставки: Самовывоз</div>
+										<div>Период аренды: {props.rentStart} – {props.rentEnd} </div>
+										<div>Тип оплаты: {props.payType}</div>
+										<div>Тип доставки: {props.delivery}</div>
 									</div>
-									<div className={style.Buttons}>
-										<Button size={'full'} type="ghost">Отменить заказ</Button>
-										<Button size={'full'}>Продлить аренду</Button>
-									</div>
+									{props.status !== 4 ? <div className={style.Buttons}>
+										<Button size={'full'} onClick={cancelOrder} type="ghost">Отменить заказ</Button>
+										<Button size={'full'} onClick={extendOrder}>Продлить аренду</Button>
+									</div>: ''}
 								</div>
 							</div>
 						</div>

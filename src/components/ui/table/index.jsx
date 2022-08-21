@@ -13,9 +13,9 @@ const Table = ({List}) => {
 					<th>Статус</th>
 				</thead>
 				<tbody>
-					<DropDownRow/>
-					<DropDownRow/>
-					<DropDownRow/>
+					{List && List.map( (item) => (
+						<DropDownRow {...item}/>
+					))}
 				</tbody>
 			</table>
 		</div>
