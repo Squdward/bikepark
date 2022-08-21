@@ -1,12 +1,13 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
-import Main from './components/pages/main';
-import Me from './components/pages/me';
-import Order from './components/pages/order';
 import { GET_PERSONAL } from './redux/sagas/root';
 import { authUser } from './redux/slices/User';
+
+const Main = React.lazy(() => import("./components/pages/main"))
+const Order = React.lazy(() => import("./components/pages/order"))
+const Me = React.lazy(() => import("./components/pages/me"))
 
 function App() {
   const dispatch = useDispatch();
