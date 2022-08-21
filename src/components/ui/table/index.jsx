@@ -6,15 +6,17 @@ const Table = ({List}) => {
 		<div className={style.Wrapper}>
 			<table className={style.Table}>
 				<thead>
-					<th>Номер заказа</th>
-					<th>Дата</th>
-					<th>Стоимость</th>
-					<th>Оплата</th>
-					<th>Статус</th>
+					<tr>
+						<th>Номер заказа</th>
+						<th>Дата</th>
+						<th>Стоимость</th>
+						<th>Оплата</th>
+						<th>Статус</th>
+					</tr>
 				</thead>
 				<tbody>
 					{List && List.map( (item) => (
-						<DropDownRow {...item}/>
+						<DropDownRow {...item} key={item.id}/>
 					))}
 				</tbody>
 			</table>

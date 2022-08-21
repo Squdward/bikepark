@@ -22,15 +22,18 @@ const Me = () => {
 	const TabList = [
 		{
 			placeholder: 'Текущие заказы',
-			content: () => <Table List={currentOrders}/>
+			content: () => <Table List={currentOrders}/>,
+			id: 1,
 		},
 		{
 			placeholder: 'Выполненные заказы',
-			content: () => <Table List={finaledOrders}/>
+			content: () => <Table List={finaledOrders}/>,
+			id: 2,
 		},
 		{
 			placeholder: 'Личные данныe',
-			content: () => <Personal {...personal}/>
+			content: () => <Personal {...personal}/>,
+			id: 3,
 		},
 	]
 

@@ -1,6 +1,6 @@
 import style from './index.module.scss';
 import cn from 'classnames';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 const Tabs = ({ defaultValue, tabs }) => {
   const [active, setActive] = useState(defaultValue);
@@ -15,14 +15,14 @@ const Tabs = ({ defaultValue, tabs }) => {
               [style.Active]: active === tab.placeholder,
             })}
             onClick={() => setActive(tab.placeholder)}
-            key={tab.placeholder}>
+            key={tab.id}>
             {tab.placeholder}
           </div>
         ))}
       </div>
 			{/* Render content in tabs */}
       <div className={style.Content}>
-        {tabs.map((tab) => (active === tab.placeholder ? tab.content() : null))}
+        {tabs.map((tab) => (active === tab.placeholder ? <React.Fragment key={tab.id}>{tab.content()}</React.Fragment> : null))}
       </div>
     </div>
   );

@@ -55,7 +55,7 @@ const DropDownRow = (props) => {
 									<th>Сумма</th>
 								</thead>
 								{props.order && props.order.map( (item) => (
-									<tr>
+									<tr key={item.id}>
 										<td>{item.name}</td>
 										<td>{item.price}</td>
 										<td>{item.days}</td>

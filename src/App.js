@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
@@ -23,13 +23,15 @@ function App() {
 
   return (
     <div className="App">
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Main />}/>
-            <Route path="/order" element={<Order />} />
-            <Route path="/me" element={<Me/>} />
-          </Routes>
-        </BrowserRouter>
+      <Suspense fallback="агрузка">
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Main />}/>
+              <Route path="/order" element={<Order />} />
+              <Route path="/me" element={<Me/>} />
+            </Routes>
+          </BrowserRouter>
+          </Suspense>
     </div>
   );
 }
