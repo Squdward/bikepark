@@ -1,6 +1,7 @@
 class ApiCall {
 	constructor() {
-		this.api = 'https://my-json-server.typicode.com/Squdward/json/'
+		// this.api = 'https://my-json-server.typicode.com/Squdward/json/'
+		this.api = 'http://localhost:3001/'
 	}
 
 	async get(url) {

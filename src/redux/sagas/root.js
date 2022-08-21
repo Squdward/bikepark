@@ -30,7 +30,7 @@ function* getBikes(val) {
 	}
 
 	try {
-		const bikes = yield call([Api, Api.get], `/bicycles?${params.toString()}`)
+		const bikes = yield call([Api, Api.get], `bicycles?${params.toString()}`)
 
 		yield put(setBikes(bikes))
 		yield put(setShowResult(true))
@@ -41,7 +41,7 @@ function* getBikes(val) {
 
 function* getOptions() {
 	try {
-		const data = yield call([Api, Api.get], `/options`)
+		const data = yield call([Api, Api.get], `options`)
 	
 		yield put(setOptions(data))
 	} catch (error) {
