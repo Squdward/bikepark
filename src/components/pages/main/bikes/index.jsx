@@ -1,10 +1,6 @@
 import style from "./index.module.scss";
-import Select from "../../../ui/select";
-import Bubble from "../../../ui/bubble"
-import BikeCards from "../../../ui/bikeCards";
-import Button from "../../../ui/button"
+import { BikeCards, Bubble, Button, Loader, Select } from "../../../ui";
 import {useDispatch, useSelector } from "react-redux";
-import { Loader } from "../../../ui/loader";
 import { setFilterOptions } from "../../../../redux/slices/MainFilter";
 import { GET_BIKES } from "../../../../redux/sagas/root";
 import { AllBikesWithSelected, removeBike, selectBike } from "../../../../redux/slices/Bike";

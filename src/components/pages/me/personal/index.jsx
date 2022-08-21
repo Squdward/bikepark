@@ -1,7 +1,5 @@
 import { useState } from "react"
-import Button from "../../../ui/button";
-import Input from "../../../ui/input";
-import InputPassword from "../../../ui/inputPassword";
+import { Button, Input, InputPassword } from "../../../ui";
 import style from "./index.module.scss"
 import cn from "classnames"
 import { useDispatch } from "react-redux/es/exports";

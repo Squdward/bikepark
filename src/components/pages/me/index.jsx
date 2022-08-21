@@ -1,13 +1,10 @@
 import { useEffect } from "react";
 import Layout from "../../layouts/layout"
-import Bubble from "../../ui/bubble"
-import Tabs from "../../ui/tabs"
 import style from "./index.module.scss";
 import { useDispatch, useSelector } from "react-redux/es/exports";
 import { GET_ORDERS } from "../../../redux/sagas/root";
-import Table from "../../ui/table";
 import Personal from "./personal";
-import Dialog from "../../ui/dialog";
+import { Bubble, Dialog, Table, Tabs } from "../../ui";
 
 const Me = () => {
 	const { currentOrders, finaledOrders } = useSelector(state => state.User.orders);

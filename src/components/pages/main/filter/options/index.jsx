@@ -1,9 +1,7 @@
 import style from "./index.module.scss";
-import Switch from "../../../../ui/switch/index";
-import DayRange from "../../../../ui/dayRange";
-import Select from "../../../../ui/select";
 import { useDispatch, useSelector } from "react-redux";
 import { serializeData } from "../../../../../redux/slices/MainFilter";
+import { DayRange, Select, Switch } from "../../../../ui";
 
 const Options = () => {
 	const { rentType, startDate, endDate } = useSelector( state => state.MainFilter)

@@ -1,10 +1,6 @@
 import style from "./index.module.scss";
-import Bubble from "../../../ui/bubble"
-import Hint from "../../../ui/hint"
-import Input from "../../../ui/input";
+import { Bubble, Button, Hint, Input, Radio } from "../../../ui";
 import cn from "classnames";
-import Button from "../../../ui/button";
-import Radio from "../../../ui/radio";
 import { useDispatch, useSelector } from "react-redux";
 import { setValue } from "../../../../redux/slices/Order";
 import React, { useEffect, useState } from "react";
