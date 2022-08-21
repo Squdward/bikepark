@@ -49,10 +49,12 @@ const DropDownRow = (props) => {
 						<div className={style.Wrapper}>
 							<table className={style.SecondTable}>
 								<thead>
-									<th>Велосипеды</th>
-									<th>Цена</th>
-									<th>Количество дней</th>
-									<th>Сумма</th>
+									<tr>
+										<th>Велосипеды</th>
+										<th>Цена</th>
+										<th>Количество дней</th>
+										<th>Сумма</th>
+									</tr>
 								</thead>
 								{props.order && props.order.map( (item) => (
 									<tr key={item.id}>
