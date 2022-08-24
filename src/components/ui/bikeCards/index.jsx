@@ -1,72 +1,85 @@
-import style from "./index.module.scss";
-import cn from "classnames";
-import { useState } from "react";
+import style from "./index.module.scss"
+import cn from "classnames"
+import { useState } from "react"
 
-const BikeCards = ({isChecked, frameSize,brand,image,name,price,id,addBike,removeBikes, }) => {
-	const [checked, setChecked] = useState(isChecked);
-	const [enter, setEnter] = useState(false);
+const BikeCards = ({
+    isChecked,
+    frameSize,
+    brand,
+    image,
+    name,
+    price,
+    id,
+    addBike,
+    removeBikes,
+}) => {
+    const [checked, setChecked] = useState(isChecked)
+    const [enter, setEnter] = useState(false)
 
-	const placeholder = () => {
-		if (checked && !enter) {
-			return "Выбрано";
-		} else if (checked && enter) {
-			return "Отменить выбор";
-		} else {
-			return "Выбрать";
-		}
-	};
+    const placeholder = () => {
+        if (checked && !enter) {
+            return "Выбрано"
+        } else if (checked && enter) {
+            return "Отменить выбор"
+        } else {
+            return "Выбрать"
+        }
+    }
 
-	const onButtonClick = () => {
-		setChecked((val) => !val);
-		setEnter((val) => !val);
+    const onButtonClick = () => {
+        setChecked((val) => !val)
+        setEnter((val) => !val)
 
-		if (checked && enter) {
-			removeBikes(id);
-		} else {
-			addBike(id);
-		}
-	};
+        if (checked && enter) {
+            removeBikes(id)
+        } else {
+            addBike(id)
+        }
+    }
 
-	const mouseOver = () => {
-		if (checked) {
-			setEnter(true);
-		}
-	};
+    const mouseOver = () => {
+        if (checked) {
+            setEnter(true)
+        }
+    }
 
-	const mouseLeave = () => {
-		if (checked) {
-			setEnter(false);
-		}
-	};
+    const mouseLeave = () => {
+        if (checked) {
+            setEnter(false)
+        }
+    }
 
-	return (
-		<div className={style.Card}>
-			<div className={style.TopLine}>
-				<span className={style.FrameSize}>{frameSize}”</span>
-				<span className={style.Brand}>{brand}</span>
-			</div>
+    return (
+        <div className={style.Card}>
+            <div className={style.TopLine}>
+                <span className={style.FrameSize}>{frameSize}”</span>
+                <span className={style.Brand}>{brand}</span>
+            </div>
 
-			<div className={style.Image}>
-				<img src={image} alt={''}/>
-			</div>
+            <div className={style.Image}>
+                <img
+                    src={image}
+                    alt={""}
+                />
+            </div>
 
-			<p className={style.Name}>{name}</p>
+            <p className={style.Name}>{name}</p>
 
-			<p className={style.Price}>{price}</p>
+            <p className={style.Price}>{price}</p>
 
-			<button
-				className={cn(style.Button, {
-					[style.Checked]: checked,
-					[style.Enter]: enter,
-				})}
-				onClick={onButtonClick}
-				onMouseOver={mouseOver}
-				onMouseLeave={mouseLeave}
-			>
-				{placeholder()}
-			</button>
-		</div>
-	)
+            <button
+                className={cn(style.Button, {
+                    [style.Checked]: checked,
+                    [style.Enter]: enter,
+                })}
+                onClick={onButtonClick}
+                onMouseOver={mouseOver}
+                onMouseLeave={mouseLeave}
+            >
+                {placeholder()}
+            </button>
+        </div>
+    )
 }
 
 export default BikeCards

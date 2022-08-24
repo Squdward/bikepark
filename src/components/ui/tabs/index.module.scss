@@ -1,42 +1,42 @@
 .Header {
-	position: relative;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	margin-bottom: 35px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
 }
 
 .Tab {
-	position: relative;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	line-height: 22px;
-	font-weight: 600;
-	padding: 0 10px 23px;
-	font-size: 18px;
-	border-bottom: 1px solid #DDE3EB;
-	cursor: pointer;
-	transition: color .3s ease;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    line-height: 22px;
+    font-weight: 600;
+    padding: 0 10px 23px;
+    font-size: 18px;
+    border-bottom: 1px solid #dde3eb;
+    cursor: pointer;
+    transition: color 0.3s ease;
 
-	&::before {
-		content: "";
-		width: 100%;
-		height: 2px;
-		position: absolute;
-		left: 0;
-		bottom: 0;
-		background-color: var(--mainColor);
-		opacity: 0;
-		transition: all .3s ease;
-	}
+    &::before {
+        content: "";
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        background-color: var(--mainColor);
+        opacity: 0;
+        transition: all 0.3s ease;
+    }
 
-	&.Active {
-		color: var(--mainColor);
+    &.Active {
+        color: var(--mainColor);
 
-		&::before {
-			opacity: 1;
-		}
-	}
+        &::before {
+            opacity: 1;
+        }
+    }
 }

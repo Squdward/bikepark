@@ -1,139 +1,139 @@
 .Header {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 
-	max-width: 1240px;
-	height: 80px;
+    max-width: 1240px;
+    height: 80px;
 
-	margin: 0 auto 40px;
+    margin: 0 auto 40px;
 
-	padding: 0 40px;
+    padding: 0 40px;
 }
 
 .Navigation {
-	padding-left: 35px;
+    padding-left: 35px;
 }
 
 .List {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 
-	margin: 0;
-	padding: 0;
+    margin: 0;
+    padding: 0;
 
-	list-style-type: none;
+    list-style-type: none;
 }
 
 .Link {
-	padding-right: 37px;
+    padding-right: 37px;
 
-	transition: color 0.3s ease;
+    transition: color 0.3s ease;
 
-	outline: none;
+    outline: none;
 
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 20px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
 }
 
 .Link:hover,
 .Link:focus {
-	color: var(--mainColor);
+    color: var(--mainColor);
 }
 
 .Item:last-child .Link {
-	padding-right: 0;
+    padding-right: 0;
 }
 
 .Other {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 
-	flex: 1 1 auto;
+    flex: 1 1 auto;
 
-	justify-content: space-between;
+    justify-content: space-between;
 
-	margin-left: 92px;
+    margin-left: 92px;
 }
 
 .Login {
-	position: relative;
-	cursor: pointer;
+    position: relative;
+    cursor: pointer;
 
-	transition: all 0.3s ease;
+    transition: all 0.3s ease;
 
-	border: none;
-	background-color: transparent;
+    border: none;
+    background-color: transparent;
 }
 
 .Login svg,
 .Login circle,
 .Login path {
-	transition: fill 0.5s ease, stroke 0.5s ease;
+    transition: fill 0.5s ease, stroke 0.5s ease;
 }
 
 .Login:hover svg,
 .Login:focus svg {
-	fill: var(--mainColor);
+    fill: var(--mainColor);
 }
 
 .Login:hover circle,
 .Login:focus circle {
-	stroke: var(--whiteColor);
+    stroke: var(--whiteColor);
 }
 
 .Login:hover path,
 .Login:focus path {
-	stroke: var(--whiteColor);
+    stroke: var(--whiteColor);
 }
 
 .Cloud {
-	position: absolute;
-	left: -11px;
-	top: 54px;
-	z-index: 5;
-	display: flex;
-	align-items: flex-start;
-	justify-content: center;
-	flex-direction: column;
-	width: max-content;
-	padding: 20px;
-	background-color: white;
-	border: 1px solid var(--borderColor);
-	border-radius: 15px;
-	opacity: 0;
-	visibility: hidden;
-	transition: all .3s ease;
-	
-	& .Link {
-		font-size: 14px;
-		margin-bottom: 12px;
+    position: absolute;
+    left: -11px;
+    top: 54px;
+    z-index: 5;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    width: max-content;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid var(--borderColor);
+    border-radius: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
 
-		&:last-child {
-			margin-bottom: 0;	
-		}
-	}
+    & .Link {
+        font-size: 14px;
+        margin-bottom: 12px;
 
-	&::before {
-		content: "";
-		position: absolute;
-		top: -20px;
-		width: 33px;
-		height: 20px;
-		background: url("./assets/triangle.svg") no-repeat center center / cover;
-	}
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
 
-	&.Visible {
-		opacity: 1;
-		visibility: visible;
-	}
+    &::before {
+        content: "";
+        position: absolute;
+        top: -20px;
+        width: 33px;
+        height: 20px;
+        background: url("./assets/triangle.svg") no-repeat center center / cover;
+    }
+
+    &.Visible {
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
 .Timer {
-	letter-spacing: 0.1em;
+    letter-spacing: 0.1em;
 
-	font-size: 37px;
-	font-weight: 700;
-	line-height: 45px;
+    font-size: 37px;
+    font-weight: 700;
+    line-height: 45px;
 }

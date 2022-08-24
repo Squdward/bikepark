@@ -1,85 +1,75 @@
 @import "./assets/fonts/Montserrat/stylesheet.css";
 
 :root {
-  --textColor: hsl(218deg 51% 16% / 100%);
-  --inptexColor: hsl(227deg 15% 52% / 100%);
-  --labelColor: hsl(226, 17%, 72%);
-  --strokeColor: hsl(214deg 26% 89% / 100%);
-  --backgroundColor: hsl(216deg 24% 96% / 100%);
-  --mainColor: hsl(216deg 100% 58% / 100%);
-  --whiteColor: hsl(0deg 0% 100% / 100%);
-  --mainHoverColor: hsl(218deg 100% 50% / 100%);
-  --borderColor: hsl(214, 25%, 89%);
+    --textColor: hsl(218deg 51% 16% / 100%);
+    --inptexColor: hsl(227deg 15% 52% / 100%);
+    --labelColor: hsl(226, 17%, 72%);
+    --strokeColor: hsl(214deg 26% 89% / 100%);
+    --backgroundColor: hsl(216deg 24% 96% / 100%);
+    --mainColor: hsl(216deg 100% 58% / 100%);
+    --whiteColor: hsl(0deg 0% 100% / 100%);
+    --mainHoverColor: hsl(218deg 100% 50% / 100%);
+    --borderColor: hsl(214, 25%, 89%);
 }
 
 body {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 
-  color: var(--textColor);
+    color: var(--textColor);
 
-  font-family:
-    "Montserrat",
-    -apple-system,
-    BlinkMacSystemFont,
-    Segoe UI,
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    Fira Sans,
-    Droid Sans,
-    Helvetica Neue,
-    sans-serif;
+    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Segoe UI,
+        Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+        sans-serif;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 
-  color: inherit;
+    color: inherit;
 }
 
 input {
-  font-family: inherit;
+    font-family: inherit;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 button {
-  font-family: "Montserrat";
+    font-family: "Montserrat";
 }
 
 h1 {
-  margin: 0;
+    margin: 0;
 
-  font-size: 48px;
-  font-weight: 600;
-  line-height: 58px;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 58px;
 }
 
 h2 {
-  margin: 0;
+    margin: 0;
 
-  font-size: 28px;
-  line-height: 31px;
+    font-size: 28px;
+    line-height: 31px;
 }
 
 /* FLATPICKE STYLES */
 .flatpickr-input {
-  width: 260px;
-  height: 60px;
+    width: 260px;
+    height: 60px;
 
-  padding: 0 20px;
+    padding: 0 20px;
 
-  border: 1px solid var(--strokeColor);
+    border: 1px solid var(--strokeColor);
 
-  border-radius: 15px;
-  background-color: var(--whiteColor);
+    border-radius: 15px;
+    background-color: var(--whiteColor);
 
-  font-family: "Montserrat";
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 22px;
+    font-family: "Montserrat";
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
 }

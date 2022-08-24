@@ -1,74 +1,83 @@
-import Input from '../../input';
-import InputMask from 'react-input-mask';
-import style from '../index.module.scss';
-import Button from '../../button/index';
-import { Link } from 'react-router-dom';
-import InputPassword from '../../inputPassword';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { LOGIN } from '../../../../redux/sagas/root';
+import Input from "../../input"
+import InputMask from "react-input-mask"
+import style from "../index.module.scss"
+import Button from "../../button/index"
+import { Link } from "react-router-dom"
+import InputPassword from "../../inputPassword"
+import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { LOGIN } from "../../../../redux/sagas/root"
 
 const LoginTab = () => {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch()
 
-  const [data, setData] = useState({
-    login: '',
-    password: '',
-  });
+    const [data, setData] = useState({
+        login: "",
+        password: "",
+    })
 
-  const changeData = (e) => {
-    const value = e.target.value;
-    const name = e.target.name;
-		
-		setData({ ...data, [name]: value });
-  };
+    const changeData = (e) => {
+        const value = e.target.value
+        const name = e.target.name
 
+        setData({ ...data, [name]: value })
+    }
 
-	const logIn = async () => {
-		try {
-      dispatch({type: LOGIN, payload: {
-        email: data.login || 'eve.holt@reqres.in',
-        password: data.password || 'cityslicka'
-      }})
-		} catch (error) {
-			console.log(error)
-		}
-	}
+    const logIn = async () => {
+        try {
+            dispatch({
+                type: LOGIN,
+                payload: {
+                    email: data.login || "eve.holt@reqres.in",
+                    password: data.password || "cityslicka",
+                },
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
-  return (
-    <div>
-      {/* <InputMask mask={"+375(99)-999-99-99"} label="Номер Телефона*" placeholder="Номер телефона*" name="phoneNumber" value={''} onChange={() => {}} >
+    return (
+        <div>
+            {/* <InputMask mask={"+375(99)-999-99-99"} label="Номер Телефона*" placeholder="Номер телефона*" name="phoneNumber" value={''} onChange={() => {}} >
 				{(inputProps) => <Input {...inputProps} />}
 			</InputMask> */}
 
-      <Input
-        className={style.Input}
-        label="Номер Телефона*"
-        placeholder="Введите номер телефона"
-        name="login"
-        onChange={changeData}
-				value={data.login}
-      />
+            <Input
+                className={style.Input}
+                label="Номер Телефона*"
+                placeholder="Введите номер телефона"
+                name="login"
+                onChange={changeData}
+                value={data.login}
+            />
 
-      <InputPassword
-        className={style.Input}
-        type="password"
-        label="Пароль*"
-        placeholder="Введите пароль"
-        name="password"
-        required
-				onChange={changeData}
-				value={data.password}
-				/>
+            <InputPassword
+                className={style.Input}
+                type="password"
+                label="Пароль*"
+                placeholder="Введите пароль"
+                name="password"
+                required
+                onChange={changeData}
+                value={data.password}
+            />
 
-			<Button className={style.Button} size={'full'} onClick={logIn}>
-        Войти
-      </Button>
-      <Link className={style.Forget} to="/forget">
-        Забыли пароль?
-      </Link>
-    </div>
-  );
-};
+            <Button
+                className={style.Button}
+                size={"full"}
+                onClick={logIn}
+            >
+                Войти
+            </Button>
+            <Link
+                className={style.Forget}
+                to="/forget"
+            >
+                Забыли пароль?
+            </Link>
+        </div>
+    )
+}
 
-export default LoginTab;
+export default LoginTab

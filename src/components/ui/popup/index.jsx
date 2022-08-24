@@ -1,46 +1,63 @@
-import { useEffect } from "react";
-import style from "./index.module.scss";
+import { useEffect } from "react"
+import style from "./index.module.scss"
 
-const Popup = ({ children, setClose, exitOnOverlay=true, isDialog=false, }) => {
-	const close = (e) => {
-		e.preventDefault();
-		setClose()
-	}
+const Popup = ({
+    children,
+    setClose,
+    exitOnOverlay = true,
+    isDialog = false,
+}) => {
+    const close = (e) => {
+        e.preventDefault()
+        setClose()
+    }
 
-	const closeOnEscape = (e) => {
-		if (e.key === 'Escape') {
-			setClose()
-		}
-	}
+    const closeOnEscape = (e) => {
+        if (e.key === "Escape") {
+            setClose()
+        }
+    }
 
-	const closeOnOverlay = () => {
-		if (exitOnOverlay) {
-			setClose()
-		}
-	}
+    const closeOnOverlay = () => {
+        if (exitOnOverlay) {
+            setClose()
+        }
+    }
 
-	useEffect(() => {
-		const body = document.querySelector('body');
+    useEffect(() => {
+        const body = document.querySelector("body")
 
-		window.addEventListener('keydown', closeOnEscape);
+        window.addEventListener("keydown", closeOnEscape)
 
-		body.style.overflow = 'hidden'
-		return () => {
-			window.removeEventListener('keydown', closeOnEscape)
-			body.style.overflow = 'visible'
-		}
-	}, [])
+        body.style.overflow = "hidden"
+        return () => {
+            window.removeEventListener("keydown", closeOnEscape)
+            body.style.overflow = "visible"
+        }
+    }, [])
 
-	return (
-		<>
-			<div className={style.Wrapper} onClick={closeOnOverlay}>
-				<div className={style.Body} onClick={e => e.stopPropagation()}>
-					{!isDialog && <button href="/" className={style.Close} onClick={close}/>}
-					{children}
-				</div>
-			</div>
-		</>
-	)
+    return (
+        <>
+            <div
+                className={style.Wrapper}
+                onClick={closeOnOverlay}
+            >
+                <div
+                    className={style.Body}
+                    onClick={(e) => e.stopPropagation()}
+                >
+                    {!isDialog && (
+                        <button
+                            href="/"
+                            className={style.Close}
+                            onClick={close}
+                        />
+                    )}
+                    {children}
+                </div>
+            </div>
+        </>
+    )
 }
 
 export default Popup

@@ -1,69 +1,69 @@
 .Wrapper {
-	text-align: center;
+    text-align: center;
 
-	padding: 58px 30px 30px !important;
+    padding: 58px 30px 30px !important;
 }
 
 .Title {
-	margin-bottom: 41px;
+    margin-bottom: 41px;
 }
 
 .Result {
-	display: flex;
-	justify-content: space-between;
+    display: flex;
+    justify-content: space-between;
 }
 
 .Return {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 230px;
-	height: 55px;
-	background: url("./assets/button.svg") no-repeat center center / contain;
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 17.6px;
-	color: var(--mainColor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 230px;
+    height: 55px;
+    background: url("./assets/button.svg") no-repeat center center / contain;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 17.6px;
+    color: var(--mainColor);
 
-	& span {
-		width: 133px;
-		margin-right: -20px;
-		text-align: left;
-	}
+    & span {
+        width: 133px;
+        margin-right: -20px;
+        text-align: left;
+    }
 }
 
 .Prices {
-	width: 259px;
+    width: 259px;
 
-	& ul {
-		width: 100%;
-		margin: 0;
-		padding: 0;
-	}
+    & ul {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
 
-	& li {
-		display: flex;
-		justify-content: space-between;
-		margin-bottom: 11px;
-		list-style: none;
-	}
+    & li {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 11px;
+        list-style: none;
+    }
 }
 
 .Label {
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 22px;
-	color: var(--labelColor);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+    color: var(--labelColor);
 }
 
 .Price {
-	margin-left: auto;
-	font-size: 20px;
-	font-weight: 500;
-	line-height: 22px;
+    margin-left: auto;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 22px;
 }
 
 .FinalPrice {
-	font-weight: 700;
-	color: var(--mainColor);
+    font-weight: 700;
+    color: var(--mainColor);
 }

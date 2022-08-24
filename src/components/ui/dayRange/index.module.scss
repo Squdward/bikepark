@@ -1,27 +1,26 @@
 .Container {
-	display: flex;
-	align-items: center;
+    display: flex;
+    align-items: center;
 }
 
-
 .Name {
-	margin: 0 0 15px;
+    margin: 0 0 15px;
 
-	color: var(--labelColor);
+    color: var(--labelColor);
 
-	font-size: 16px;
-	font-weight: 500;
-	line-height: 22px;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
 }
 
 .Dash {
-	display: block;
-	align-self: flex-end;
+    display: block;
+    align-self: flex-end;
 
-	width: 13px;
-	height: 2px;
+    width: 13px;
+    height: 2px;
 
-	margin: 0 13px 30px;
+    margin: 0 13px 30px;
 
-	background-color: #000;
+    background-color: #000;
 }

@@ -1,59 +1,59 @@
 .Button {
-	display: flex;
-	align-items: center;
-	justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-	width: 260px;
-	height: 60px;
+    width: 260px;
+    height: 60px;
 
-	cursor: pointer;
+    cursor: pointer;
 
-	transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease;
 
-	color: var(--whiteColor);
+    color: var(--whiteColor);
 
-	border: none;
-	border-radius: 10px;
+    border: none;
+    border-radius: 10px;
 
-	background-color: var(--mainColor);
+    background-color: var(--mainColor);
 
-	font-size: 20px;
-	font-weight: 700;
-	line-height: 22px;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 22px;
 
-	&:hover,
-	&:focus {
-		background-color: var(--mainHoverColor);
-	}
+    &:hover,
+    &:focus {
+        background-color: var(--mainHoverColor);
+    }
 
-	&:disabled {
-		background-color: var(--strokeColor);
-	}
+    &:disabled {
+        background-color: var(--strokeColor);
+    }
 
-	&.Small {
-		width: 200px;
-		height: 40px;
+    &.Small {
+        width: 200px;
+        height: 40px;
 
-		text-transform: uppercase;
+        text-transform: uppercase;
 
-		font-size: 14px;
-		font-weight: 600;
-		line-height: 17px;
-	}
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 17px;
+    }
 
-	&.Full {
-		width: 100%;
-	}
+    &.Full {
+        width: 100%;
+    }
 
-	&.Ghost {
-		color: var(--mainColor);
-		border: 1px solid var(--mainColor);
-		background-color: transparent;
+    &.Ghost {
+        color: var(--mainColor);
+        border: 1px solid var(--mainColor);
+        background-color: transparent;
 
-		&:hover,
-		&:focus {
-			background-color: var(--mainHoverColor);
-			color: white;
-		}
-	}
+        &:hover,
+        &:focus {
+            background-color: var(--mainHoverColor);
+            color: white;
+        }
+    }
 }
