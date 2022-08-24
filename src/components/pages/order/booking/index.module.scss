@@ -4,17 +4,20 @@
 
 .Inner {
     display: grid;
-    grid-template-columns: 1fr 1fr;
     grid-gap: 40px;
+    grid-template-columns: 1fr 1fr;
+
     margin-bottom: 40px;
 }
 
 .Group {
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
+
     margin-bottom: 23px;
     padding: 0;
+
     border: none;
 }
 
@@ -28,17 +31,21 @@
 
 .Label {
     margin-bottom: 15px;
+
     font-weight: 500;
     line-height: 22px;
-    color: var(--labelColor);
+    color: var(--label-color);
 }
 
 .Cell {
     position: relative;
+
     display: flex;
     justify-content: space-between;
+
     padding: 16px;
-    background-color: var(--whiteColor);
+
+    background-color: var(--white-color);
     border-radius: 15px;
 }
 
@@ -48,21 +55,24 @@
 
 .Rules {
     padding: 18px 21px;
-    border: 1px solid var(--strokeColor);
+
+    border: 1px solid var(--stroke-color);
     border-radius: 15px;
 }
 
 .Heading {
+    margin: 0;
+    margin-bottom: 9px;
+
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
-    color: var(--labelColor);
-    margin: 0;
-    margin-bottom: 9px;
+    color: var(--label-color);
 }
 
 .Answer {
-    margin: 0 0 27px 0;
+    margin: 0 0 27px;
+
     font-size: 16px;
     font-weight: 500;
     line-height: 22.5px;

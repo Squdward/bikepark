@@ -1,19 +1,21 @@
 .Table {
     table-layout: fixed;
-    margin: 0;
-    padding: 0;
     border-collapse: collapse;
+
     width: 100%;
+    margin: 0;
     margin-bottom: 10px;
+    padding: 0;
 }
 
 .HeadCell {
     height: 22px;
     padding-bottom: 10px;
+
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
-    color: var(--labelColor);
+    color: var(--label-color);
     text-align: left;
 
     &:nth-child(1) {
@@ -22,6 +24,7 @@
 
     &:nth-child(2) {
         width: 51.5%;
+
         text-align: left;
     }
 
@@ -39,10 +42,11 @@
 .Body {
     & .Cell {
         padding-bottom: 30px;
+
         font-size: 18px;
         font-weight: 500;
         line-height: 22px;
-        color: var(--textColor);
+        color: var(--text-color);
         text-align: left;
 
         &:nth-child(2) {
@@ -50,11 +54,11 @@
         }
 
         &:last-child {
-            text-align: right;
             font-size: 20px;
             font-weight: 700;
             line-height: 22px;
-            color: var(--mainColor);
+            color: var(--main-color);
+            text-align: right;
         }
     }
 }
@@ -63,15 +67,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 60px;
     height: 43px;
     padding: 8px 3.5px;
+
+    background-color: var(--white-color);
     border-radius: 5px;
-    background-color: var(--whiteColor);
 
     & img {
         width: 100%;
         height: 100%;
+
         object-fit: contain;
     }
 }

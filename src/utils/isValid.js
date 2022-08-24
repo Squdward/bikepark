@@ -19,7 +19,7 @@ const isValid = (val, type) => {
 }
 
 const isValidPhone = (val) => {
-    const reg = /[\(\)\-\_]/g
+    const reg = /[\\\-_]/g
     const formattedValue = val.replace(reg, "")
 
     return formattedValue.length === 13

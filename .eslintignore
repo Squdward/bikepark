@@ -2,3 +2,4 @@ node_modules
 public
 .prettierrc
 package.json
+package-lock.json

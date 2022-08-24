@@ -1,11 +1,11 @@
 .Card {
     padding: 15px;
 
-    border-radius: 15px;
-    background-color: var(--whiteColor);
-
     font-size: 18px;
     line-height: 22px;
+
+    background-color: var(--white-color);
+    border-radius: 15px;
 }
 
 .TopLine {
@@ -14,23 +14,21 @@
 
     margin-bottom: 15px;
 
-    color: var(--labelColor);
+    color: var(--label-color);
 }
 
 .FrameSize {
-    color: inherit;
-
     font-size: inherit;
     font-weight: 800;
     line-height: inherit;
+    color: inherit;
 }
 
 .Brand {
-    color: inherit;
-
     font-size: inherit;
     font-weight: 500;
     line-height: inherit;
+    color: inherit;
 }
 
 .Image {
@@ -41,8 +39,8 @@
     margin-bottom: 13px;
     padding: 24px 26px;
 
-    border-radius: 10px;
     background-color: #f2f4f7;
+    border-radius: 10px;
 
     & img {
         width: 177px;
@@ -61,36 +59,37 @@
 .Price {
     margin-bottom: 0 0 16px 0;
 
-    color: var(--mainColor);
-
     font-size: 20px;
     font-weight: 700;
     line-height: inherit;
+    color: var(--main-color);
 }
 
 .Button {
+    cursor: pointer;
+
     width: 100%;
     height: 40px;
-
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-
-    color: var(--mainColor);
-    border: 1px solid var(--mainColor);
-    border-radius: 10px;
-    background: transparent;
 
     font-size: 16px;
     font-weight: 600;
     line-height: 22px;
+    color: var(--main-color);
+    text-transform: uppercase;
+
+    background: transparent;
+    border: 1px solid var(--main-color);
+    border-radius: 10px;
+
+    transition: all 0.3s ease;
 
     &.Checked {
-        color: var(--whiteColor);
-        background-color: var(--mainColor);
+        color: var(--white-color);
+
+        background-color: var(--main-color);
 
         &.Enter {
-            background-color: var(--mainHoverColor);
+            background-color: var(--main-hover-color);
         }
     }
 }

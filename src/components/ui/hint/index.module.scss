@@ -1,40 +1,39 @@
 .Button {
+    cursor: pointer;
+
     width: 40px;
     height: 40px;
 
-    cursor: pointer;
-
-    border: 1px solid var(--strokeColor);
+    background-color: var(--white-color);
+    border: 1px solid var(--stroke-color);
     border-radius: 10px;
-    background-color: var(--whiteColor);
 }
 
 .Hint {
     position: absolute;
     bottom: 0;
     left: 50%;
-
-    visibility: hidden;
+    transform: translateX(-50%) translateY(112px);
 
     width: 100%;
     padding: 12px;
 
-    transition: all 0.3s ease;
-    transform: translateX(-50%) translateY(112px);
-
-    opacity: 0;
-
-    color: var(--labelColor);
-
-    border: 1px solid var(--strokeColor);
-    border-radius: 15px;
-    background-color: var(--whiteColor);
-
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
+    color: var(--label-color);
+
+    visibility: hidden;
+    opacity: 0;
+    background-color: var(--white-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 15px;
+
+    transition: all 0.3s ease;
 
     &::after {
+        content: "";
+
         position: absolute;
         z-index: -1;
         top: -12px;
@@ -43,14 +42,11 @@
         width: 26px;
         height: 12px;
 
-        content: "";
-
         background: url("./assets/rhomb.svg") no-repeat top / cover;
     }
 
     &.Open {
         visibility: visible;
-
         opacity: 1;
     }
 }

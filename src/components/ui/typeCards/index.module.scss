@@ -21,8 +21,8 @@
 .Body {
     padding: 49px 24px 18px;
 
+    background-color: var(--white-color);
     border-radius: 15px;
-    background-color: var(--whiteColor);
 }
 
 .Material {
@@ -42,17 +42,16 @@
 .Price {
     flex-shrink: 0;
 
-    color: var(--mainColor);
-
     font-size: 20px;
     font-weight: 700;
     line-height: 22px;
+    color: var(--main-color);
 }
 
 .Control {
     display: grid;
-    grid-template-columns: 40px 40px;
     grid-gap: 10px;
+    grid-template-columns: 40px 40px;
 }
 
 .Checkbox {

@@ -2,12 +2,10 @@
     position: relative;
 
     margin-bottom: 34px;
-
     padding: 35px 40px;
 
+    background-color: var(--background-color);
     border-radius: 20px;
-
-    background-color: var(--backgroundColor);
 }
 
 .Bubble:last-child {
@@ -15,15 +13,14 @@
 }
 
 .Tail::before {
-    position: absolute;
+    content: "";
 
+    position: absolute;
     top: -34px;
     left: 40px;
 
     width: 77px;
     height: 34px;
-
-    content: "";
 
     background: url("./assets/tail.svg") no-repeat center center / contain;
 }

@@ -1,47 +1,45 @@
 .Checkbox {
     --transition: 0.3s ease;
 
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-
     cursor: pointer;
 
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+
     & > input {
+        cursor: pointer;
+
         display: flex;
-        align-items: center;
         flex-shrink: 0;
+        align-items: center;
         justify-content: center;
 
         width: 40px;
         height: 40px;
-
         margin: 0;
 
-        cursor: pointer;
-
-        transition: all var(--transition);
-
-        border: 1px solid var(--strokeColor);
+        background-color: var(--white-color);
+        border: 1px solid var(--stroke-color);
         border-radius: 10px;
 
-        background-color: var(--whiteColor);
+        transition: all var(--transition);
 
         appearance: none;
 
         &::before {
+            content: "";
+
             width: 100%;
             height: 100%;
-
-            content: "";
         }
 
         &:checked {
-            border-color: transparent;
             background: url("./assets/done.svg") no-repeat center center / 20px
                 20px;
-            background-color: var(--mainColor);
+            background-color: var(--main-color);
+            border-color: transparent;
 
             &::before {
                 border-color: var(--active-color);
@@ -60,6 +58,7 @@
 
 .Label {
     margin-left: 5px;
+
     font-weight: 500;
     line-height: 22px;
 }

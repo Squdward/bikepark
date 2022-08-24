@@ -1,32 +1,30 @@
 @import "./assets/fonts/Montserrat/stylesheet.css";
 
 :root {
-    --textColor: hsl(218deg 51% 16% / 100%);
-    --inptexColor: hsl(227deg 15% 52% / 100%);
-    --labelColor: hsl(226, 17%, 72%);
-    --strokeColor: hsl(214deg 26% 89% / 100%);
-    --backgroundColor: hsl(216deg 24% 96% / 100%);
-    --mainColor: hsl(216deg 100% 58% / 100%);
-    --whiteColor: hsl(0deg 0% 100% / 100%);
-    --mainHoverColor: hsl(218deg 100% 50% / 100%);
-    --borderColor: hsl(214, 25%, 89%);
+    --text-color: hsl(218deg 51% 16% / 100%);
+    --inptex-color: hsl(227deg 15% 52% / 100%);
+    --label-color: hsl(226deg 17% 72%);
+    --stroke-color: hsl(214deg 26% 89% / 100%);
+    --background-color: hsl(216deg 24% 96% / 100%);
+    --main-color: hsl(216deg 100% 58% / 100%);
+    --white-color: hsl(0deg 0% 100% / 100%);
+    --main-hover-color: hsl(218deg 100% 50% / 100%);
+    --border-color: hsl(214deg 25% 89%);
 }
 
 body {
     margin: 0;
     padding: 0;
 
-    color: var(--textColor);
-
-    font-family: "Montserrat", -apple-system, BlinkMacSystemFont, Segoe UI,
-        Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+    font-family: Montserrat, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue",
         sans-serif;
+    color: var(--text-color);
 }
 
 a {
-    text-decoration: none;
-
     color: inherit;
+    text-decoration: none;
 }
 
 input {
@@ -38,7 +36,7 @@ input {
 }
 
 button {
-    font-family: "Montserrat";
+    font-family: Montserrat, sans-serif;
 }
 
 h1 {
@@ -60,16 +58,14 @@ h2 {
 .flatpickr-input {
     width: 260px;
     height: 60px;
-
     padding: 0 20px;
 
-    border: 1px solid var(--strokeColor);
-
-    border-radius: 15px;
-    background-color: var(--whiteColor);
-
-    font-family: "Montserrat";
+    font-family: Montserrat, sans-serif;
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
+
+    background-color: var(--white-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 15px;
 }

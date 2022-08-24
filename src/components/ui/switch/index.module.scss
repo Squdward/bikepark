@@ -1,70 +1,18 @@
+/* stylelint-disable-line */
 .Name {
     display: block;
 
     margin-bottom: 15px;
 
-    color: var(--labelColor);
-
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
-}
-
-.Switch {
-    --trackWidth: 260px;
-    --trackHeight: 60px;
-    --thumbPosition: 0;
-
-    position: relative;
-
-    display: grid;
-
-    width: var(--trackWidth);
-    height: var(--trackHeight);
-
-    padding: 6px 7px;
-
-    cursor: pointer;
-
-    border: 1px solid var(--strokeColor);
-    border-radius: 15px;
-
-    background-color: var(--whiteColor);
-    grid-template-columns: 1fr 1fr;
-
-    &::before {
-        position: absolute;
-        top: 4px;
-        left: 7px;
-
-        width: calc((var(--trackWidth) - 16px) / 2);
-        height: calc(var(--trackHeight) - 12px);
-
-        content: " ";
-
-        transition: transform 0.3s ease;
-
-        transform: translateX(var(--thumbPosition));
-
-        border-radius: 10px;
-
-        background-color: var(--mainColor);
-    }
-
-    &.Checked {
-        --thumbPosition: 100%;
-
-        & .Option {
-            color: var(--textColor);
-
-            &:nth-child(2) {
-                color: var(--whiteColor);
-            }
-        }
-    }
+    color: var(--label-color);
 }
 
 .Option {
+    cursor: pointer;
+
     position: relative;
     z-index: 2;
 
@@ -72,26 +20,77 @@
     align-items: center;
     justify-content: center;
 
-    cursor: pointer;
-
-    transition: color 0.3s ease;
-
-    color: var(--whiteColor);
-    border-radius: 10px;
-
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;
+    color: var(--white-color);
+
+    border-radius: 10px;
+
+    transition: color 0.3s ease;
+    
+    &:nth-child(2) {
+        color: var(--text-color);
+    }
 
     & input {
         position: absolute;
         z-index: -10;
 
         opacity: 0;
+
         appearance: none;
     }
 
-    &:nth-child(2) {
-        color: var(--textColor);
+   
+}
+
+.Switch {
+    --track-width: 260px;
+    --track-height: 60px;
+    --thumb-position: 0;
+
+    cursor: pointer;
+
+    position: relative;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    width: var(--track-width);
+    height: var(--track-height);
+    padding: 6px 7px;
+
+    background-color: var(--white-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 15px;
+
+    &::before {
+        content: " ";
+
+        position: absolute;
+        top: 4px;
+        left: 7px;
+        transform: translateX(var(--thumb-position));
+
+        width: calc((var(--track-width) - 16px) / 2);
+        height: calc(var(--track-height) - 12px);
+
+        background-color: var(--main-color);
+        border-radius: 10px;
+
+        transition: transform 0.3s ease;
+    }
+
+    &.Checked {
+        --thumb-position: 100%;
+
+        & .Option {
+            color: var(--text-color);
+
+            &:nth-child(2) {
+                color: var(--white-color);
+            }
+        }
     }
 }

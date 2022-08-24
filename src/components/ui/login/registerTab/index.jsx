@@ -44,7 +44,7 @@ const RegisterTab = () => {
     const registerUser = (e) => {
         e.preventDefault()
         const errors = {}
-        const { name, phoneNumber, email, password } = data
+        const { name, phoneNumber, email } = data
 
         if (!isValid(name)) {
             errors.name = "Имя должно иметь более 2х символов"

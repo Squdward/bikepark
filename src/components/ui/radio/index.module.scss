@@ -1,21 +1,41 @@
+.Checkmark {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 32px;
+    height: 32px;
+
+    background-color: var(--white-color);
+    border: 1px solid var(--stroke-color);
+    border-radius: 50%;
+}
+
 .Wrapper {
     display: flex;
     align-items: center;
 
     & input {
-        appearance: none;
         position: absolute;
         z-index: -1;
+
         opacity: 0;
+
+        appearance: none;
 
         &:checked {
             & ~ .Checkmark {
                 &::after {
                     content: "";
+
                     display: block;
+
                     width: 21.33px;
                     height: 21.33px;
-                    background-color: var(--mainColor);
+
+                    background-color: var(--main-color);
                     border-radius: 50%;
                 }
             }
@@ -23,20 +43,10 @@
     }
 }
 
-.Checkmark {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--strokeColor);
-    border-radius: 50%;
-    background-color: var(--whiteColor);
-}
 
 .Label {
     margin-left: 23px;
+
     font-size: 18px;
     font-weight: 500;
     line-height: 22px;

@@ -1,17 +1,20 @@
 .Configuration {
     display: flex;
     justify-content: flex-start;
-    padding: 0 10px;
+
     margin-bottom: 56px;
+    padding: 0 10px;
 }
 
 .Cell {
     &:nth-child(1) {
         margin-right: 199px;
     }
+
     &:nth-child(2) {
         margin-right: 124px;
     }
+
     &:nth-child(3) {
         margin-right: 131px;
     }
@@ -19,12 +22,13 @@
 
 .Name {
     display: block;
+
     margin-bottom: 10px;
 
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
-    color: var(--labelColor);
+    color: var(--label-color);
     text-align: left;
 }
 

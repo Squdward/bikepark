@@ -5,9 +5,7 @@
 
     max-width: 1240px;
     height: 80px;
-
     margin: 0 auto 40px;
-
     padding: 0 40px;
 }
 
@@ -28,18 +26,68 @@
 .Link {
     padding-right: 37px;
 
-    transition: color 0.3s ease;
-
-    outline: none;
-
     font-size: 16px;
     font-weight: 500;
     line-height: 20px;
+
+    outline: none;
+
+    transition: color 0.3s ease;
 }
 
 .Link:hover,
 .Link:focus {
-    color: var(--mainColor);
+    color: var(--main-color);
+}
+
+.Cloud {
+    position: absolute;
+    z-index: 5;
+    top: 54px;
+    left: -11px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: max-content;
+    padding: 20px;
+
+    visibility: hidden;
+    opacity: 0;
+    background-color: white;
+    border: 1px solid var(--border-color);
+    border-radius: 15px;
+
+    transition: all 0.3s ease;
+
+    &::before {
+        content: "";
+
+        position: absolute;
+        top: -20px;
+
+        width: 33px;
+        height: 20px;
+
+        background: url("./assets/triangle.svg") no-repeat center center / cover;
+    }
+
+    & .Link {
+        margin-bottom: 12px;
+
+        font-size: 14px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &.Visible {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 .Item:last-child .Link {
@@ -48,23 +96,22 @@
 
 .Other {
     display: flex;
-    align-items: center;
-
     flex: 1 1 auto;
-
+    align-items: center;
     justify-content: space-between;
 
     margin-left: 92px;
 }
 
 .Login {
-    position: relative;
     cursor: pointer;
 
-    transition: all 0.3s ease;
+    position: relative;
 
-    border: none;
     background-color: transparent;
+    border: none;
+
+    transition: all 0.3s ease;
 }
 
 .Login svg,
@@ -75,65 +122,22 @@
 
 .Login:hover svg,
 .Login:focus svg {
-    fill: var(--mainColor);
+    fill: var(--main-color);
 }
 
 .Login:hover circle,
 .Login:focus circle {
-    stroke: var(--whiteColor);
+    stroke: var(--white-color);
 }
 
 .Login:hover path,
 .Login:focus path {
-    stroke: var(--whiteColor);
-}
-
-.Cloud {
-    position: absolute;
-    left: -11px;
-    top: 54px;
-    z-index: 5;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    width: max-content;
-    padding: 20px;
-    background-color: white;
-    border: 1px solid var(--borderColor);
-    border-radius: 15px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-
-    & .Link {
-        font-size: 14px;
-        margin-bottom: 12px;
-
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    &::before {
-        content: "";
-        position: absolute;
-        top: -20px;
-        width: 33px;
-        height: 20px;
-        background: url("./assets/triangle.svg") no-repeat center center / cover;
-    }
-
-    &.Visible {
-        opacity: 1;
-        visibility: visible;
-    }
+    stroke: var(--white-color);
 }
 
 .Timer {
-    letter-spacing: 0.1em;
-
     font-size: 37px;
     font-weight: 700;
     line-height: 45px;
+    letter-spacing: 0.1em;
 }

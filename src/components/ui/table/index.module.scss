@@ -1,20 +1,21 @@
-.Wrapper {
-}
-
+/* stylelint-disable */
 .Table {
-    // remove after
-    margin-left: -3px;
-    margin-top: -3px;
-    width: 100%;
     table-layout: fixed;
 
+    width: 100%;
+    margin-top: -3px;
+
+    // remove after
+    margin-left: -3px;
+
     & th {
-        text-align: left;
+        padding-bottom: 13px;
+
         font-size: 16px;
         font-weight: 500;
         line-height: 22px;
-        color: hsla(227, 18%, 72%, 1);
-        padding-bottom: 13px;
+        color: hsl(227deg 18% 72% / 100%);
+        text-align: left;
     }
 
     & > thead > th {
@@ -24,11 +25,13 @@
 
         &:nth-child(2) {
             width: 13%;
+
             text-align: right;
         }
 
         &:nth-child(3) {
             width: 17%;
+
             text-align: right;
         }
 

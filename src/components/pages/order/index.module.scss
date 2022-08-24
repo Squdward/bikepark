@@ -1,7 +1,7 @@
 .Wrapper {
-    text-align: center;
-
     padding: 58px 30px 30px !important;
+
+    text-align: center;
 }
 
 .Title {
@@ -17,17 +17,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+
     width: 230px;
     height: 55px;
-    background: url("./assets/button.svg") no-repeat center center / contain;
+
     font-size: 16px;
     font-weight: 500;
     line-height: 17.6px;
-    color: var(--mainColor);
+    color: var(--main-color);
+
+    background: url("./assets/button.svg") no-repeat center center / contain;
 
     & span {
         width: 133px;
         margin-right: -20px;
+
         text-align: left;
     }
 }
@@ -44,7 +48,9 @@
     & li {
         display: flex;
         justify-content: space-between;
+
         margin-bottom: 11px;
+
         list-style: none;
     }
 }
@@ -53,11 +59,12 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
-    color: var(--labelColor);
+    color: var(--label-color);
 }
 
 .Price {
     margin-left: auto;
+
     font-size: 20px;
     font-weight: 500;
     line-height: 22px;
@@ -65,5 +72,5 @@
 
 .FinalPrice {
     font-weight: 700;
-    color: var(--mainColor);
+    color: var(--main-color);
 }

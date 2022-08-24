@@ -1,11 +1,10 @@
 .BlockName {
     margin: 0 0 33px;
 
-    color: var(--labelColor);
-
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
+    color: var(--label-color);
 }
 
 .Button {
@@ -14,8 +13,8 @@
 
 .Type {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 40px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
 
     margin-bottom: 40px;
 }
