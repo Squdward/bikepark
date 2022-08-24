@@ -1,7 +1,8 @@
-import style from "./index.module.scss"
 import { Link } from "react-router-dom"
+
 import fb from "./assets/facebook.svg"
 import inst from "./assets/instagram.svg"
+import style from "./index.module.scss"
 
 const Footer = () => {
     return (

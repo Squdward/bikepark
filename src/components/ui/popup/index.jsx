@@ -1,4 +1,5 @@
 import { useEffect } from "react"
+
 import style from "./index.module.scss"
 
 const Popup = ({

@@ -1,5 +1,6 @@
-import style from "./index.module.scss"
 import cn from "classnames"
+
+import style from "./index.module.scss"
 
 const Button = ({ size, children, className, type, ...props }) => {
     return (

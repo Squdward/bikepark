@@ -1,14 +1,15 @@
+import { useState } from "react"
+import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
+
+import { REGISTER } from "../../../../redux/sagas/root"
+import isEmpty from "../../../../utils/isEmpty"
+import isValid from "../../../../utils/isValid"
+import Button from "../../button"
+import Checkbox from "../../checkbox"
 import Input from "../../input"
 import InputPassword from "../../inputPassword"
 import style from "../index.module.scss"
-import Checkbox from "../../checkbox"
-import Button from "../../button"
-import { Link } from "react-router-dom"
-import { useState } from "react"
-import isValid from "../../../../utils/isValid"
-import isEmpty from "../../../../utils/isEmpty"
-import { useDispatch } from "react-redux"
-import { REGISTER } from "../../../../redux/sagas/root"
 
 const RegisterTab = () => {
     const dispatch = useDispatch()

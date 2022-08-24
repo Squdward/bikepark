@@ -1,10 +1,12 @@
-import { useState } from "react"
-import { Button, Input, InputPassword } from "../../../ui"
-import style from "./index.module.scss"
 import cn from "classnames"
+import { useState } from "react"
 import { useDispatch } from "react-redux/es/exports"
-import { changePersonal } from "../../../../redux/slices/User"
+
+import style from "./index.module.scss"
+
 import { UPDATE_PERSONAL } from "../../../../redux/sagas/root"
+import { changePersonal } from "../../../../redux/slices/User"
+import { Button, Input, InputPassword } from "../../../ui"
 
 const Personal = ({ name, email, password, phone, adress }) => {
     const [isEdit, setIsEdit] = useState(false)

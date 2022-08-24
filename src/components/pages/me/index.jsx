@@ -1,9 +1,14 @@
 import { useEffect } from "react"
-import Layout from "../../layouts/layout"
-import style from "./index.module.scss"
+
 import { useDispatch, useSelector } from "react-redux/es/exports"
-import { GET_ORDERS } from "../../../redux/sagas/root"
+
+import style from "./index.module.scss"
+
 import Personal from "./personal"
+
+import { GET_ORDERS } from "../../../redux/sagas/root"
+
+import Layout from "../../layouts/layout"
 import { Bubble, Dialog, Table, Tabs } from "../../ui"
 
 const Me = () => {

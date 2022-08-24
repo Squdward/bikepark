@@ -1,8 +1,10 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
+
+import style from "./index.module.scss"
+
 import { setOptionallyItem } from "../../../../redux/slices/Bike"
 import { Checkbox } from "../../../ui"
-import style from "./index.module.scss"
 
 const SelectedBikesTable = React.memo(() => {
     const bikes = useSelector((state) => state.Bikes.selectedBikes)

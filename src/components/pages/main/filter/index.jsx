@@ -1,8 +1,9 @@
-import { Bubble } from "../../../ui"
-import style from "./index.module.scss"
 import gifts from "./assets/gifts.png"
-import Options from "./options"
 import BikeTypes from "./bikeTypes"
+import style from "./index.module.scss"
+import Options from "./options"
+
+import { Bubble } from "../../../ui"
 
 const Filter = () => {
     return (

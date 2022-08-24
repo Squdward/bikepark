@@ -1,6 +1,7 @@
-import style from "./index.module.scss"
 import cn from "classnames"
 import React, { useState } from "react"
+
+import style from "./index.module.scss"
 
 const Tabs = ({ defaultValue, tabs }) => {
     const [active, setActive] = useState(defaultValue)

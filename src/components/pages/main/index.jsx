@@ -1,7 +1,10 @@
 import { useEffect } from "react"
+
+import { useDispatch } from "react-redux"
+
 import Bikes from "./bikes"
 import Filter from "./filter"
-import { useDispatch } from "react-redux"
+
 import { serializeData } from "../../../redux/slices/MainFilter"
 import Layout from "../../layouts/layout"
 

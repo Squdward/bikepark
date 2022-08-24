@@ -1,6 +1,7 @@
 import React, { Suspense, useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+
 import "./App.css"
 import { Loader } from "./components/ui"
 import { GET_PERSONAL } from "./redux/sagas/root"

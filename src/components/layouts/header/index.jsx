@@ -1,12 +1,14 @@
-import style from "./index.module.scss"
-import { Link } from "react-router-dom"
-import logo from "./assets/logo.svg"
-import Button from "../../ui/button"
-import Login from "../../ui/login"
-import { useDispatch, useSelector } from "react-redux"
-import { openModal } from "../../../redux/slices/Popups"
 import cn from "classnames"
 import React, { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { Link } from "react-router-dom"
+
+import logo from "./assets/logo.svg"
+import style from "./index.module.scss"
+
+import { openModal } from "../../../redux/slices/Popups"
+import Button from "../../ui/button"
+import Login from "../../ui/login"
 
 const Header = React.memo(() => {
     const [visible, setVisible] = useState(false)

@@ -1,6 +1,7 @@
-import style from "./index.module.scss"
-import { useEffect, useRef, useState } from "react"
 import cn from "classnames"
+import { useEffect, useRef, useState } from "react"
+
+import style from "./index.module.scss"
 
 const Select = ({ options, defaultOption, id, onChange, label, name }) => {
     const [open, setOpen] = useState(false)

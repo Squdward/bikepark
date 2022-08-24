@@ -1,10 +1,12 @@
-import style from "./index.module.scss"
-import blank from "./assets/blank.png"
-import { Bubble, Button, TypeCards } from "../../../../ui"
+import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
+
+import blank from "./assets/blank.png"
+import style from "./index.module.scss"
+
 import { GET_BIKES, GET_OPTIONS } from "../../../../../redux/sagas/root.js"
 import { setFilterType } from "../../../../../redux/slices/MainFilter.js"
-import { useEffect } from "react"
+import { Bubble, Button, TypeCards } from "../../../../ui"
 
 const BikeTypes = () => {
     const filter = useSelector((state) => state.MainFilter.filter)

@@ -1,15 +1,18 @@
-import style from "./index.module.scss"
-import { BikeCards, Bubble, Button, Loader, Select } from "../../../ui"
+import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { setFilterOptions } from "../../../../redux/slices/MainFilter"
+
+import { useNavigate } from "react-router-dom"
+
+import style from "./index.module.scss"
+
 import { GET_BIKES } from "../../../../redux/sagas/root"
 import {
     AllBikesWithSelected,
     removeBike,
     selectBike,
 } from "../../../../redux/slices/Bike"
-import { useNavigate } from "react-router-dom"
-import React from "react"
+import { setFilterOptions } from "../../../../redux/slices/MainFilter"
+import { BikeCards, Bubble, Button, Loader, Select } from "../../../ui"
 
 const Bikes = React.memo(() => {
     const navigate = useNavigate()

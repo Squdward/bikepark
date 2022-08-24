@@ -1,11 +1,15 @@
-import style from "./index.module.scss"
-import { Bubble, Button, Hint, Input, Radio } from "../../../ui"
 import cn from "classnames"
-import { useDispatch, useSelector } from "react-redux"
-import { setValue } from "../../../../redux/slices/Order"
+
 import React, { useEffect, useState } from "react"
 import InputMask from "react-input-mask"
+import { useDispatch, useSelector } from "react-redux"
+
+import style from "./index.module.scss"
+
+import { setValue } from "../../../../redux/slices/Order"
+
 import isValid from "../../../../utils/isValid"
+import { Bubble, Button, Hint, Input, Radio } from "../../../ui"
 
 const Booking = React.memo(() => {
     const { name, phoneNumber, adress, typePay } = useSelector(

@@ -1,7 +1,8 @@
 import "flatpickr/dist/themes/airbnb.css"
-import style from "./index.module.scss"
-import Flatpickr from "react-flatpickr"
 import cn from "classnames"
+import Flatpickr from "react-flatpickr"
+
+import style from "./index.module.scss"
 
 const DayRange = ({ startDate, endDate, onChange }) => {
     return (

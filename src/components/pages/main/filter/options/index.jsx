@@ -1,5 +1,7 @@
-import style from "./index.module.scss"
 import { useDispatch, useSelector } from "react-redux"
+
+import style from "./index.module.scss"
+
 import { serializeData } from "../../../../../redux/slices/MainFilter"
 import { DayRange, Select, Switch } from "../../../../ui"
 

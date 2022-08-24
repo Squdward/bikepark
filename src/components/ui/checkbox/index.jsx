@@ -1,6 +1,7 @@
-import { memo } from "react"
-import style from "./index.module.scss"
 import cn from "classnames"
+import { memo } from "react"
+
+import style from "./index.module.scss"
 
 const Checkbox = memo(
     ({

@@ -1,7 +1,9 @@
-import Input from "../input"
-import style from "./index.module.scss"
 import cn from "classnames"
 import { useState } from "react"
+
+import style from "./index.module.scss"
+
+import Input from "../input"
 
 const InputPassword = (props) => {
     const [type, setType] = useState(props.type)

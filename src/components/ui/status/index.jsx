@@ -1,5 +1,6 @@
-import style from "./index.module.scss"
 import cn from "classnames"
+
+import style from "./index.module.scss"
 
 const Status = ({ statusNum }) => {
     const statusLabel = ["В обработке", "доставляется", "в работе", "завершен"]

@@ -1,9 +1,12 @@
 import { useDispatch, useSelector } from "react-redux"
+
+import LoginTab from "./loginTab"
+
+import RegisterTab from "./registerTab"
+
 import { closeModal } from "../../../redux/slices/Popups"
 import Popup from "../popup"
 import Tabs from "../tabs"
-import LoginTab from "./loginTab"
-import RegisterTab from "./registerTab"
 
 const Login = () => {
     const { login } = useSelector((state) => state.Popup)

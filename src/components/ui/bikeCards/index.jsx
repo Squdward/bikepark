@@ -1,6 +1,7 @@
-import style from "./index.module.scss"
 import cn from "classnames"
 import { useState } from "react"
+
+import style from "./index.module.scss"
 
 const BikeCards = ({
     isChecked,

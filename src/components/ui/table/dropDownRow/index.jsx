@@ -1,10 +1,13 @@
-import React, { useState } from "react"
-import Status from "../../status"
-import style from "./index.module.scss"
 import cn from "classnames"
-import Button from "../../button"
+import React, { useState } from "react"
+
 import { useDispatch } from "react-redux/es/exports"
+
+import style from "./index.module.scss"
+
 import { DELETE_ORDER } from "../../../../redux/sagas/root"
+import Button from "../../button"
+import Status from "../../status"
 /*
 	number: string | number,
 	dataOrder: string,

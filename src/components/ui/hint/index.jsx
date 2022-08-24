@@ -1,7 +1,10 @@
-import style from "./index.module.scss"
 import cn from "classnames"
-import question from "./assets/question.svg"
+
 import { useRef, useState } from "react"
+
+import question from "./assets/question.svg"
+import style from "./index.module.scss"
+
 import useClickOutside from "../../../hooks/useClickOutside"
 
 const Hint = ({ children, className }) => {

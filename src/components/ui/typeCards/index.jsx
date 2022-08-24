@@ -1,6 +1,7 @@
+import style from "./index.module.scss"
+
 import Checkbox from "../checkbox"
 import Hint from "../hint"
-import style from "./index.module.scss"
 
 const TypeCards = ({
     material,

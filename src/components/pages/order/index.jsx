@@ -1,12 +1,14 @@
-import Layout from "../../layouts/layout"
-import { Bubble } from "../../ui"
+import cn from "classnames"
+import { useSelector } from "react-redux"
+import { Link, Navigate } from "react-router-dom"
+
+import Booking from "./booking"
 import Configuration from "./configuration"
 import style from "./index.module.scss"
 import SelectedBikesTable from "./selectedBikesTable"
-import { Link, Navigate } from "react-router-dom"
-import cn from "classnames"
-import { useSelector } from "react-redux"
-import Booking from "./booking"
+
+import Layout from "../../layouts/layout"
+import { Bubble } from "../../ui"
 
 const Order = () => {
     const { price, selectedBikes } = useSelector((state) => state.Bikes)

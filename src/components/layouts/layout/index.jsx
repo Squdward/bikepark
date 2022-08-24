@@ -1,7 +1,9 @@
+import { Helmet } from "react-helmet"
+
+import style from "./index.module.scss"
+
 import Footer from "../footer"
 import Header from "../header"
-import style from "./index.module.scss"
-import { Helmet } from "react-helmet"
 
 const Layout = ({ children, metatags, title }) => {
     return (

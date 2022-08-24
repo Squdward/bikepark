@@ -1,12 +1,13 @@
-import Input from "../../input"
-import InputMask from "react-input-mask"
-import style from "../index.module.scss"
-import Button from "../../button/index"
-import { Link } from "react-router-dom"
-import InputPassword from "../../inputPassword"
 import { useState } from "react"
+import InputMask from "react-input-mask"
 import { useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
+
 import { LOGIN } from "../../../../redux/sagas/root"
+import Button from "../../button/index"
+import Input from "../../input"
+import InputPassword from "../../inputPassword"
+import style from "../index.module.scss"
 
 const LoginTab = () => {
     const dispatch = useDispatch()
