@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+// import { useEffect } from "react"
 
 import { useDispatch, useSelector } from "react-redux/es/exports"
 
@@ -6,22 +6,18 @@ import style from "./index.module.scss"
 
 import Personal from "./personal"
 
-import { GET_ORDERS } from "../../../redux/sagas/root"
+// import { GET_ORDERS } from "../../../redux/sagas/root"
 
 import Layout from "../../layouts/layout"
 import { Bubble, Dialog, Table, Tabs } from "../../ui"
 
 const Me = () => {
-    const { currentOrders, finaledOrders } = useSelector(
-        (state) => state.User.orders
-    )
+    const orders = useSelector((state) => state.User.orders)
     const { CancelOrder } = useSelector((state) => state.Popup)
     const personal = useSelector((state) => state.User.personal)
-    const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch({ type: GET_ORDERS })
-    }, [])
+    const currentOrders = orders.filter((item) => item.status < 3)
+    const finishOrders = orders.filter((item) => item.status === 3)
 
     const TabList = [
         {
@@ -31,7 +27,7 @@ const Me = () => {
         },
         {
             placeholder: "Выполненные заказы",
-            content: () => <Table List={finaledOrders} />,
+            content: () => <Table List={finishOrders} />,
             id: 2,
         },
         {

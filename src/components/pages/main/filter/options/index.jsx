@@ -18,14 +18,14 @@ const Options = () => {
 
     return (
         <div className={style.Options}>
-            <Switch
+            {/* <Switch
                 placeholder="Тип аренды"
                 option={switchOption}
                 defaultValue={switchOption[0].value}
                 selected={rentType}
                 name={"rentType"}
                 onChange={(e) => serializeField(e.target.name, e.target.value)}
-            />
+            /> */}
 
             <DayRange
                 startDate={startDate}
