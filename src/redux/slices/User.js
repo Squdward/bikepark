@@ -21,7 +21,7 @@ export const User = createSlice({
             state.auth = true
         },
         deAuthUser: (state, action) => {
-            state.auth = true
+            state.auth = false
         },
         registerUser: (state, action) => {
             state.auth = true

@@ -1,7 +1,7 @@
 import cn from "classnames"
 import React, { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 import logo from "./assets/logo.svg"
 import style from "./index.module.scss"
@@ -14,6 +14,7 @@ const Header = React.memo(() => {
     const [visible, setVisible] = useState(false)
     const { auth } = useSelector((state) => state.User)
     const dispatch = useDispatch()
+    const navigate = useNavigate()
 
     const setOpen = () => {
         if (!auth) {
@@ -79,7 +80,7 @@ const Header = React.memo(() => {
                 <button
                     className={style.Login}
                     onClick={setOpen}
-                    onMouseOver={() => setVisible(true)}
+                    onMouseOver={() => (auth ? setVisible(true) : null)}
                     onMouseLeave={() => setVisible(false)}
                 >
                     <svg

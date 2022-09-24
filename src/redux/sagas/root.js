@@ -4,6 +4,7 @@ import Api from "../../utils/api"
 import { setBikes } from "../slices/Bike"
 import { setShowResult } from "../slices/MainFilter"
 import { setOptions } from "../slices/Options"
+import { closeModal } from "../slices/Popups"
 import { authUser, registerUser, setOrders, setPersonal } from "../slices/User"
 
 function* getBikes(val) {
@@ -62,6 +63,7 @@ function* loginMe({ payload }) {
     window.localStorage.setItem("token", token)
 
     yield put(authUser())
+    yield put(closeModal("login"))
 }
 
 function* registerMe({ payload }) {
