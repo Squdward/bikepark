@@ -1,10 +1,9 @@
-import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 
 import blank from "./assets/blank.png"
 import style from "./index.module.scss"
 
-import { GET_BIKES, GET_OPTIONS } from "../../../../../redux/sagas/root.js"
+import { GET_BIKES } from "../../../../../redux/sagas/root.js"
 import { setFilterType } from "../../../../../redux/slices/MainFilter.js"
 import { Bubble, Button, TypeCards } from "../../../../ui"
 
@@ -57,10 +56,6 @@ const BikeTypes = () => {
     const getBikes = () => {
         dispatch({ type: GET_BIKES, payload: filter })
     }
-
-    useEffect(() => {
-        dispatch({ type: GET_OPTIONS })
-    }, [])
 
     return (
         <Bubble tail={true}>

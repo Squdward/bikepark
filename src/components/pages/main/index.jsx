@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 
 import Bikes from "./bikes"
 import Filter from "./filter"
@@ -10,6 +10,7 @@ import Layout from "../../layouts/layout"
 
 const Main = () => {
     const dispatch = useDispatch()
+    const { showResult } = useSelector((state) => state.MainFilter)
 
     useEffect(() => {
         const now = new Date().toJSON()
@@ -22,7 +23,7 @@ const Main = () => {
     return (
         <Layout title={"Главная"}>
             <Filter />
-            <Bikes />
+            {showResult && <Bikes />}
         </Layout>
     )
 }

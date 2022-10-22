@@ -1,6 +1,7 @@
 import { takeEvery, put, call } from "redux-saga/effects"
 
 import Api from "../../utils/api"
+import { bicycleType } from "../../utils/constant"
 import { setBikes } from "../slices/Bike"
 import { setShowResult } from "../slices/MainFilter"
 import { setOptions } from "../slices/Options"
@@ -18,8 +19,12 @@ function* getBikes(val) {
             for (let keyIn in options[key]) {
                 const valueIn = options[key][keyIn]
 
+                const urlParam = Object.keys(bicycleType).find(
+                    (key) => bicycleType[key] === keyIn
+                )
+
                 if (valueIn) {
-                    params.append("type", keyIn)
+                    params.append("type", urlParam)
                 }
             }
         } else {

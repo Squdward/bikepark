@@ -66,7 +66,7 @@ const BikeCards = ({
 
             <p className={style.Name}>{name}</p>
 
-            <p className={style.Price}>{price}</p>
+            <p className={style.Price}>{price} AED</p>
 
             <button
                 className={cn(style.Button, {

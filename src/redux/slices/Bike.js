@@ -52,7 +52,7 @@ export const AllBikesWithSelected = createSelector(
         const selected = state.selectedBikes
 
         return Allbikes.map((item) => {
-            const index = selected.findIndex((i) => i.id === item.id)
+            const index = selected.findIndex((i) => i._id === item._id)
             const find = index !== -1 ? selected[index] : false
 
             if (find) {
