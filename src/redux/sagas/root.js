@@ -37,6 +37,13 @@ function* getBikes(val) {
     try {
         const bikes = yield call([Api, Api.get], `bike?${params.toString()}`)
 
+        bikes.forEach((bike) => {
+            bike.optionally = {
+                helmet: false,
+                flashlight: false,
+                lock: false,
+            }
+        })
         yield put(setBikes(bikes))
         yield put(setShowResult(true))
     } catch (error) {
@@ -72,19 +79,15 @@ function* loginMe({ payload }) {
 }
 
 function* registerMe({ payload }) {
-    const response = yield fetch("https://reqres.in/api/register", {
-        method: "POST",
-        body: JSON.stringify(payload),
-        headers: {
-            "Content-Type": "application/json",
-        },
-    })
-
-    const { id, token } = yield response.json()
+    const { token } = yield call(
+        [Api, Api.post],
+        `auth/register`,
+        JSON.stringify(payload)
+    )
 
     window.localStorage.setItem("token", token)
 
-    yield put(registerUser(id))
+    yield put(closeModal("login"))
 }
 
 function* getOrders() {

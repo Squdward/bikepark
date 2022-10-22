@@ -41,7 +41,11 @@ function App() {
                         />
                         <Route
                             path="/order"
-                            element={<Order />}
+                            element={
+                                <RequireAuth>
+                                    <Order />
+                                </RequireAuth>
+                            }
                         />
                         <Route
                             path="/me"

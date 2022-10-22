@@ -17,8 +17,8 @@ const RegisterTab = () => {
     const [data, setData] = useState({
         name: "",
         phoneNumber: "",
-        email: "eve.holt@reqres.in",
-        password: "pistol",
+        email: "",
+        password: "",
         agree: true,
     })
 
@@ -44,15 +44,15 @@ const RegisterTab = () => {
     const registerUser = (e) => {
         e.preventDefault()
         const errors = {}
-        const { name, phoneNumber, email } = data
+        const { name, phone, email, password } = data
 
         if (!isValid(name)) {
             errors.name = "Имя должно иметь более 2х символов"
         }
 
-        if (!isValid(phoneNumber, "phone")) {
-            errors.phoneNumber = "Неккоректный номер телефона"
-        }
+        // if (!isValid(phoneNumber, "phone")) {
+        //     errors.phoneNumber = "Неккоректный номер телефона"
+        // }
 
         if (!isValid(email, "email")) {
             errors.email = "Неккоректно указан email"
@@ -63,8 +63,15 @@ const RegisterTab = () => {
         // }
 
         if (isEmpty(errors)) {
-            console.log("tut")
-            dispatch({ type: REGISTER, payload: data })
+            dispatch({
+                type: REGISTER,
+                payload: {
+                    name,
+                    phone,
+                    email,
+                    password,
+                },
+            })
         } else {
             // console.log('zdes')
             setError(errors)
@@ -85,25 +92,25 @@ const RegisterTab = () => {
             />
 
             <Input
-                className={style.Input}
-                label="Номер телефона*"
-                placeholder="Введите номер телефона"
-                name="phoneNumber"
-                onChange={onChange}
-                value={data.phoneNumber}
-                error={error.phoneNumber}
-                required
-            />
-
-            <Input
                 type="email"
                 className={style.Input}
-                label="E-mail"
+                label="E-mail*"
                 placeholder="Введите E-mail"
                 name="email"
                 onChange={onChange}
                 error={error.email}
                 value={data.email}
+                required
+            />
+
+            <Input
+                className={style.Input}
+                label="Номер телефона"
+                placeholder="Введите номер телефона"
+                name="phoneNumber"
+                onChange={onChange}
+                value={data.phoneNumber}
+                error={error.phoneNumber}
             />
 
             <InputPassword

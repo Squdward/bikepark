@@ -69,7 +69,7 @@ const Bikes = React.memo(() => {
                 value: bike.frameSize,
             }
         })
-        debugger
+
         dispatch(
             setOptions({
                 brandsOptions: Object.values(brands),

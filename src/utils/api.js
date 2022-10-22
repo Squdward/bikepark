@@ -32,6 +32,18 @@ class ApiCall {
         const data = await request.json()
         return data
     }
+
+    async post(url, body) {
+        const request = await fetch(`${this.api}${url}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body,
+        })
+        const data = await request.json()
+        return data
+    }
 }
 
 const Api = new ApiCall()

@@ -45,8 +45,8 @@ const LoginTab = () => {
 
             <Input
                 className={style.Input}
-                label="Номер Телефона*"
-                placeholder="Введите номер телефона"
+                label="Почта"
+                placeholder="Введите почту"
                 name="login"
                 onChange={changeData}
                 value={data.login}
