@@ -110,7 +110,7 @@ function* removeOrder({ payload }) {
 
 function* getPersonal({ payload }) {
     try {
-        const response = yield call([Api, Api.get], `user/${payload}`)
+        const response = yield call([Api, Api.get], `auth/me`)
 
         yield put(setPersonal(response))
     } catch (error) {

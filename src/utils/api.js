@@ -4,8 +4,15 @@ class ApiCall {
         this.api = "http://localhost:3001/"
     }
 
+    token = window.localStorage.getItem("token")
+
     async get(url) {
-        const request = await fetch(`${this.api}${url}`)
+        const request = await fetch(`${this.api}${url}`, {
+            method: "GET",
+            headers: {
+                Authorization: `Bearer ${this.token}`,
+            },
+        })
         const data = await request.json()
         return data
     }
