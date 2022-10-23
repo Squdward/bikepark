@@ -1,41 +1,19 @@
-import { takeEvery, put, call } from "redux-saga/effects"
+import { takeEvery, put, call, select } from "redux-saga/effects"
 
 import Api from "../../utils/api"
-import { bicycleType } from "../../utils/constant"
+import { filterToUrlParams } from "../../utils/filterToUrlParam"
 import { setBikes } from "../slices/Bike"
 import { setShowResult } from "../slices/MainFilter"
 import { setOptions } from "../slices/Options"
 import { closeModal } from "../slices/Popups"
-import { authUser, registerUser, setOrders, setPersonal } from "../slices/User"
+import { authUser, setOrders, setPersonal } from "../slices/User"
 
-function* getBikes(val) {
-    const options = val.payload
-    const params = new URLSearchParams()
+function* getBikes() {
+    const options = yield select((state) => state.MainFilter.filter)
 
-    for (let key in options) {
-        const value = options[key]
-
-        if (typeof value === "object") {
-            for (let keyIn in options[key]) {
-                const valueIn = options[key][keyIn]
-
-                const urlParam = Object.keys(bicycleType).find(
-                    (key) => bicycleType[key] === keyIn
-                )
-
-                if (valueIn) {
-                    params.append("type", urlParam)
-                }
-            }
-        } else {
-            if (value && value !== "All") {
-                params.append(key, options[key])
-            }
-        }
-    }
-
+    const params = filterToUrlParams(options)
     try {
-        const bikes = yield call([Api, Api.get], `bike?${params.toString()}`)
+        const bikes = yield call([Api, Api.get], `bike?${params}`)
 
         bikes.forEach((bike) => {
             bike.optionally = {

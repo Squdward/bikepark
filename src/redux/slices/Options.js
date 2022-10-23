@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit"
+import { act } from "react-dom/test-utils"
 
 const initialState = {
     switchOption: [
@@ -32,7 +33,7 @@ const Options = createSlice({
     initialState,
     reducers: {
         setOptions: (state, action) => {
-            Object.assign(state, action.payload)
+            state = Object.assign(state, action.payload)
         },
     },
 })

@@ -12,8 +12,14 @@ const initialState = {
             MountainUrban: false,
             Urbaneconomy: false,
         },
-        brand: "",
-        frameSize: "",
+        brand: {
+            value: "All",
+            label: "All",
+        },
+        frameSize: {
+            value: "All",
+            label: "All",
+        },
     },
 
     ok: true,
@@ -39,7 +45,10 @@ const MainFilter = createSlice({
         setFilterOptions: (state, action) => {
             const { name, value } = action.payload
 
-            state.filter[name] = value
+            state.filter[name] = {
+                label: value,
+                value: value,
+            }
         },
         setShowResult: (state, action) => {
             state.showResult = action.payload

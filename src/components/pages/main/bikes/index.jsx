@@ -25,7 +25,7 @@ const Bikes = React.memo(() => {
     const { selectedBikes } = useSelector((state) => state.Bikes)
     const bikes = useSelector(AllBikesWithSelected)
     const dispatch = useDispatch()
-    console.log(bikes)
+
     const selectHandler = (name, value) => {
         dispatch(setFilterOptions({ name, value }))
 
@@ -92,16 +92,18 @@ const Bikes = React.memo(() => {
                 )}
                 <>
                     <div className={style.Filter}>
-                        {brandsOptions.length && (
+                        {brandsOptions && brandsOptions.length && (
                             <Select
+                                defaultOption={filter.brand}
                                 label={"Бренд"}
                                 options={brandsOptions}
                                 onChange={(val) => selectHandler("brand", val)}
                             />
                         )}
 
-                        {frameSizeOptions.length && (
+                        {frameSizeOptions && frameSizeOptions.length && (
                             <Select
+                                defaultOption={filter.frameSize}
                                 label={"Размер рамы"}
                                 options={frameSizeOptions}
                                 onChange={(val) =>

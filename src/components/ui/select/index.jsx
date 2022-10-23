@@ -5,7 +5,7 @@ import style from "./index.module.scss"
 
 const Select = ({ options, defaultOption, id, onChange, label, name }) => {
     const [open, setOpen] = useState(false)
-    const [value, setValue] = useState(defaultOption || options[0].label)
+    const [value, setValue] = useState(defaultOption.label || options[0].label)
     const select = useRef(null)
 
     const openMenu = (e) => {
