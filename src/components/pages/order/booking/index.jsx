@@ -1,6 +1,6 @@
 import cn from "classnames"
 
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import InputMask from "react-input-mask"
 import { useDispatch, useSelector } from "react-redux"
 
@@ -8,7 +8,6 @@ import style from "./index.module.scss"
 
 import { setValue } from "../../../../redux/slices/Order"
 
-import isValid from "../../../../utils/isValid"
 import { Bubble, Button, Hint, Input, Radio } from "../../../ui"
 
 const Booking = React.memo(() => {
@@ -43,19 +42,6 @@ const Booking = React.memo(() => {
             console.error(error)
         }
     }
-
-    useEffect(() => {
-        if (
-            isValid(name) &&
-            isValid(phoneNumber, "phone") &&
-            isValid(adress) &&
-            isValid(typePay)
-        ) {
-            setDisabled(false)
-        } else {
-            setDisabled(true)
-        }
-    }, [name, phoneNumber, adress, typePay])
 
     return (
         <Bubble tail={true}>

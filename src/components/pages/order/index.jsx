@@ -62,12 +62,7 @@ const Order = () => {
 
             <Booking />
         </Layout>
-    ) : (
-        <Navigate
-            to="/"
-            replace
-        />
-    )
+    ) : null
 }
 
 export default Order
