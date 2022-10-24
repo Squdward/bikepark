@@ -34,4 +34,4 @@ const Checkbox = memo(
     }
 )
 
-export default Checkbox
+export { Checkbox }

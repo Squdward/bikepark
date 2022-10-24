@@ -42,4 +42,4 @@ const DayRange = ({ startDate, endDate, onChange }) => {
     )
 }
 
-export default DayRange
+export { DayRange }

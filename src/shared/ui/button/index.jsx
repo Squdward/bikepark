@@ -17,7 +17,7 @@ const Button = ({ size, children, className, type, ...props }) => {
     )
 }
 
-export default Button
+export { Button }
 
 Button.defaultProps = {
     size: "md",

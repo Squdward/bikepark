@@ -18,4 +18,4 @@ const Radio = ({ checked, label, name, ...props }) => {
     )
 }
 
-export default Radio
+export { Radio }

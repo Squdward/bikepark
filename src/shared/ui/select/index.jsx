@@ -90,4 +90,4 @@ const Select = ({ options, defaultOption, id, onChange, label, name }) => {
     )
 }
 
-export default Select
+export { Select }

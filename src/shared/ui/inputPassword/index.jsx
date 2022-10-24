@@ -32,4 +32,4 @@ const InputPassword = (props) => {
     )
 }
 
-export default InputPassword
+export { InputPassword }

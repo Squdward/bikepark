@@ -4,8 +4,8 @@ import { Link } from "react-router-dom"
 
 import { LOGIN } from "../../../../redux/sagas/root"
 import Button from "../../button/index"
-import Input from "../../input"
-import InputPassword from "../../inputPassword"
+import Input from "../../../../shared/ui/input"
+import InputPassword from "../../../../shared/ui/inputPassword"
 import style from "../index.module.scss"
 
 const LoginTab = () => {

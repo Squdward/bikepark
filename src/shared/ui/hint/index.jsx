@@ -45,4 +45,4 @@ const Hint = ({ children, className }) => {
     )
 }
 
-export default Hint
+export { Hint }

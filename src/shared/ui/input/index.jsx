@@ -16,4 +16,4 @@ const Input = ({ className, id, label, error, ...props }) => {
     )
 }
 
-export default Input
+export Input
